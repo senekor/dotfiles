@@ -1,6 +1,8 @@
 #!/bin/bash
 set -eo pipefail
 
+# update once a week: {{ output "date" "+%Y-%V" | trim }}
+
 echo "Making sure prebuilt binaries are installed..."
 
 # make sure cargo in in PATH during system bootstrapping

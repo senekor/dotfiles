@@ -1,6 +1,8 @@
 #!/bin/bash
 set -eo pipefail
 
+# update once a week: {{ output "date" "+%Y-%V" | trim }}
+
 echo "Performing system update..."
 sudo dnf update -y
 
