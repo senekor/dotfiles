@@ -1,0 +1,69 @@
+{{/*
+    Be sure to not add single quotes in this file.
+    Otherwise the script echo'ing this file into the /etc directory will break.
+*/ -}}
+{
+  "policies": {
+    "DisablePocket": true,
+    "DontCheckDefaultBrowser": true,
+    "Extensions": {
+      "Install": [
+        "https://addons.mozilla.org/firefox/downloads/file/4118285/1password_x_password_manager-2.11.0.xpi",
+        "https://addons.mozilla.org/firefox/downloads/file/4144699/kagi_search_for_firefox-0.3.3.xpi"
+      ]
+    },
+{{- if eq .org "none" }}
+    "Handlers": {
+      "schemes": {
+        "mailto": {
+          "action": "useHelperApp",
+          "ask": false,
+          "handlers": [
+            {
+              "name": "Gmail",
+              "uriTemplate": "https://mail.google.com/mail/?extsrc=mailto&url=%s"
+            }
+          ]
+        }
+      }
+    },
+{{- end }}
+    "NoDefaultBookmarks": true,
+    "Permissions": {
+      "Camera": {
+        "Allow": [],
+        "Block": []
+      },
+      "Microphone": {
+        "Allow": [],
+        "Block": []
+      },
+      "Location": {
+        "Allow": [],
+        "Block": []
+      },
+      "Notifications": {
+        "Allow": [],
+        "Block": []
+      },
+      "Autoplay": {
+        "Allow": [],
+        "Block": []
+      }
+    },
+    "Preferences": {
+      "browser.aboutConfig.showWarning": {
+        "Value": false,
+        "Status": "default"
+      },
+      "browser.startup.homepage": {
+        "Value": "about:home",
+        "Status": "default"
+      },
+      "browser.warnOnQuitShortcut": {
+        "Value": true,
+        "Status": "default"
+      }
+    }
+  }
+}

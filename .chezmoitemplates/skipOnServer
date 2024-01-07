@@ -1,0 +1,4 @@
+{{ if .isServer -}}
+exit 0
+
+{{ end }}

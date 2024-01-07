@@ -1,0 +1,13 @@
+#!/bin/bash
+set -eo pipefail
+
+{{ template "skipOnServer" . -}}
+
+# trigger a rerun of this script if the policies.json changes
+#
+# policies.json hash: {{ includeTemplate "firefox-policies.tmpl" . | sha256sum }}
+
+echo "Setting Firefox policies..."
+
+sudo mkdir -p /etc/firefox/policies
+echo '{{ template "firefox-policies.tmpl" . }}' | sudo tee /etc/firefox/policies/policies.json &> /dev/null

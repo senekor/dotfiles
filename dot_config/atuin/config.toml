@@ -1,0 +1,6 @@
+# see https://atuin.sh/docs/config/
+
+dialect = "uk"
+update_check = false
+show_help = false
+enter_accept = true

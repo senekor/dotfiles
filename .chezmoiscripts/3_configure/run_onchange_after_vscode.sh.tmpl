@@ -1,0 +1,44 @@
+#!/bin/bash
+set -eo pipefail
+
+{{ template "skipOnServer" . -}}
+
+echo "Installing vscode extensions..."
+
+extensions=(
+    # general
+    ms-vsliveshare.vsliveshare
+    eamodio.gitlens
+    usernamehw.errorlens
+    vscode-icons-team.vscode-icons
+    wmaurer.change-case
+    tomoki1207.pdf
+
+    # rust
+    rust-lang.rust-analyzer
+    vadimcn.vscode-lldb
+
+    # other languages
+    timonwong.shellcheck
+    thenuprojectcontributors.vscode-nushell-lang
+    bmalehorn.vscode-fish
+    esbenp.prettier-vscode
+
+    # config & markup languages
+    ms-azuretools.vscode-docker
+    tamasfe.even-better-toml
+    kokakiwi.vscode-just
+    kdl-org.kdl
+    nico-castell.linux-desktop-file
+    hangxingliu.vscode-systemd-support
+)
+
+mkdir -p ~/.vscode/extensions
+
+installed=$(ls ~/.vscode/extensions/)
+for extension in "${extensions[@]}"; do
+    if ! [[ $installed =~ $extension ]] ; then
+        echo "$extension..."
+        code --install-extension "$extension" > /dev/null
+    fi
+done

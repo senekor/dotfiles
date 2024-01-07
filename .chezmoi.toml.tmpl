@@ -1,0 +1,28 @@
+{{/*
+    See the general templating guide:
+    https://www.chezmoi.io/user-guide/templating/
+
+    There is also functionality to only prompt once for a value during init.
+    I seems overkill while there aren't many values here yet.
+    Also, it's nice for testing to be able to re-run init and change values.
+    https://www.chezmoi.io/reference/templates/init-functions/promptChoiceOnce/
+*/ -}}
+[data]
+{{ $isServer := promptBool "Is this machine a server" false -}}
+isServer = {{ $isServer }}
+
+{{- $org := promptString "Which organziation does this machine belong to" "none" }}
+org = {{ $org | quote }}
+
+{{ if $isServer -}}
+[onepassword]
+command = "opw" # wrapper loading service account token
+
+{{ end -}}
+
+[data.op]
+{{- $opdata := print "op://chezmoi/" $org }}
+email = {{ onepasswordRead (print $opdata "/email" ) | quote }}
+ssh_hosts = {{ onepasswordRead (print $opdata "/ssh_hosts" ) | quote }}
+git_repos = {{ onepasswordRead (print $opdata "/git_repos" ) | quote }}
+exercism_api_token = {{ onepasswordRead "op://chezmoi/Exercism API Token/credential" | quote }}

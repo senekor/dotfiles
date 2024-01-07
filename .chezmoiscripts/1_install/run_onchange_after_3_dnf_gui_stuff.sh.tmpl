@@ -1,0 +1,26 @@
+#!/bin/bash
+set -exo pipefail
+
+{{ template "skipOnServer" . -}}
+
+echo "Installing GUI stuff..."
+
+packages=(
+    wl-clipboard
+    alacritty
+    f34-backgrounds
+    code
+    # yubikey
+    pam-u2f pamu2fcfg
+    # disable gnome-keyring-encryption
+    seahorse
+    # gtk dark theme for legacy apps, see configure/gsettings
+    adw-gtk3-theme
+)
+installed="$(dnf list installed)"
+for package in "${packages[@]}"; do
+    if ! [[ $installed =~ $package ]] ; then
+        sudo dnf install -y "${packages[@]}"
+        break
+    fi
+done

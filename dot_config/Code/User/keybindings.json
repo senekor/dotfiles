@@ -1,0 +1,13 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+    // prevent vscode from snatching ctrl+q from terminal
+    "key": "ctrl+q",
+    "command": "ctrl+q",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+m",
+    "command": "workbench.action.toggleMaximizedPanel"
+  }
+]

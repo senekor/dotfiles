@@ -1,0 +1,91 @@
+[advice]
+	detachedHead = false
+[checkout]
+	defaultRemote = origin
+[clean]
+	requireForce = false
+[commit]
+	gpgsign = true
+[diff]
+	tool = difftastic
+	submodule = log
+[difftool]
+	prompt = false
+[difftool "difftastic"]
+	cmd = difft "$LOCAL" "$REMOTE"
+[fetch]
+	prune = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /opt/1Password/op-ssh-sign
+[init]
+	defaultBranch = main
+[pager]
+	difftool = true
+[pull]
+	rebase = true
+	ff = only
+[push]
+	autoSetupRemote = true
+	recurseSubmodules = on-demand
+[rebase]
+	autoSquash = true
+	autoStash = true
+[rerere]
+	enabled = true
+[submodule]
+	recurse = true
+[user]
+	name = Remo Senekowitsch
+	email = {{ .op.email }}
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2geN1p04/RFi6LPt8hoCvTfEKhR1RH6iuH9N9wKpD7
+
+[alias]
+	s = status --short
+	f = fetch --all
+	l = !git log --oneline || true
+	g = !git log --oneline --all --graph || true
+
+	au = add --update
+	aa = add --all
+	ap = add --patch
+	ai = add --interactive
+
+	c = commit
+	cm = "!f() { echo "$@" | git commit --file=- ; }; f"
+	ca = commit --amend
+	cane = commit --amend --no-edit
+	cf = commit --fixup
+
+	ch = checkout
+	chb = checkout -b
+	chd = checkout --detach
+
+	pf = push --force-with-lease
+
+	bd = branch --delete --force
+
+	r = rebase
+	ri = rebase --interactive
+	rc = rebase --continue
+	ra = rebase --abort
+
+	m = merge
+	mc = merge --continue
+	ma = merge --abort
+
+	crp = cherry-pick
+	crpc = cherry-pick --continue
+	crpa = cherry-pick --abort
+
+	rs = reset
+	rsh = reset --hard
+	rslc = reset HEAD^
+
+	dt = difftool
+	dts = difftool --staged
+
+	cge = config --global --edit
+
+	# qp (see github.com/senekor/git-quickprune)

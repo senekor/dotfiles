@@ -1,0 +1,42 @@
+#!/bin/bash
+set -eo pipefail
+
+{{ template "skipOnServer" . -}}
+
+url_prefix="https://extensions.gnome.org/extension-data"
+zip_postfix="shell-extension.zip"
+extensions_dir="$HOME/.local/share/gnome-shell/extensions"
+
+[ -d "$extensions_dir" ] || mkdir -p "$extensions_dir"
+
+install_extension() {
+    name=$1
+    host=$2
+    version=$3
+
+    if [[ -n "$(fd "$name" "$extensions_dir")" ]] ; then
+        return
+    fi
+
+    file_name="$name$host.v$version.$zip_postfix"
+
+    echo "installing gnome extension $name..."
+    wget -q "$url_prefix/$file_name"
+    mkdir "$extensions_dir"/tmp
+    unzip -q "$file_name" -d "$extensions_dir"/tmp
+    uuid=$(grep uuid "$extensions_dir"/tmp/metadata.json | awk -F\" '{print $4}')
+    mv "$extensions_dir"/tmp "$extensions_dir"/"$uuid"
+    rm "$file_name"
+}
+
+# install_extension "hidetopbar" "mathieu.bidon.ca" "110"
+install_extension "focus-follows-workspace" "christopher.luebbemeier.gmail.com" "9"
+
+dconf write /org/gnome/shell/enabled-extensions "[
+    'focus-follows-workspace@christopher.luebbemeier.gmail.com'
+    ]"
+
+# hidetopbar settings
+# dconf write /org/gnome/shell/extensions/hidetopbar/enable-intellihide false
+# dconf write /org/gnome/shell/extensions/hidetopbar/enable-active-window false
+# dconf write /org/gnome/shell/extensions/hidetopbar/hot-corner true

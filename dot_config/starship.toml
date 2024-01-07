@@ -1,0 +1,33 @@
+format = """
+$username\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$jobs\
+$cmd_duration\
+$character
+"""
+
+add_newline = false
+
+[username]
+format = "[$user]($style) "
+
+[directory]
+truncation_length = 3
+
+[git_branch]
+style = "bold green"
+format = '[$branch ]($style)'
+truncation_length = 16
+
+[git_status]
+format = '[($all_status$ahead_behind )]($style)'
+
+[cmd_duration]
+min_time = 10_000
+
+[character]
+success_symbol = "[❯](bold white)"

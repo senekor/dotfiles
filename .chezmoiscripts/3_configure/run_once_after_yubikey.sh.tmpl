@@ -1,0 +1,31 @@
+#!/bin/bash
+set -eo pipefail
+
+{{ template "skipOnServer" . -}}
+
+# see:
+# https://fedoramagazine.org/use-fido-u2f-security-keys-with-fedora-linux/
+# and maybe: (the above article is better at the time of writing)
+# https://docs.fedoraproject.org/en-US/quick-docs/using-yubikeys/#_configure_desired_pam_modules
+
+echo "Making sure authentication with yubikey is enabled..."
+
+yubico_dir=~/.config/Yubico
+keys_path=$yubico_dir/u2f_keys
+
+# u2f_keys must not be a symlink but a regular file
+if ! [ -f $keys_path ] ; then
+    mkdir -p $yubico_dir
+    echo "Please get your security key ready and press enter."
+    read -r _
+    echo "Now touch your security key."
+    pamu2fcfg > $keys_path
+fi
+
+if ! authselect current | rg u2f > /dev/null ; then
+    sudo authselect select sssd \
+        with-silent-lastlog \
+        with-mdns4 \
+        with-fingerprint \
+        with-pam-u2f > /dev/null
+fi

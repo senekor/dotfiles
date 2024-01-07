@@ -1,0 +1,11 @@
+{
+  "Define a winnow parser": {
+    "scope": "rust",
+    "prefix": "winnowparser",
+    "body": [
+      "fn ${1:NAME}(input: &mut &str) -> PResult<${2:OUTPUT_TYPE}> {",
+      "    ${0:BODY}.parse_next(input)",
+      "}"
+    ]
+  }
+}

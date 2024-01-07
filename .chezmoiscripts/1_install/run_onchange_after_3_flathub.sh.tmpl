@@ -1,0 +1,16 @@
+#!/bin/bash
+set -exo pipefail
+
+{{ template "skipOnServer" . -}}
+
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo flatpak remote-modify --enable flathub
+
+packages=(
+    org.telegram.desktop
+    md.obsidian.Obsidian
+)
+
+flatpak install --noninteractive flathub "${packages[@]}"
+
+flatpak override --user --socket=wayland md.obsidian.Obsidian

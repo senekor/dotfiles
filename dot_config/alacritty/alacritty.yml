@@ -1,0 +1,15 @@
+window:
+  decorations: none
+  # opacity: 0.9375 # 15/16
+
+font:
+  normal:
+    family: RobotoMono Nerd Font
+  # size: 16.0
+
+live_config_reload: true
+
+draw_bold_text_with_bright_colors: true
+
+import:
+ - ~/repos/system/dotfiles/.config/alacritty/themes/vscode.yaml

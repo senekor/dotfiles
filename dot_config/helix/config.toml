@@ -1,0 +1,11 @@
+theme = "kanagawa"
+
+[editor]
+scrolloff = 24
+line-number = "relative"
+bufferline = "multiple"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "block"

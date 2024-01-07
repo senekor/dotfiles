@@ -1,0 +1,99 @@
+{
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[lisp]": {
+    "editor.bracketPairColorization.enabled": true
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false,
+    "editor.wordWrap": "on"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[wat]": {
+    "editor.bracketPairColorization.enabled": true
+  },
+  "codesnap.backgroundColor": "rgba(0,0,0,0)",
+  "codesnap.boxShadow": "0px 0px 0px 1px",
+  "codesnap.shutterAction": "copy",
+  "ctags.disable": true, // from embedded linux extension
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.bracketPairColorization.enabled": false,
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "editor.snippetSuggestions": "bottom",
+  "editor.suggestSelection": "first",
+  "emmet.showSuggestionsAsSnippets": true,
+  "errorLens.messageMaxChars": 32,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "files.associations": {
+    "*.pl": "prolog",
+    "*.plt": "prolog"
+  },
+  "files.autoSave": "afterDelay",
+  "files.defaultLanguage": "markdown",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.factorypath": true,
+    "**/.project": true,
+    "**/.settings": true
+  },
+  // GNOME file dialog is kinda borked with vscode
+  "files.simpleDialog.enable": true,
+  "git.openRepositoryInParentFolders": "never",
+  "gitlens.codeLens.enabled": false,
+  "liveshare.languages.allowGuestCommandControl": true,
+  "lldb.suppressUpdateNotifications": true,
+  "python.defaultInterpreterPath": "/usr/bin/python3",
+  "python.languageServer": "Pylance",
+  "rust-analyzer.check.command": "clippy",
+  "rust-analyzer.completion.privateEditable.enable": true,
+  "rust-analyzer.inlayHints.parameterHints.enable": false,
+  "rust-analyzer.inlayHints.typeHints.enable": false,
+  "rust-analyzer.lens.implementations.enable": false,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "terminal.integrated.shellIntegration.enabled": false,
+  "terminal.integrated.tabs.enabled": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typst-lsp.exportPdf": "never",
+  "vsicons.dontShowNewVersionMessage": true,
+  "window.menuBarVisibility": "toggle",
+  "window.titleBarStyle": "custom",
+  "workbench.colorCustomizations": {
+    "[*Dark*]": {
+      // applies to end of large blocks
+      "editorInlayHint.background": "#1f1f1f",
+      "editorInlayHint.foreground": "#666",
+      // applies to iterator chains
+      "editorInlayHint.typeBackground": "#1f1f1f",
+      "editorInlayHint.typeForeground": "#666"
+    },
+    "[*Light*]": {
+      // applies to end of large blocks
+      "editorInlayHint.background": "#fff",
+      "editorInlayHint.foreground": "#aaa",
+      // applies to iterator chains
+      "editorInlayHint.typeBackground": "#fff",
+      "editorInlayHint.typeForeground": "#aaa"
+    }
+  },
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.panel.opensMaximized": "always",
+  "workbench.startupEditor": "none"
+}
