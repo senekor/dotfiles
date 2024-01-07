@@ -16,6 +16,13 @@ packages=(
     seahorse
     # gtk dark theme for legacy apps, see configure/gsettings
     adw-gtk3-theme
+
+    # hyprland
+    hyprland
+    polkit-gnome # authentication agent
+    dunst # notification daemon
+    grim slurp # screenshots
+    waybar wlsunset # disabled in current config
 )
 installed="$(dnf list installed)"
 for package in "${packages[@]}"; do
