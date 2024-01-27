@@ -2,4 +2,4 @@
 set -eo pipefail
 
 cd ~/repos/dotfiles
-git config user.email "$(op read op://chezmoi/none/email)"
+git config user.email "remo@buenzli.dev"
