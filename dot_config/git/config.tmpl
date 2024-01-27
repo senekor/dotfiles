@@ -4,8 +4,10 @@
 	defaultRemote = origin
 [clean]
 	requireForce = false
+{{- if not .isServer }}
 [commit]
 	gpgsign = true
+{{- end }}
 [diff]
 	tool = difftastic
 	submodule = log
