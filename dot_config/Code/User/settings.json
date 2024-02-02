@@ -1,4 +1,7 @@
 {
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -67,13 +70,13 @@
   "rust-analyzer.inlayHints.parameterHints.enable": false,
   "rust-analyzer.inlayHints.typeHints.enable": false,
   "rust-analyzer.lens.implementations.enable": false,
-  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
   "terminal.integrated.shellIntegration.enabled": false,
   "terminal.integrated.tabs.enabled": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typst-lsp.exportPdf": "never",
   "vsicons.dontShowNewVersionMessage": true,
-  "window.menuBarVisibility": "toggle",
+  "window.menuBarVisibility": "visible",
   "window.titleBarStyle": "custom",
   "workbench.colorCustomizations": {
     "[*Dark*]": {
