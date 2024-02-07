@@ -4,10 +4,8 @@
 	defaultRemote = origin
 [clean]
 	requireForce = false
-{{- if not .isServer }}
 [commit]
 	gpgsign = true
-{{- end }}
 [diff]
 	tool = difftastic
 	submodule = log
@@ -19,8 +17,10 @@
 	prune = true
 [gpg]
 	format = ssh
+{{- if not .isServer }}
 [gpg "ssh"]
 	program = /opt/1Password/op-ssh-sign
+{{- end }}
 [init]
 	defaultBranch = main
 [pager]
