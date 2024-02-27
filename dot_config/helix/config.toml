@@ -9,3 +9,9 @@ bufferline = "multiple"
 insert = "bar"
 normal = "block"
 select = "block"
+
+[editor.file-picker]
+hidden = false
+
+[keys.normal]
+"H" = ":toggle lsp.display-inlay-hints"
