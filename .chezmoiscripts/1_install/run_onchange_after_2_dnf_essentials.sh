@@ -19,6 +19,7 @@ packages=(
     helix
     nushell
     make
+    git-lfs
 
     # utils
     htop
