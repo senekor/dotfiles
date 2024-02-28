@@ -5,7 +5,12 @@ layout {
 		}
 		children
 	}
-	tab
+	tab name="helix" {
+		pane {
+			command "hx"
+			args "."
+		}
+	}
 
 	swap_floating_layout name="quick terminal" {
         floating_panes max_panes=1 {

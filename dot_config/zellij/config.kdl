@@ -5,3 +5,12 @@ ui {
         hide_session_name true
     }
 }
+keybinds {
+    normal {
+        bind "Ctrl w" {
+            ToggleFloatingPanes;
+            SwitchToMode "Normal";
+        }
+        bind "Ctrl f" { TogglePaneFrames; }
+    }
+}
