@@ -1,3 +1,6 @@
 [[language]]
 name = "rust"
 formatter = { command = "rustfmt" }
+
+[language-server.rust-analyzer]
+config = { check = { command = "clippy" } }
