@@ -1,0 +1,11 @@
+layout {
+	tab name="helix" {
+		pane size=1 borderless=true {
+			plugin location="zellij:compact-bar"
+		}
+		pane {
+			command "hx"
+			args "."
+		}
+	}
+}
