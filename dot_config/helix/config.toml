@@ -13,5 +13,8 @@ select = "block"
 [editor.file-picker]
 hidden = false
 
+[editor.soft-wrap]
+enable = true
+
 [keys.normal]
 "H" = ":toggle lsp.display-inlay-hints"
