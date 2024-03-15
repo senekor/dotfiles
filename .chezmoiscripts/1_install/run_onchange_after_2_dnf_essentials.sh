@@ -36,6 +36,7 @@ packages=(
     direnv
     distrobox
     difftastic
+    gitui
 )
 installed="$(dnf list installed)"
 for package in "${packages[@]}"; do

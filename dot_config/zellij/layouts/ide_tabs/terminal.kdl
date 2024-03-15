@@ -1,16 +1,9 @@
 layout {
-	default_tab_template {
+	tab name="terminal" {
 		pane size=1 borderless=true {
 			plugin location="zellij:compact-bar"
 		}
-		children
-	}
-	tab {
-		pane {
-			command "bash"
-			args "-c" "for tab in $(ls dev/zellij/tabs); do zellij action new-tab --layout dev/zellij/tabs/$tab ; done ; for tab in $(ls ~/.config/zellij/layouts/ide_tabs); do zellij action new-tab --layout ~/.config/zellij/layouts/ide_tabs/$tab ; done ; zellij action go-to-tab-name helix"
-			close_on_exit true
-		}
+		pane
 	}
 
 	swap_floating_layout name="quick terminal" {
