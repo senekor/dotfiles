@@ -23,6 +23,3 @@ S-right = "select_next_sibling"
 S-up = "expand_selection"
 S-down = "shrink_selection"
 "H" = ":toggle lsp.display-inlay-hints"
-
-[keys.insert]
-esc = [":update", "normal_mode"]
