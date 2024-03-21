@@ -10,6 +10,8 @@ $cmd_duration\
 $character
 """
 
+right_format = "$time"
+
 add_newline = false
 
 [username]
@@ -31,3 +33,8 @@ min_time = 10_000
 
 [character]
 success_symbol = "[❯](bold white)"
+
+[time]
+format = "[$time]($style)"
+time_format = "%k:%M"
+disabled = false
