@@ -4,39 +4,50 @@ set -eo pipefail
 echo "Installing essentials..."
 
 packages=(
-    # programming languages
+    # programming language
     rustup # still need to run rustup-init
     gcc # rust needs the linker from gcc
     nodejs yarnpkg
     python3-pip
 
-    docker-ce docker-ce-cli containerd.io docker-compose-plugin
-
-    # essentials
+    # shell
     util-linux # chsh
     fish
-    starship
-    helix
     nushell
-    make
-    git-lfs
+    starship
 
-    # utils
-    htop
-    btop
+    # core util replacement
+    bat
+    eza
+
+    # repo interaction
+    make
+    just
+    direnv
+
+    # git
+    git-lfs
+    difftastic
+    gitui
+    gh
+
+    # TUI
+    htop btop
+    helix
+    zellij
+
+    # util
+    ripgrep
     fd-find
     sd
     tealdeer
-    ripgrep
-    just
-    gh
-    bat
-    zellij
-    syncthing
-    direnv
+
+    # containerization
     distrobox
-    difftastic
-    gitui
+    docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+    # service
+    syncthing
 )
 installed="$(dnf list installed)"
 for package in "${packages[@]}"; do
