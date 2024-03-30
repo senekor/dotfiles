@@ -31,8 +31,6 @@ fi
 
 copr_repos=(
     atim/starship
-    atim/nushell
-    varlad/helix
     varlad/zellij
 )
 

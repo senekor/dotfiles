@@ -13,7 +13,7 @@ packages=(
     # shell
     util-linux # chsh
     fish
-    nushell
+    nu
     starship
 
     # core util replacement
