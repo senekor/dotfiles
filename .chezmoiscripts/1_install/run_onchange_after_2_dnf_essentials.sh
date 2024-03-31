@@ -9,6 +9,7 @@ packages=(
     gcc # rust needs the linker from gcc
     nodejs yarnpkg
     python3-pip
+    shellcheck nodejs-bash-language-server
 
     # shell
     util-linux # chsh
