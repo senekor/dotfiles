@@ -2,11 +2,15 @@
 
 This repository contains my dotfiles and system configuration.
 
-It uses [chezmoi](https://www.chezmoi.io/), read [below](#thoughts-on-chezmoi) for the reasons.
-
 ## Setting up a new machine
 
-Optionally plug in the thumb drive with the secret sauce and run:
+with the thumb drive:
+
+```sh
+bash /run/media/$USER/remo/setup/setup.sh
+```
+
+otherwise:
 
 ```sh
 source <(curl -L raw.githubusercontent.com/senekor/dotfiles/main/.install_onepassword.sh)
@@ -21,13 +25,11 @@ BINDIR="$HOME/.local/bin" sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply s
     - 1Password
     - Checker Plus for Gmail
     - Dark Reader
+    - Vimium
     - Undo Close Tab
     - Downloads
-  - Settings
-    - Enable H264: Extensions > Plugins > OpenH264 > Always Activate
 - Update gnome-keyring password
 - syncthing
-- Gnome Terminal RobotoMono Nerd Font
 - Sign into Google (drive and calendar integration)
 
 ## Thoughts on chezmoi
