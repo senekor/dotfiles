@@ -14,6 +14,9 @@ keybinds clear-default=true {
         bind "Alt Right" { MoveFocusOrTab "Right"; }
         bind "Alt Down" { MoveFocus "Down"; }
         bind "Alt Up" { MoveFocus "Up"; }
+        // conflict with helix resolved by changing a couple bindings
+        // from Ctrl-s (save) to Ctrl-h (history)
+        bind "Ctrl s" { ToggleFloatingPanes; }
     }
     // Ctrl-t is "leader key", "Tmux" the "leader layer"
     shared_except "tmux" "locked" {
@@ -24,6 +27,7 @@ keybinds clear-default=true {
     }
     // "leader layer"
     tmux {
+        bind "Ctrl t" { SwitchToMode "Normal"; }
         // default-inspired quick actions
         bind "q" { Quit; }
         bind "=" "+" { Resize "Increase"; }
@@ -37,7 +41,6 @@ keybinds clear-default=true {
         bind "m" { SwitchToMode "Move"; }
         bind "l" { SwitchToMode "Locked"; }
         // custom goodies
-        bind "Ctrl t" { ToggleFloatingPanes; SwitchToMode "Normal"; }
         bind "e" { EditScrollback; SwitchToMode "Normal"; } // edit
         bind "f" { // files
             LaunchOrFocusPlugin "zellij:strider" {

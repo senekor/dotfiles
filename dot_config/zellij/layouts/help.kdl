@@ -10,7 +10,7 @@ layout {
 	}
 	tab
 
-	swap_floating_layout name="quick terminal" {
+	swap_floating_layout name="scratchpad" {
         floating_panes max_panes=1 {
             pane {
 				x "10%"
