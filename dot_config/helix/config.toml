@@ -16,9 +16,19 @@ hidden = false
 [editor.soft-wrap]
 enable = true
 
+#### keybinds
+#
+# across all modes:
+#
+# Ctrl-s conflicts with custom zellij keybind for "scratchpad".
+# Remap everything from Ctrl-s (save) to Ctrl-h (history).
+# Ctrl-h technically has conflicts with vim-motion "h" (left).
+# Left arrow is always an alternative I prefer anyway.
+# Maybe update these if default helix keymap changes in future releases.
+
 [keys.normal]
-# save on escape
-esc = ":update"
+esc = ":update" # save on escape
+C-h = "save_selection" # sd save history
 
 # move through jumplist ("history")
 h = "jump_backward"
@@ -29,3 +39,14 @@ S-left = "select_prev_sibling"
 S-right = "select_next_sibling"
 S-up = "expand_selection"
 S-down = "shrink_selection"
+
+#### sd save history
+[keys.normal.w] # window mode
+C-h = "hsplit"
+[keys.insert]
+C-h = "commit_undo_checkpoint"
+# remapping currently not supported, don't care anyway
+# [keys.picker]
+# C-h = "Open horizontally"
+# [keys.prompt]
+# C-h = "Insert word under doc cursor, ..."
