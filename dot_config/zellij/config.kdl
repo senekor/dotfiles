@@ -42,17 +42,8 @@ keybinds clear-defaults=true {
         bind "m" { SwitchToMode "Move"; }
         bind "l" { SwitchToMode "Locked"; }
         // custom goodies
+        bind "n" { NewPane; SwitchToMode "Normal"; }
         bind "e" { EditScrollback; SwitchToMode "Normal"; } // edit
-        bind "f" { // files
-            LaunchOrFocusPlugin "zellij:strider" {
-                floating true
-            };
-            SwitchToMode "Normal";
-        }
-        bind "h" { // help
-            LaunchOrFocusPlugin "zellij:status-bar";
-            SwitchToMode "Normal";
-        }
     }
     locked {
         bind "Ctrl l" { SwitchToMode "Normal"; }
