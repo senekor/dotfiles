@@ -17,7 +17,7 @@ keybinds clear-defaults=true {
         bind "Alt Up" { MoveFocus "Up"; }
         // conflict with helix resolved by changing a couple bindings
         // from Ctrl-s (save) to Ctrl-h (history)
-        bind "Ctrl s" { ToggleFloatingPanes; }
+        bind "Ctrl s" { ToggleFloatingPanes; SwitchToMode "Normal"; }
     }
     // Ctrl-t is "leader key", "Tmux" the "leader layer"
     shared_except "tmux" "locked" {
