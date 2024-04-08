@@ -1,4 +1,5 @@
 pane_frames false
+theme "kanagawa"
 ui {
     pane_frames {
         rounded_corners true
