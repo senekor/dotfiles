@@ -49,6 +49,9 @@ packages=(
 
     # service
     syncthing
+
+    # needed by some rust crates, e.g. taplo-cli
+    openssl-devel
 )
 installed="$(dnf list installed)"
 for package in "${packages[@]}"; do
