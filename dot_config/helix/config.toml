@@ -40,8 +40,8 @@ S-right = "select_next_sibling"
 S-up = "expand_selection"
 S-down = "shrink_selection"
 
-#### sd save history
-[keys.normal.w] # window mode
+#### "save" -> "history"
+[keys.normal.space.w] # window mode
 C-h = "hsplit"
 [keys.insert]
 C-h = "commit_undo_checkpoint"
