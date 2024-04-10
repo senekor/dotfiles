@@ -134,9 +134,11 @@ keybinds clear-defaults=true {
         bind "Enter" { SwitchToMode "Search"; }
     }
     renametab {
+        bind "Enter" { SwitchToMode "Normal"; }
         bind "Esc" { UndoRenameTab; SwitchToMode "Normal"; }
     }
     renamepane {
+        bind "Enter" { SwitchToMode "Normal"; }
         bind "Esc" { UndoRenamePane; SwitchToMode "Normal"; }
     }
     session {
