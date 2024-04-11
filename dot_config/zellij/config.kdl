@@ -43,7 +43,8 @@ keybinds clear-defaults=true {
         bind "l" { SwitchToMode "Locked"; }
         // custom goodies
         bind "n" { NewPane; SwitchToMode "Normal"; }
-        bind "e" { EditScrollback; SwitchToMode "Normal"; } // edit
+        bind "e" { EditScrollback; SwitchToMode "Normal"; }
+        bind "d" { Detach; }
     }
     locked {
         bind "Ctrl l" { SwitchToMode "Normal"; }
