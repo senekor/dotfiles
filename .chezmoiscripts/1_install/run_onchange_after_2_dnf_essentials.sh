@@ -42,6 +42,7 @@ packages=(
     fd-find
     sd
     tealdeer
+    fzf
 
     # containerization
     distrobox
