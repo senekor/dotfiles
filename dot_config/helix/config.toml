@@ -28,7 +28,8 @@ enable = true
 
 [keys.normal]
 esc = ":update" # save on escape
-C-h = "save_selection" # sd save history
+C-h = "save_selection" # "save" -> "history"
+j = "flip_selections" # "juxtapose"
 
 # move through jumplist ("history")
 h = "jump_backward"
