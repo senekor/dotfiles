@@ -6,7 +6,7 @@ function ide
     else
         set repo (printf '%s\n' $repos | fzf)
     end
-    if test $repo = ""
+    if test "$repo" = ""
         return
     end
     if contains $repo $repos
