@@ -1,2 +1,6 @@
 [language-server.rust-analyzer]
 config = { check = { command = "clippy" } }
+
+[[language]]
+name = "vhdl"
+formatter = { command = "vhdl_fmt.sh" }
