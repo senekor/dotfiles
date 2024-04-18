@@ -9,3 +9,7 @@ family = "RobotoMono Nerd Font"
 
 [window]
 decorations = "none"
+
+[shell]
+program = "fish" # ensure shell env is present in zellij, e.g. $EDITOR
+args = ["-c", "zellij"]
