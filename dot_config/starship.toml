@@ -10,7 +10,7 @@ $cmd_duration\
 $character
 """
 
-right_format = "$time"
+# right_format = "$time"
 
 add_newline = false
 
