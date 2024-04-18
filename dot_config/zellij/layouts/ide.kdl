@@ -14,27 +14,27 @@ layout {
 	}
 
 	swap_floating_layout name="scratchpad" {
-        floating_panes max_panes=1 {
-            pane {
+		floating_panes max_panes=1 {
+			pane {
 				x "10%"
 				y "10%"
 				width "80%"
 				height "80%"
 			}
-        }
-        floating_panes max_panes=2 {
-            pane {
+		}
+		floating_panes max_panes=2 {
+			pane {
 				x "10%"
 				y "10%"
 				width "40%"
 				height "80%"
 			}
-            pane {
+			pane {
 				x "50%"
 				y "10%"
 				width "40%"
 				height "80%"
 			}
-        }
-    }
+		}
+	}
 }
