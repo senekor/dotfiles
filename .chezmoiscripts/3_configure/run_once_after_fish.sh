@@ -1,4 +1,4 @@
 #!/bin/bash
-set -exo pipefail
+set -eo pipefail
 
 sudo chsh -s "$(which fish)" "$(whoami)" &> /dev/null

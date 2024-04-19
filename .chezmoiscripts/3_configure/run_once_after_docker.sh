@@ -1,5 +1,5 @@
 #!/bin/bash
-set -exo pipefail
+set -eo pipefail
 
 if ! systemctl status docker | grep "; enabled;" &> /dev/null ; then
     sudo systemctl enable docker

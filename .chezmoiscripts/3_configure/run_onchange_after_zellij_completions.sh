@@ -1,5 +1,5 @@
 #!/bin/bash
-set -exo pipefail
+set -eo pipefail
 
 # regenerate on zellij update: {{ output "zellij" "--version" | trim }}
 
