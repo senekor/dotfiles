@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Zellij
+Exec=alacritty --command fish '-c zellij'
+Icon=alacritty
+Type=Application

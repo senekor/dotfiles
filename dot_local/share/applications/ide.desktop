@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=IDE
+Exec=alacritty --command fish '-c ide'
+Icon=alacritty
+Type=Application

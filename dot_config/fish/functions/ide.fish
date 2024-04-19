@@ -10,13 +10,9 @@ function ide
         return
     end
     if contains $repo $repos
-        if zellij list-sessions --short | rg --quiet --fixed-strings -- "$repo"
-            zellij attach "$repo"
-        else
-            pushd ~/repos/$repo
-            zellij --layout ide --session $repo
-            popd
-        end
+        pushd ~/repos/$repo
+        zellij --layout ide
+        popd
     else if test -d $repo
         pushd $repo
         zellij --layout ide
