@@ -30,16 +30,17 @@ enable = true
 esc = ":update" # save on escape
 C-h = "save_selection" # "save" -> "history"
 j = "flip_selections" # "juxtapose"
-
 # move through jumplist ("history")
 h = "jump_backward"
 H = "jump_forward"
-
 # shift-arrows to traverse syntax-tree
 S-left = "select_prev_sibling"
 S-right = "select_next_sibling"
 S-up = "expand_selection"
 S-down = "shrink_selection"
+
+[keys.select]
+j = "flip_selections" # "juxtapose"
 
 #### "save" -> "history"
 [keys.normal.space.w] # window mode
