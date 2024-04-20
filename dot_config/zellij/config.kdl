@@ -21,7 +21,7 @@ plugins {
     // custom
     compact-bar location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" {
 		format_left  "{mode}{tabs}"
-		format_right "{datetime}"
+		format_right "{command_batstat} {datetime}"
 
 		mode_normal "#[bg=#525252] #[fg=#525252]"
 		mode_tmux   "#[bg=#dcd7ba] #[fg=#dcd7ba]"
@@ -32,7 +32,11 @@ plugins {
 		tab_normal "#[fg=#141414,bg=#525252] #[bg=#525252,fg=#000000,bold]{name} #[fg=#525252]"
 		tab_active "#[fg=#141414,bg=#dcd7ba] #[bg=#dcd7ba,fg=#000000,bold]{name} #[fg=#dcd7ba]"
 
-		datetime "#[fg=#525252,bold]{format}"
+        command_batstat_command  "batstat.fish"
+        command_batstat_format   "#[fg=#525252,bold]{stdout}"
+        command_batstat_interval "5"
+
+        datetime "#[fg=#525252,bold]{format}"
 		datetime_format "%H:%M"
 		datetime_timezone "Europe/Zurich"
 	}
