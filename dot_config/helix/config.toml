@@ -33,6 +33,9 @@ j = "flip_selections" # "juxtapose"
 # move through jumplist ("history")
 h = "jump_backward"
 H = "jump_forward"
+# "kill" or "klose" buffer
+k = ":buffer-close"
+K = ":buffer-close-others"
 # shift-arrows to traverse syntax-tree
 S-left = "select_prev_sibling"
 S-right = "select_next_sibling"
