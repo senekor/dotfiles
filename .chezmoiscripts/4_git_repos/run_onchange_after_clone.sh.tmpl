@@ -1,5 +1,6 @@
 #!/bin/bash
 set -eo pipefail
+# chezmoi:template:left-delimiter="# {{"
 
 echo "Cloning git repos..."
 
@@ -7,9 +8,9 @@ GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new"
 export GIT_SSH_COMMAND
 
 repos=(
-{{- if not .isServer }}
-{{ .op.git_repos }}
-{{- end }}
+# {{- if not .isServer }}
+# {{ .op.git_repos }}
+# {{- end }}
 )
 
 for repo in "${repos[@]}"
