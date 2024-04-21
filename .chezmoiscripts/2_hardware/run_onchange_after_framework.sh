@@ -1,5 +1,5 @@
 #!/bin/bash
-set -exo pipefail
+set -eo pipefail
 
 echo "Checking for hardware specific setup..."
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-set -exo pipefail
+set -eo pipefail
 
 # {{ template "skipOnServer" . }}
 
@@ -20,6 +20,7 @@ packages=(
     # hyprland
     hyprland
     polkit-gnome # authentication agent
+    swaybg # wallpaper
     fuzzel # app launcher
     dunst # notification daemon
     grim slurp # screenshots

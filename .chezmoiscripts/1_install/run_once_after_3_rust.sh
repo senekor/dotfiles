@@ -1,5 +1,5 @@
 #!/bin/bash
-set -exo pipefail
+set -eo pipefail
 
 if ! which rustup &> /dev/null ; then
     rustup-init -y --no-modify-path
