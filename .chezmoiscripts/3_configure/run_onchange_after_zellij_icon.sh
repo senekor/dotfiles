@@ -1,5 +1,5 @@
 #!/bin/bash
 set -eo pipefail
 
-sudo cp ~/repos/dotfiles/dot_local/share/applications/zellij.png \
+sudo cp ~/repos/dotfiles/assets/zellij.png \
     /usr/share/pixmaps/
