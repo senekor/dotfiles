@@ -3,6 +3,14 @@ set -eo pipefail
 
 # {{ template "skipOnServer" . }}
 
+# change installed extensions simply by updating this array
+# (extension-specific settings are at the bottom)
+extensions=(
+    "fix-focus-on-workspace-switch" "hiddn.github.com" "10"
+    "hide-cursor" "elcste.com" "2"
+    "just-perfection-desktop" "just-perfection" "28"
+)
+
 url_prefix="https://extensions.gnome.org/extension-data"
 zip_postfix="shell-extension.zip"
 extensions_dir="$HOME/.local/share/gnome-shell/extensions"
@@ -29,14 +37,34 @@ install_extension() {
     rm "$file_name"
 }
 
-# install_extension "hidetopbar" "mathieu.bidon.ca" "110"
-install_extension "focus-follows-workspace" "christopher.luebbemeier.gmail.com" "9"
+num_extensions=$(( ${#extensions[@]} / 3 ))
+enabled_extensions="["
 
-dconf write /org/gnome/shell/enabled-extensions "[
-    'focus-follows-workspace@christopher.luebbemeier.gmail.com'
-    ]"
+# first fence post
+   name="${extensions[0]}"
+   host="${extensions[1]}"
+version="${extensions[2]}"
+install_extension "$name" "$host" "$version"
+enabled_extensions+="'$name@$host'"
 
-# hidetopbar settings
-# dconf write /org/gnome/shell/extensions/hidetopbar/enable-intellihide false
-# dconf write /org/gnome/shell/extensions/hidetopbar/enable-active-window false
-# dconf write /org/gnome/shell/extensions/hidetopbar/hot-corner true
+for i in $(seq 2 $num_extensions) ; do
+       name="${extensions[$(( (i - 1) * 3 + 0 ))]}"
+       host="${extensions[$(( (i - 1) * 3 + 1 ))]}"
+    version="${extensions[$(( (i - 1) * 3 + 2 ))]}"
+
+    install_extension "$name" "$host" "$version"
+    enabled_extensions+=", '$name@$host'"
+done
+
+enabled_extensions+="]"
+
+dconf write /org/gnome/shell/enabled-extensions "$enabled_extensions"
+
+######## extensions settings ########
+
+dconf write /org/gnome/shell/extensions/just-perfection/panel \
+    false
+dconf write /org/gnome/shell/extensions/just-perfection/panel-in-overview \
+    true
+dconf write /org/gnome/shell/extensions/just-perfection/window-maximized-on-create \
+    true
