@@ -2,6 +2,5 @@
 set -eo pipefail
 
 if ! which rustup &> /dev/null ; then
-    rustup-init -y --no-modify-path
-    rustup component add rust-analyzer
+    rustup-init -y --no-modify-path --component rust-analyzer
 fi
