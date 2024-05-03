@@ -51,10 +51,8 @@
 	insteadOf = https://git.buenzli.dev/
 [user]
 	name = Remo Senekowitsch
-	email = remo@buenzli.dev
+	email = {{ .op.email }}
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2geN1p04/RFi6LPt8hoCvTfEKhR1RH6iuH9N9wKpD7
-[includeIf "hasconfig:remote.*.url:git@github.zhaw.ch*/**"]
-	path = ~/.config/git/config-zhaw
 
 [alias]
 	s = status --short
