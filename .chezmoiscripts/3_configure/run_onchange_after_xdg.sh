@@ -26,8 +26,8 @@ new_dirs=(
     # downloads
     music
     pictures
-    # public
-    # templates
+    public
+    templates
     videos
 )
 
