@@ -43,6 +43,8 @@
 	enabled = true
 [submodule]
 	recurse = true
+# This allows submodules to have https urls so anyone can easily download them.
+# Users who only want to fetch with ssh can still do that with this config.
 [url "ssh://git@"]
 	pushInsteadOf = https://
 [user]
