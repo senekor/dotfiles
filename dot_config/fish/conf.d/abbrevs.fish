@@ -5,4 +5,6 @@ if status is-interactive
     abbr --add -- j just
 
     abbr --add -- c cargo
+
+    abbr --add -- lt eza --tree --level 2
 end
