@@ -1,0 +1,5 @@
+{{ template "skipOnServer" . }}
+
+# this is a workaround for
+# https://github.com/martinvonz/jj/issues/63
+set --global --export SSH_AUTH_SOCK ~/.1password/agent.sock

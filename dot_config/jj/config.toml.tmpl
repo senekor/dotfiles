@@ -1,0 +1,15 @@
+[aliases]
+f = ["git", "fetch"]
+push = ["git", "push"]
+
+[git]
+push-branch-prefix = "remo-"
+
+[ui]
+default-command = "log"
+default-description = "\n"
+diff-editor = ":builtin"
+
+[user]
+email = "{{ .op.email }}"
+name = "Remo Senekowitsch"
