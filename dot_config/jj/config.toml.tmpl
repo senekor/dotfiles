@@ -11,10 +11,17 @@ default-description = "\n"
 diff-editor = ":builtin"
 
 [aliases]
+b = ["branch"]
+c = ["commit"]
+d = ["describe"]
+e = ["edit"]
 f = ["git", "fetch"]
-push = ["git", "push"]
+p = ["git", "push"]
+r = ["rebase"]
+s = ["status"]
 
 [templates]
+log = "builtin_log_comfortable"
 log_node = "my_log_node"
 
 # https://github.com/martinvonz/jj/blob/main/cli/src/config/colors.toml
