@@ -1,15 +1,76 @@
-[aliases]
-f = ["git", "fetch"]
-push = ["git", "push"]
+[user]
+name = "Remo Senekowitsch"
+email = "{{ .op.email }}"
 
 [git]
 push-branch-prefix = "remo-"
 
 [ui]
-default-command = "log"
+default-command = ["log", "--template", "my_log_compact_comfortable"]
 default-description = "\n"
 diff-editor = ":builtin"
 
-[user]
-email = "{{ .op.email }}"
-name = "Remo Senekowitsch"
+[aliases]
+f = ["git", "fetch"]
+push = ["git", "push"]
+
+[templates]
+log_node = "my_log_node"
+
+# https://github.com/martinvonz/jj/blob/main/cli/src/config/colors.toml
+[colors]
+"change_id" = "cyan"
+"working_copy change_id" = "bright cyan"
+
+"node working_copy" = { fg = "#ffaa00" }
+"node immutable" = { fg = "white" }
+
+# https://github.com/martinvonz/jj/blob/main/cli/src/config/templates.toml
+[template-aliases]
+
+'format_short_change_id(id)' = 'id.shortest(5)'
+
+my_log_compact_comfortable = '''
+if(root,
+  format_root_commit(self),
+  label(if(current_working_copy, "working_copy"),
+    concat(
+      separate(" ",
+        format_short_change_id_with_hidden_and_divergent_info(self),
+        if(divergent, format_short_commit_id(commit_id)),
+        branches,
+        tags,
+        working_copies,
+        git_head,
+        if(conflict, label("conflict", "conflict")),
+      ) ++ "\n",
+      separate(" ",
+        if(empty, label("empty", "(empty)")),
+        if(description,
+          description.first_line(),
+          label(if(empty, "empty"), description_placeholder),
+        ),
+      ) ++ "\n ",
+    ),
+  )
+)
+'''
+
+my_log_node = '''
+coalesce(
+  if(!self, label("elided", ":")),
+  label(
+    separate(" ",
+      if(current_working_copy, "working_copy"),
+      if(immutable, "immutable"),
+      if(conflict, "conflict"),
+    ),
+    coalesce(
+      if(current_working_copy, "◉"),
+      if(immutable, "•"),
+      if(conflict, "🗙"),
+      "◉",
+    )
+  )
+)
+'''
