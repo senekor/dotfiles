@@ -13,12 +13,18 @@ repos=(
 # {{- end }}
 )
 
+for repo in $(echo "${repos[@]}" | tr ' ' "\n"| sd '^([^:]*):.*$' "\$1" | uniq)
+do
+    # workaround for jj using libssh instead of openssh, should be fixed at some point
+    ssh -o StrictHostKeyChecking=accept-new -T "$repo" || true
+done
+
 for repo in "${repos[@]}"
 do
     repo_name="$(basename "$repo")"
 
     if ! [ -d ~/repos/"$repo_name" ] ; then
         echo "Cloning $repo_name..."
-        git clone "$repo" ~/repos/"$repo_name"
+        jj git clone "$repo" ~/repos/"$repo_name"
     fi
 done
