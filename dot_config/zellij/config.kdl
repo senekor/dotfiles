@@ -1,5 +1,5 @@
 pane_frames false
-theme "kanagawa"
+theme "my_kanagawa"
 ui {
     pane_frames {
         rounded_corners true
@@ -23,23 +23,23 @@ plugins {
         format_left   "{mode}{tabs}"
         format_right  "{command_pwd} {command_batstat} {datetime}"
 
-        mode_normal "#[bg=#525252] #[fg=#525252]"
-        mode_tmux   "#[bg=#a3a3a3] #[fg=#a3a3a3]"
-        mode_resize "#[bg=#f39962] #[fg=#f39962]"
-        mode_locked "#[bg=#8d78ae] #[fg=#8d78ae]"
+        mode_normal "#[bg=#393836] #[fg=#393836]"
+        mode_tmux   "#[bg=#625e5a] #[fg=#625e5a]"
+        mode_resize "#[bg=#ffa066] #[fg=#ffa066]"
+        mode_locked "#[bg=#9e73e6] #[fg=#9e73e6]"
         mode_default_to_mode "resize"
 
-        tab_normal "#[fg=#141414,bg=#525252] #[bg=#525252,fg=#000000,bold]{name} #[fg=#525252]"
-        tab_active "#[fg=#141414,bg=#a3a3a3] #[bg=#a3a3a3,fg=#000000,bold]{name} #[fg=#a3a3a3]"
+        tab_normal "#[fg=#141414,bg=#393836] #[bg=#393836,fg=#000000,bold]{name} #[fg=#393836]"
+        tab_active "#[fg=#141414,bg=#625e5a] #[bg=#625e5a,fg=#000000,bold]{name} #[fg=#625e5a]"
 
         command_pwd_command "bash -c 'basename $PWD'"
-        command_pwd_format  "#[fg=#525252,bold]{stdout}"
+        command_pwd_format  "#[fg=#393836,bold]{stdout}"
 
         command_batstat_command  "batstat.fish"
-        command_batstat_format   "#[fg=#525252,bold]{stdout}"
+        command_batstat_format   "#[fg=#393836,bold]{stdout}"
         command_batstat_interval "5"
 
-        datetime "#[fg=#525252,bold]{format}"
+        datetime "#[fg=#393836,bold]{format}"
         datetime_format "%H:%M"
         datetime_timezone "Europe/Zurich"
     }
@@ -190,5 +190,20 @@ keybinds clear-defaults=true {
             };
             SwitchToMode "Normal"
         }
+    }
+}
+themes {
+    my_kanagawa {
+        fg "#ff6abb"
+        bg "#ff6abb"
+        black "#ff6abb"
+        red "#ff6abb"
+        green "#625e5a"
+        yellow "#ff6abb"
+        blue "#ff6abb"
+        magenta "#ff6abb"
+        cyan "#ff6abb"
+        white "#ff6abb"
+        orange "#ffa066"
     }
 }
