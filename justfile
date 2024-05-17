@@ -1,6 +1,11 @@
 @_default:
     just --list --unsorted
 
+# chezmoi apply the current state of the jj repo
+apply:
+    chezmoi git checkout $(jj log --no-graph -r @ -T commit_id)
+    chezmoi apply
+
 syncthing-server-ui:
     #!/bin/bash
     set -emo pipefail # -m to enable job control
