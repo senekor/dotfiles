@@ -16,12 +16,15 @@ c = ["commit"]
 d = ["describe"]
 e = ["edit"]
 f = ["git", "fetch"]
+g = ["log", "--template", "builtin_log_oneline", "--revisions", "all()"]
+l = ["log", "--template", "builtin_log_oneline", "--revisions", "ancestors(@)"]
 p = ["git", "push"]
 r = ["rebase"]
 s = ["status"]
 
 [templates]
 log = "builtin_log_comfortable"
+op_log = 'builtin_op_log_comfortable'
 log_node = "my_log_node"
 
 # https://github.com/martinvonz/jj/blob/main/cli/src/config/colors.toml
