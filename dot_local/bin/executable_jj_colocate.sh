@@ -18,4 +18,4 @@ echo -n '../../../.git' > .jj/repo/store/git_target
 echo '/*' > .jj/.gitignore
 # Make the Git repository non-bare and set HEAD
 git config --unset core.bare
-jj git export
+jj new @-
