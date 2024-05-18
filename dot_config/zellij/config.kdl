@@ -194,8 +194,11 @@ keybinds clear-defaults=true {
 }
 themes {
     my_kanagawa {
+        // I think most of these values are not used at all, or at least I
+        // don't know where. That's why I set many to pink, so they can be
+        // easily spotted when they do show up.
         fg "#ff6abb"
-        bg "#ff6abb"
+        bg "#625e5a"
         black "#ff6abb"
         red "#ff6abb"
         green "#625e5a"
