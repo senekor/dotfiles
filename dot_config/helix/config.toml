@@ -1,6 +1,7 @@
 theme = "kanagawa"
 
 [editor]
+auto-pairs = false
 scrolloff = 24
 line-number = "relative"
 bufferline = "multiple"
