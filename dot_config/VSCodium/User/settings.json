@@ -61,7 +61,6 @@
   "files.simpleDialog.enable": true,
   "git.openRepositoryInParentFolders": "never",
   "gitlens.codeLens.enabled": false,
-  "liveshare.languages.allowGuestCommandControl": true,
   "lldb.suppressUpdateNotifications": true,
   "python.defaultInterpreterPath": "/usr/bin/python3",
   "python.languageServer": "Pylance",

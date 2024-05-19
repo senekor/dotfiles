@@ -3,16 +3,16 @@ set -eo pipefail
 
 # {{ template "skipOnServer" . }}
 
-echo "Installing vscode extensions..."
+echo "Installing vscodium extensions..."
 
 extensions=(
     # general
-    ms-vsliveshare.vsliveshare
     eamodio.gitlens
     usernamehw.errorlens
     vscode-icons-team.vscode-icons
     wmaurer.change-case
     tomoki1207.pdf
+    jeanp413.open-remote-ssh
 
     # rust
     rust-lang.rust-analyzer
@@ -28,17 +28,16 @@ extensions=(
     ms-azuretools.vscode-docker
     tamasfe.even-better-toml
     kokakiwi.vscode-just
-    kdl-org.kdl
     nico-castell.linux-desktop-file
     hangxingliu.vscode-systemd-support
 )
 
-mkdir -p ~/.vscode/extensions
+mkdir -p ~/.vscode-oss/extensions
 
-installed=$(ls ~/.vscode/extensions/)
+installed=$(ls ~/.vscode-oss/extensions/)
 for extension in "${extensions[@]}"; do
     if ! [[ $installed =~ $extension ]] ; then
         echo "$extension..."
-        code --install-extension "$extension" > /dev/null
+        codium --install-extension "$extension" > /dev/null
     fi
 done
