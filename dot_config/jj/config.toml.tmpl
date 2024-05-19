@@ -3,7 +3,7 @@ name = "Remo Senekowitsch"
 email = "{{ .op.email }}"
 
 [git]
-push-branch-prefix = "remo/"
+push-branch-prefix = "{{ .chezmoi.username }}/"
 
 [ui]
 default-command = ["log", "--template", "my_log_compact_comfortable"]
@@ -18,7 +18,7 @@ e = ["edit"]
 f = ["git", "fetch"]
 g = ["log", "--template", "builtin_log_oneline", "--revisions", "all()"]
 l = ["log", "--template", "builtin_log_oneline", "--revisions", "ancestors(@)"]
-ll = ["log", "--template", "builtin_log_detailed","--revisions", "all()"]
+ll =["log", "--template", "builtin_log_detailed","--revisions", "all()"]
 p = ["git", "push"]
 r = ["rebase"]
 s = ["show"]
