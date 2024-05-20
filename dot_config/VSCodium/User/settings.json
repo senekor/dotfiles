@@ -63,7 +63,6 @@
   "gitlens.codeLens.enabled": false,
   "lldb.suppressUpdateNotifications": true,
   "python.defaultInterpreterPath": "/usr/bin/python3",
-  "python.languageServer": "Pylance",
   "rust-analyzer.check.command": "clippy",
   "rust-analyzer.completion.privateEditable.enable": true,
   "rust-analyzer.inlayHints.parameterHints.enable": false,
