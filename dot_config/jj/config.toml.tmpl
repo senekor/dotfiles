@@ -9,6 +9,7 @@ push-branch-prefix = "{{ .chezmoi.username }}/"
 default-command = ["log", "--template", "my_log_compact_comfortable"]
 default-description = "\n"
 diff-editor = ":builtin"
+diff.tool = ["difft", "--color=always", "$left", "$right"]
 
 [aliases]
 b = ["branch"]
