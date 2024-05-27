@@ -25,6 +25,6 @@ do
 
     if ! [ -d ~/repos/"$repo_name" ] ; then
         echo "Cloning $repo_name..."
-        jj git clone "$repo" ~/repos/"$repo_name"
+        jj clone "$repo" ~/repos/"$repo_name"
     fi
 done
