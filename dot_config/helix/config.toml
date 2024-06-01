@@ -1,7 +1,7 @@
 theme = "kanagawa"
 
 [editor]
-scrolloff = 24
+scrolloff = 256 # big number -> cursor always centered
 line-number = "relative"
 bufferline = "multiple"
 
