@@ -16,6 +16,7 @@ add_newline = false
 format = "[$user]($style) "
 
 [directory]
+style = "bold blue"
 truncation_length = 1
 
 [git_branch]
