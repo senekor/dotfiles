@@ -22,9 +22,10 @@ packages=(
     atuin
     unlicense
     jj-cli
+    ccase
 )
 
-cargo binstall -y --log-level warn "${packages[@]}"
+cargo binstall --no-confirm --log-level warn "${packages[@]}"
 
 # TODO install with cargo-binstall once cargo-dist is setup
 cargo install git-quickprune
