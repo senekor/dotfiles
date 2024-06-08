@@ -3,4 +3,3 @@ Name=Zellij
 Exec=alacritty --command fish '-c zellij'
 Icon=zellij
 Type=Application
-Keywords=terminal;

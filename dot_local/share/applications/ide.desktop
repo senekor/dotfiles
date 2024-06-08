@@ -3,4 +3,3 @@ Name=IDE
 Exec=alacritty --command fish '-c ide'
 Icon=zellij
 Type=Application
-Keywords=zellij;
