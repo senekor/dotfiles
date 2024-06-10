@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eo pipefail
+set -euo pipefail
 
 # update once a week: {{ output "date" "+%Y-%V" | trim }}
 
@@ -25,6 +25,10 @@ packages=(
     ccase
     watchexec-cli
 )
+
+echo "Exporting GITHUB_TOKEN secret for cargo-binstall..."
+GITHUB_TOKEN="$(op read "op://Personal/GitHub Personal Access Token/token")"
+export GITHUB_TOKEN
 
 cargo binstall --no-confirm --log-level warn "${packages[@]}"
 
