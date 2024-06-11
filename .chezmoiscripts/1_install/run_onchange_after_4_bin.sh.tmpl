@@ -32,7 +32,4 @@ export GITHUB_TOKEN
 
 cargo binstall --no-confirm --log-level warn "${packages[@]}"
 
-# TODO install with cargo-binstall once cargo-dist is setup
-cargo install git-quickprune
-
 [ -d "$HOME/.local/bin" ] || mkdir -p "$HOME/.local/bin"
