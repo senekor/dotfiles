@@ -27,8 +27,8 @@ r = ["rebase"]
 s = ["show"]
 clone = ["git", "clone", "--colocate"]
 
-[revsets]
-log = "ancestors(reachable(mine(), ~::trunk()), 2) | trunk()"
+# [revsets]
+# log = "ancestors(reachable(mine(), ~::trunk()), 2) | trunk()" # broken
 
 [templates]
 log = "builtin_log_comfortable"
