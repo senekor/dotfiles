@@ -6,9 +6,9 @@ set -eo pipefail
 # change installed extensions simply by updating this array
 # (extension-specific settings are at the bottom)
 extensions=(
-    "fix-focus-on-workspace-switch" "hiddn.github.com" "10"
+    # "fix-focus-on-workspace-switch" "hiddn.github.com" "10"
     "hide-cursor" "elcste.com" "2"
-    "just-perfection-desktop" "just-perfection" "28"
+    # "just-perfection-desktop" "just-perfection" "28"
 )
 
 url_prefix="https://extensions.gnome.org/extension-data"
@@ -30,7 +30,7 @@ install_extension() {
 
     echo "installing gnome extension $name..."
     wget -q "$url_prefix/$file_name"
-    mkdir "$extensions_dir"/tmp
+    [ -d "$extensions_dir"/tmp ] || mkdir "$extensions_dir"/tmp
     unzip -q "$file_name" -d "$extensions_dir"/tmp
     uuid=$(grep uuid "$extensions_dir"/tmp/metadata.json | awk -F\" '{print $4}')
     mv "$extensions_dir"/tmp "$extensions_dir"/"$uuid"
