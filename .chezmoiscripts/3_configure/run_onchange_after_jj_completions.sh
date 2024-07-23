@@ -3,6 +3,9 @@ set -eo pipefail
 
 # regenerate on jj update: {{ output "jj" "--version" | trim }}
 
+# shellcheck disable=SC1090
+source ~/.cargo/env
+
 mkdir --parents ~/.config/fish/completions/
 jj util completion fish > ~/.config/fish/completions/jj.fish
 
