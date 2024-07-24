@@ -1,0 +1,45 @@
+#!/bin/bash
+set -euo pipefail
+
+# This is a convenience script to generate a variety of boilerplate-y files.
+#
+# For example, a new Bash script with all the right error-handling flags or
+# a Rust script with the correct cargo invocation.
+
+function new_bash {
+  echo -n "Name: "
+  read -r name
+  name="$name.sh"
+  echo -n "\
+#!/bin/bash
+set -euo pipefail
+
+echo \"Hello, world!\"
+" > "$name"
+  chmod +x "$name"
+}
+
+function new_rust {
+  echo -n "Name: "
+  read -r name
+  name="$name.rs"
+  echo -n "\
+#!/usr/bin/env -S cargo +nightly -Zscript --quiet
+
+fn main() {
+    println!(\"Hello, world!\");
+}
+" > "$name"
+  chmod +x "$name"
+}
+
+options="\
+bash
+rust"
+
+choice="$(echo "${options[@]}" | fzf)"
+
+case "$choice" in
+  bash) new_bash ;;
+  rust) new_rust ;;
+esac
