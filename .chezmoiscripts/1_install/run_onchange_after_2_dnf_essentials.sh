@@ -10,6 +10,7 @@ packages=(
     nodejs yarnpkg
     python3-pip python3-lsp-server+all
     shellcheck nodejs-bash-language-server
+    openscad clang-tools-extra
 
     # shell
     util-linux # chsh
