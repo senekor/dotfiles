@@ -27,7 +27,6 @@ packages=(
     ccase
     watchexec-cli
     choose
-    openscad-lsp
 )
 
 # {{ if not .isServer }}
@@ -39,3 +38,6 @@ export GITHUB_TOKEN
 cargo binstall --no-confirm --log-level warn "${packages[@]}"
 
 [ -d "$HOME/.local/bin" ] || mkdir -p "$HOME/.local/bin"
+
+# {{ template "skipOnServer" . }}
+cargo binstall --no-confirm --log-level warn openscad-lsp
