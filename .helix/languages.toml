@@ -1,0 +1,25 @@
+[[language]]
+name = "bash"
+file-types = [ "sh", "bash", { glob = "*.sh.tmpl" } ]
+[[language]]
+name = "toml"
+file-types = [ "toml", { glob = "*.toml.tmpl" } ]
+[[language]]
+name = "fish"
+file-types = [ "fish", { glob = "*.fish.tmpl" } ]
+[[language]]
+name = "git-config"
+file-types = [
+  { glob = ".gitmodules" },
+  { glob = ".gitconfig" },
+  { glob = ".git/config" },
+  { glob = ".config/git/config" },
+  { glob = "git/config.tmpl" },
+]
+[[language]]
+name = "sshclientconfig"
+file-types = [
+  { glob = ".ssh/config" },
+  { glob = "/etc/ssh/ssh_config" },
+  { glob = "private_dot_ssh/private_config.tmpl" },
+]
