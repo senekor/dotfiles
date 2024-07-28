@@ -1,0 +1,19 @@
+#!/bin/bash
+set -euo pipefail
+
+# source:
+# https://stackoverflow.com/a/49289440/17324512
+
+: "${EDITOR:=/usr/bin/hx}"
+: "${TMPDIR:=/tmp}"
+
+TMPFILE=${TMPDIR}/hxp-$$
+
+# shellcheck disable=SC2064
+trap "trap '' 0 1 2 3 15; rm -f $TMPFILE; exit 0" 0 1 2 3 15 
+
+cat > "$TMPFILE"
+$EDITOR ${1:+"$@"} "$TMPFILE" < /dev/tty > /dev/tty
+cat "$TMPFILE"
+
+exit 0
