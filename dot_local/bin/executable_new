@@ -9,29 +9,8 @@ set -euo pipefail
 path="$1"
 dir="$(dirname "$path")"
 mkdir --parents "$dir"
-
-function new_bash {
-  name="$path.sh"
-  echo -n "\
-#!/bin/bash
-set -euo pipefail
-
-echo \"Hello, world!\"
-" > "$name"
-  chmod +x "$name"
-}
-
-function new_rust {
-  name="$path.rs"
-  echo -n "\
-#!/usr/bin/env -S cargo +nightly -Zscript --quiet
-
-fn main() {
-    println!(\"Hello, world!\");
-}
-" > "$name"
-  chmod +x "$name"
-}
+touch "$path"
+chmod +x "$path"
 
 options="\
 bash
@@ -40,6 +19,21 @@ rust"
 choice="$(echo "${options[@]}" | fzf)"
 
 case "$choice" in
-  bash) new_bash ;;
-  rust) new_rust ;;
+  bash)
+    content="\
+#!/bin/bash
+set -euo pipefail
+
+echo \"Hello, world!\""
+    ;;
+  rust)
+    content="\
+#!/usr/bin/env -S cargo +nightly -Zscript --quiet
+
+fn main() {
+    println!(\"Hello, world!\");
+}"
+    ;;
 esac
+
+echo "$content" > "$path"
