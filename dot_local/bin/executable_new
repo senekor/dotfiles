@@ -6,10 +6,12 @@ set -euo pipefail
 # For example, a new Bash script with all the right error-handling flags or
 # a Rust script with the correct cargo invocation.
 
+path="$1"
+dir="$(dirname "$path")"
+mkdir --parents "$dir"
+
 function new_bash {
-  echo -n "Name: "
-  read -r name
-  name="$name.sh"
+  name="$path.sh"
   echo -n "\
 #!/bin/bash
 set -euo pipefail
@@ -20,9 +22,7 @@ echo \"Hello, world!\"
 }
 
 function new_rust {
-  echo -n "Name: "
-  read -r name
-  name="$name.rs"
+  name="$path.rs"
   echo -n "\
 #!/usr/bin/env -S cargo +nightly -Zscript --quiet
 
