@@ -29,6 +29,7 @@ packages=(
     wlsunset # disabled in current config
     blueman # bluetooth GUI
     pavucontrol # audio GUI
+    brightnessctl # laptop screen brightness
 )
 installed="$(dnf list installed)"
 for package in "${packages[@]}"; do
