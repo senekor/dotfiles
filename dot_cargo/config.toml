@@ -1,3 +1,16 @@
 [alias]
 nt = "nextest run --final-status-level slow"
 gen = "generate"
+
+[registries.crates-io]
+credential-provider = ["cargo:token-from-stdout", "bash", "-c", """
+printf "token "
+op read op://Personal/ncskkq6uqseteemqviapuisrbe/token
+"""]
+
+[registries.forgejo]
+# index = "sparse+https://git.buenzli.dev/api/packages/senekor/cargo/"
+credential-provider = ["cargo:token-from-stdout", "bash", "-c", """
+printf "token "
+op read op://Personal/o7n5djqeb347qarbqx3x2l7z7m/token
+"""]
