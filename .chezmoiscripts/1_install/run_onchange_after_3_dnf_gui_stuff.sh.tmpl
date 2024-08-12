@@ -30,6 +30,7 @@ packages=(
     blueman # bluetooth GUI
     pavucontrol # audio GUI
     brightnessctl # laptop screen brightness
+    wtype # needed by wofi_emoji.sh
 )
 installed="$(dnf list installed)"
 for package in "${packages[@]}"; do
