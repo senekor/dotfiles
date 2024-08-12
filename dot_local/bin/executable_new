@@ -16,7 +16,17 @@ bash
 rust
 html"
 
-choice="$(echo "${options[@]}" | fzf)"
+if [ "$path" = "justfile" ] ; then
+  choice="justfile"
+elif [[ "$path" = *.sh ]] ; then
+  choice="bash"
+elif [[ "$path" = *.rs ]] ; then
+  choice="rust"
+elif [[ "$path" = *.html ]] ; then
+  choice="html"
+else
+  choice="$(echo "${options[@]}" | fzf)"
+fi
 
 case "$choice" in
   bash)
@@ -48,6 +58,12 @@ fn main() {
 <body>
 </body>
 </html>'
+      ;;
+  justfile)
+    executable="false"
+    content="\
+_default:
+    just --list --unsorted"
       ;;
 esac
 
