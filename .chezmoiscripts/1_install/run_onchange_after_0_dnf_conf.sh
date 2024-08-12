@@ -11,7 +11,6 @@ append_once() {
     fi
 }
 
-append_once $conf "fastestmirror=True"
 append_once $conf "max_parallel_downloads=10"
 append_once $conf "defaultyes=True"
 append_once $conf "keepcache=True"
