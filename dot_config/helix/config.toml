@@ -28,29 +28,29 @@ enable = true
 # Maybe update these if default helix keymap changes in future releases.
 
 [keys.normal]
-esc = ":update" # save on escape
-C-h = "save_selection" # "save" -> "history"
-j = "flip_selections" # "juxtapose"
-# move through jumplist ("history")
-h = "jump_backward"
-H = "jump_forward"
-# "kill" or "klose" buffer
-k = ":buffer-close"
-K = ":buffer-close-others"
-# shift-arrows to traverse syntax-tree
-S-left = "select_prev_sibling"
-S-right = "select_next_sibling"
-S-up = "expand_selection"
-S-down = "shrink_selection"
+esc = ":update"                 # save on escape
+C-h = "save_selection"          # "save" -> "history"
+j = "flip_selections"           # "juxtapose"
+h = "jump_backward"             # move through jumplist ("history")
+H = "jump_forward"              # move through jumplist ("history")
+k = ":buffer-close"             # "kill" or "klose" buffer
+K = ":buffer-close-others"      # "kill" or "klose" buffer
+S-left = "select_prev_sibling"  # shift-arrows to traverse syntax-tree
+S-right = "select_next_sibling" # shift-arrows to traverse syntax-tree
+S-up = "expand_selection"       # shift-arrows to traverse syntax-tree
+S-down = "shrink_selection"     # shift-arrows to traverse syntax-tree
 
 [keys.select]
 j = "flip_selections" # "juxtapose"
 
-#### "save" -> "history"
-[keys.normal.space.w] # window mode
-C-h = "hsplit"
+[keys.normal.space.w]
+C-h = "hsplit"             # "save" -> "history"
+p = "rotate_view_reverse"  # counterpart of <space>ww
+
 [keys.insert]
-C-h = "commit_undo_checkpoint"
+C-h = "commit_undo_checkpoint" # "save" -> "history"
+
+#### "save" -> "history"
 # remapping currently not supported, don't care anyway
 # [keys.picker]
 # C-h = "Open horizontally"
