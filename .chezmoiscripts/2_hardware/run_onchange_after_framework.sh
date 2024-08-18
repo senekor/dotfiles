@@ -42,20 +42,5 @@ WantedBy=multi-user.target
             intel-media-driver
         )
         sudo dnf install -y "${packages[@]}"
-
-        # battery life tuning according to
-        # https://knowledgebase.frame.work/en_us/optimizing-fedora-battery-life-r1baXZh
-        sudo systemctl stop power-profiles-daemon.service
-        sudo systemctl disable power-profiles-daemon.service
-        sudo systemctl mask power-profiles-daemon.service
-
-        sudo dnf install -y tlp tlp-rdw
-        sudo systemctl enable --now tlp
-
-        # further tweaks can be made with TLP UI (ephemeral) or in tlp.conf (persistent)
-        # TODO tlp.conf
-        echo
-        echo ! Consider tweaking power management for your laptop in TLP UI !
-        echo
     fi
 fi
