@@ -44,8 +44,8 @@ S-down = "shrink_selection"     # shift-arrows to traverse syntax-tree
 j = "flip_selections" # "juxtapose"
 
 [keys.normal.space.w]
-C-h = "hsplit"             # "save" -> "history"
-p = "rotate_view_reverse"  # counterpart of <space>ww
+h = "hsplit"              # "save" -> "history"
+p = "rotate_view_reverse" # counterpart of <space>ww
 
 [keys.insert]
 C-h = "commit_undo_checkpoint" # "save" -> "history"
