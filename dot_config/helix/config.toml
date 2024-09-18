@@ -44,6 +44,14 @@ S-down = "shrink_selection"     # shift-arrows to traverse syntax-tree
 [keys.select]
 j = "flip_selections" # "juxtapose"
 
+[keys.normal.space]
+# These are usually the same. But when the current directory is not the
+# same as the git repository, I want the default to be inverted. By default,
+# open the file picker in the current directory, because I probably set that
+# intentionally.
+f = "file_picker_in_current_directory"
+F = "file_picker"
+
 [keys.normal.space.w]
 h = "hsplit"              # "save" -> "history"
 p = "rotate_view_reverse" # counterpart of <space>ww
