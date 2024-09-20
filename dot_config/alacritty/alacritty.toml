@@ -1,4 +1,6 @@
 # import = ["~/.config/alacritty/themes/vscode.toml"]
+# import = ["~/.config/alacritty/themes/github_light_high_contrast.toml"]
+
 live_config_reload = true
 
 # [colors]
