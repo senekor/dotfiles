@@ -4,3 +4,6 @@ file://{{ .chezmoi.homeDir }}/cloud/pictures
 file://{{ .chezmoi.homeDir }}/cloud/videos
 file://{{ .chezmoi.homeDir }}/downloads
 file://{{ .chezmoi.homeDir }}/repos
+{{ if eq .org "zhaw" -}}
+smb://160.85.184.97/staff/senk zhaw
+{{ end -}}
