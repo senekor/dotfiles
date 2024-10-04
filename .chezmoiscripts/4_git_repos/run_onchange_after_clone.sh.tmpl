@@ -4,8 +4,11 @@ set -eo pipefail
 
 echo "Cloning git repos..."
 
-GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new"
-export GIT_SSH_COMMAND
+for host in git@github.com git@github.zhaw.ch git@git.buenzli.dev
+do
+    # workaround for jj using libssh instead of openssh, should be fixed at some point
+    ssh -o StrictHostKeyChecking=accept-new -T "$host" || true
+done
 
 repos=(
 # {{- if not .isServer }}
@@ -13,18 +16,12 @@ repos=(
 # {{- end }}
 )
 
-for repo in $(echo "${repos[@]}" | tr ' ' "\n"| sd '^([^:]*):.*$' "\$1" | uniq)
-do
-    # workaround for jj using libssh instead of openssh, should be fixed at some point
-    ssh -o StrictHostKeyChecking=accept-new -T "$repo" || true
-done
-
 for repo in "${repos[@]}"
 do
     repo_name="$(basename "$repo")"
 
     if ! [ -d ~/repos/"$repo_name" ] ; then
         echo "Cloning $repo_name..."
-        jj clone "$repo" ~/repos/"$repo_name"
+        ~/.local/bin/clone "$repo" ~/repos/"$repo_name"
     fi
 done

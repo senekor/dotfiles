@@ -1,0 +1,39 @@
+#!/usr/bin/env nu
+
+# This is a custom wrapper around jj/git clone.
+# It uses jj by default, but git for explicitly blocked repos.
+# In addition, it makes sure that the email address is set correctly
+# for private and business repos.
+
+let jj_block_list = [
+  DISTRAL_ZHAW_Kistler # use of git-lfs
+]
+
+def main [
+  repo_url: string # the repo to clone
+  ...rest: string # additional clone args for jj
+] {
+  let parsed = $repo_url | parse "git@{host}:{owner}/{repo}" | get 0
+  let host = $parsed.host
+  let owner = $parsed.owner
+  let repo = $parsed.repo | str replace --regex '\.git$' ""
+
+  cd ~/repos
+
+  if ($jj_block_list | any { |elem| $elem == $repo }) {
+    git clone $repo_url ...$rest
+  } else {
+    jj git clone --colocate $repo_url ...$rest
+  }
+
+  cd $repo
+
+  if ($host == github.zhaw.ch) {
+    jj config set --repo user.email senk@zhaw.ch
+    jj describe --reset-author --no-edit
+  }
+  if ($owner == senekor) {
+    jj config set --repo user.email remo@buenzli.dev
+    jj describe --reset-author --no-edit
+  }
+}
