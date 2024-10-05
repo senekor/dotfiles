@@ -3,7 +3,7 @@ name = "Remo Senekowitsch"
 email = "{{ .op.email }}"
 
 [git]
-push-branch-prefix = "{{ .chezmoi.username }}/"
+push-bookmark-prefix = "{{ .chezmoi.username }}/"
 
 [ui]
 default-command = ["log", "--template", "my_log_compact_comfortable"]
@@ -12,9 +12,9 @@ diff-editor = ":builtin"
 # diff.tool = ["difft", "--color=always", "--syntax-highlight", "off", "$left", "$right"]
 
 [aliases]
-b = ["branch"]
-bm = ["branch", "move"]
-bmm = ["branch", "move", "main", "--to"]
+b = ["bookmark"]
+bm = ["bookmark", "move"]
+bmm = ["bookmark", "move", "main", "--to"]
 c = ["commit"]
 d = ["describe"]
 e = ["edit"]
@@ -57,7 +57,7 @@ if(root,
       if(divergent, format_short_commit_id(commit_id)),
       if(conflict, label("conflict", "conflict")),
       if(author.email(), author.username(), email_placeholder),
-      branches,
+      bookmarks,
       tags,
       working_copies,
       if(empty, label("empty", "(empty)")),
