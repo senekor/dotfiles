@@ -10,3 +10,7 @@ mkdir -p ~/repos
 cd ~/repos/dotfiles
 jj config set --repo user.email "remo@buenzli.dev"
 jj branch track main@origin
+
+# make git understand the relationship too, for tool support like helix
+echo "gitdir: $HOME/.local/share/chezmoi/.git" > .git
+echo "/*" > .jj/.gitignore
