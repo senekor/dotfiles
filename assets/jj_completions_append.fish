@@ -107,27 +107,27 @@ function __jj_changes
         -T 'separate("\t", change_id.shortest(), if(description, description.first_line(), "(no description set)")) ++ "\n"'
 end
 
-function __jj_branches
+function __jj_bookmarks
     set -f filter $argv[1]
     if string length --quiet -- $argv[2]
-        __jj branch list --all-remotes -r "$argv[2]" \
-            -T "if($filter, name ++ if(remote, \"@\" ++ remote) ++ \"\t\" ++ if(normal_target, normal_target.change_id().shortest() ++ \": \" ++ if(normal_target.description(), normal_target.description().first_line(), \"(no description set)\"), \"(conflicted branch)\") ++ \"\n\")"
+        __jj bookmark list --all-remotes -r "$argv[2]" \
+            -T "if($filter, name ++ if(remote, \"@\" ++ remote) ++ \"\t\" ++ if(normal_target, normal_target.change_id().shortest() ++ \": \" ++ if(normal_target.description(), normal_target.description().first_line(), \"(no description set)\"), \"(conflicted bookmark)\") ++ \"\n\")"
     else
-        __jj branch list --all-remotes \
-            -T "if($filter, name ++ if(remote, \"@\" ++ remote) ++ \"\t\" ++ if(normal_target, normal_target.change_id().shortest() ++ \": \" ++ if(normal_target.description(), normal_target.description().first_line(), \"(no description set)\"), \"(conflicted branch)\") ++ \"\n\")"
+        __jj bookmark list --all-remotes \
+            -T "if($filter, name ++ if(remote, \"@\" ++ remote) ++ \"\t\" ++ if(normal_target, normal_target.change_id().shortest() ++ \": \" ++ if(normal_target.description(), normal_target.description().first_line(), \"(no description set)\"), \"(conflicted bookmark)\") ++ \"\n\")"
     end
 end
 
-function __jj_all_branches
-    __jj_branches '!remote || !remote.starts_with("git")' $argv[1]
+function __jj_all_bookmarks
+    __jj_bookmarks '!remote || !remote.starts_with("git")' $argv[1]
 end
 
-function __jj_local_branches
-    __jj_branches '!remote' ''
+function __jj_local_bookmarks
+    __jj_bookmarks '!remote' ''
 end
 
-function __jj_remote_branches
-    __jj_branches 'remote && !remote.starts_with("git")' ''
+function __jj_remote_bookmarks
+    __jj_bookmarks 'remote && !remote.starts_with("git")' ''
 end
 
 function __jj_all_changes
@@ -137,13 +137,13 @@ function __jj_all_changes
         set -f REV "all()"
     end
     __jj_changes $REV
-    __jj_all_branches $REV
+    __jj_all_bookmarks $REV
 end
 
 function __jj_mutable_changes
     set -f REV "mutable()"
     __jj_changes $REV
-    __jj_all_branches $REV
+    __jj_all_bookmarks $REV
 end
 
 function __jj_revision_modified_files
@@ -305,7 +305,7 @@ complete -f -c jj -n '__jj_seen_subcommand_from obslog' -s r -l revision -rka '(
 complete -f -c jj -n '__jj_seen_subcommand_from parallelize' -ka '(__jj_mutable_changes)'
 complete -f -c jj -n '__jj_seen_subcommand_from rebase' -s r -l revisions -rka '(__jj_mutable_changes)'
 complete -f -c jj -n '__jj_seen_subcommand_from rebase' -s s -l source -rka '(__jj_mutable_changes)'
-complete -f -c jj -n '__jj_seen_subcommand_from rebase' -s b -l branch -rka '(__jj_mutable_changes)'
+complete -f -c jj -n '__jj_seen_subcommand_from rebase' -s b -l bookmark -rka '(__jj_mutable_changes)'
 complete -f -c jj -n '__jj_seen_subcommand_from rebase' -s d -l destination -rka '(__jj_all_changes)'
 complete -f -c jj -n '__jj_seen_subcommand_from rebase' -s A -l after -l insert-after -rka '(__jj_all_changes)'
 complete -f -c jj -n '__jj_seen_subcommand_from rebase' -s B -l before -l insert-before -rka '(__jj_mutable_changes)'
@@ -320,18 +320,18 @@ complete -f -c jj -n '__jj_seen_subcommand_from squash' -l from -rka '(__jj_muta
 complete -f -c jj -n '__jj_seen_subcommand_from squash' -l to -l into -rka '(__jj_mutable_changes)'
 complete -f -c jj -n '__jj_seen_subcommand_from unsquash' -s r -l revision -rka '(__jj_mutable_changes)'
 
-# Branches.
-complete -f -c jj -n '__jj_seen_subcommand_from branch; and __jj_seen_subcommand_from delete forget rename set d f r s' -ka '(__jj_local_branches)'
-complete -f -c jj -n '__jj_seen_subcommand_from branch; and __jj_seen_subcommand_from track t' -ka '(__jj_branches "remote && !tracked" "")'
-complete -f -c jj -n '__jj_seen_subcommand_from branch; and __jj_seen_subcommand_from untrack' -ka '(__jj_branches "remote && tracked && !remote.starts_with(\"git\")" "")'
-complete -f -c jj -n '__jj_seen_subcommand_from branch; and __jj_seen_subcommand_from create move set c m s' -s r -l revision -kra '(__jj_all_changes)'
-complete -f -c jj -n '__jj_seen_subcommand_from branch; and __jj_seen_subcommand_from move' -l from -rka '(__jj_changes "all()")'
-complete -f -c jj -n '__jj_seen_subcommand_from branch; and __jj_seen_subcommand_from move' -l to -rka '(__jj_changes "all()")'
+# Bookmarks.
+complete -f -c jj -n '__jj_seen_subcommand_from bookmark; and __jj_seen_subcommand_from delete forget rename set d f r s' -ka '(__jj_local_bookmarks)'
+complete -f -c jj -n '__jj_seen_subcommand_from bookmark; and __jj_seen_subcommand_from track t' -ka '(__jj_bookmarks "remote && !tracked" "")'
+complete -f -c jj -n '__jj_seen_subcommand_from bookmark; and __jj_seen_subcommand_from untrack' -ka '(__jj_bookmarks "remote && tracked && !remote.starts_with(\"git\")" "")'
+complete -f -c jj -n '__jj_seen_subcommand_from bookmark; and __jj_seen_subcommand_from create move set c m s' -s r -l revision -kra '(__jj_all_changes)'
+complete -f -c jj -n '__jj_seen_subcommand_from bookmark; and __jj_seen_subcommand_from move' -l from -rka '(__jj_changes "all()")'
+complete -f -c jj -n '__jj_seen_subcommand_from bookmark; and __jj_seen_subcommand_from move' -l to -rka '(__jj_changes "all()")'
 
 # Git.
 complete -f -c jj -n '__jj_seen_subcommand_from git; and __jj_seen_subcommand_from push' -s c -l change -kra '(__jj_changes "all()")'
 complete -f -c jj -n '__jj_seen_subcommand_from git; and __jj_seen_subcommand_from push' -s r -l revisions -kra '(__jj_changes "all()")'
-complete -f -c jj -n '__jj_seen_subcommand_from git; and __jj_seen_subcommand_from fetch push' -s b -l branch -rka '(__jj_local_branches)'
+complete -f -c jj -n '__jj_seen_subcommand_from git; and __jj_seen_subcommand_from fetch push' -s b -l bookmark -rka '(__jj_local_bookmarks)'
 complete -f -c jj -n '__jj_seen_subcommand_from git; and __jj_seen_subcommand_from fetch push' -l remote -rka '(__jj_remotes)'
 complete -f -c jj -n '__jj_seen_subcommand_from git; and __jj_seen_subcommand_from remote; and __jj_seen_subcommand_from remove rename set-url' -ka '(__jj_remotes)'
 
