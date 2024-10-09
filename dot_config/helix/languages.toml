@@ -1,6 +1,9 @@
 [language-server.rust-analyzer]
-config = { check = { command = "clippy" } }
+config.check.command = "clippy"
+
+[language-server.pylsp.config.pylsp.plugins]
+pycodestyle.maxLineLength = 120
 
 [[language]]
 name = "vhdl"
-formatter = { command = "vhdl_fmt.sh" }
+formatter.command = "vhdl_fmt.sh"
