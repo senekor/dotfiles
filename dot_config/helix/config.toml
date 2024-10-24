@@ -6,6 +6,7 @@ line-number = "absolute"
 bufferline = "multiple"
 mouse = false
 true-color = true
+auto-pairs = false
 
 [editor.cursor-shape]
 insert = "bar"
