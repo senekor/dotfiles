@@ -47,7 +47,6 @@ packages=(
 
     # containerization
     distrobox
-    docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
     # service
     syncthing

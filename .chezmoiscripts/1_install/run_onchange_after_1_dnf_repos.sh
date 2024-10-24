@@ -20,10 +20,6 @@ if dnf repolist | grep phracek &> /dev/null ; then
     sudo dnf copr disable -q phracek/PyCharm
 fi
 
-if ! dnf repolist | grep docker &> /dev/null ; then
-    sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-fi
-
 if ! dnf repolist | grep "com_paulcarroty_vscodium_repo" &> /dev/null ; then
     sudo rpmkeys --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
     printf "
