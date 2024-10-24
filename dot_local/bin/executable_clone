@@ -13,10 +13,31 @@ def main [
   repo_url: string # the repo to clone
   ...rest: string # additional clone args for jj
 ] {
-  let parsed = $repo_url | parse "git@{host}:{owner}/{repo}" | get 0
-  let host = $parsed.host
+  let parsed = (
+    $repo_url
+    | parse "{short_host}:{owner}/{repo}"
+    | get 0
+  )
   let owner = $parsed.owner
   let repo = $parsed.repo | str replace --regex '\.git$' ""
+
+  let known_hosts = (
+    open ~/.ssh/config
+    | split row "\n\n"
+    | parse --regex '^Host (?<short_host>\w+)\s*User git\s*HostName (?<host>\S+)'
+  )
+  let matched_host = (
+    $known_hosts
+    | where { $in.short_host == $parsed.short_host }
+    | get 0?
+  )
+  let host = if $matched_host != null {
+    $matched_host.host
+  } else {
+    $parsed.short_host | parse "git@{host}" | get 0.host
+  }
+
+  let repo_url = $"git@($host):($owner)/($repo)"
 
   cd ~/repos
 
