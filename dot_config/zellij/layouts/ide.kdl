@@ -8,7 +8,7 @@ layout {
 	tab {
 		pane {
 			command "bash"
-			args "-c" "for tab in $(ls dev/zellij/tabs); do zellij action new-tab --layout dev/zellij/tabs/$tab ; done ; for tab in $(ls ~/.config/zellij/layouts/ide_tabs); do zellij action new-tab --layout ~/.config/zellij/layouts/ide_tabs/$tab ; done ; zellij action go-to-tab-name helix"
+			args "-c" "for tab in $(ls devel/zellij/tabs); do zellij action new-tab --layout devel/zellij/tabs/$tab ; done ; for tab in $(ls ~/.config/zellij/layouts/ide_tabs); do zellij action new-tab --layout ~/.config/zellij/layouts/ide_tabs/$tab ; done ; zellij action go-to-tab-name helix"
 			close_on_exit true
 		}
 	}
