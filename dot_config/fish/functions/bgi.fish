@@ -5,7 +5,7 @@
 function bgi
     if set --query argv[1]
         set name $argv[1]
-        mkdir $name && cd $name
+        mkdir ~/repos/$name && cd ~/repos/$name
     else
         set name (basename $PWD)
     end
