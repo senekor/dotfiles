@@ -5,6 +5,7 @@
 apply:
     chezmoi git checkout $(jj log --no-graph -r @ -T commit_id)
     chezmoi apply
+    jj git export # not necessary but nice
 
 syncthing-server-ui:
     #!/bin/bash
