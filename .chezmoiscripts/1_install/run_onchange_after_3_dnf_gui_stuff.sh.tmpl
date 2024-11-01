@@ -31,11 +31,28 @@ packages=(
     pavucontrol # audio GUI
     brightnessctl # laptop screen brightness
     wtype # needed by wofi_emoji.sh
+    cmake meson cpio hyprland-devel # hyprpm
 )
-installed="$(dnf list installed)"
+installed="$(dnf list --installed)"
 for package in "${packages[@]}"; do
     if ! [[ $installed =~ $package ]] ; then
         sudo dnf install -y "${packages[@]}"
         break
     fi
 done
+
+# hyprland plugins
+if ! hyprpm list | grep hyprfocus > /dev/null ; then
+    (
+        echo "Installing cmake 3.30 for hyprpm..."
+        pushd "$(mktemp -d)"
+        version="3.30.5"
+        wget https://github.com/Kitware/CMake/releases/download/v$version/cmake-$version-linux-x86_64.sh
+        bash cmake-$version-linux-x86_64.sh --prefix="$HOME/.local" --exclude-subdir --skip-license
+        rm cmake-$version-linux-x86_64.sh
+        popd
+    )
+    hyprpm update --no-shallow
+    hyprpm add https://github.com/pyt0xic/hyprfocus || true
+    hyprpm enable hyprfocus
+fi
