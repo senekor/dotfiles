@@ -43,9 +43,11 @@ def main [
 
   if ($jj_block_list | any { |elem| $elem == $repo }) {
     git clone $repo_url ...$rest
-  } else {
-    jj git clone --colocate $repo_url ...$rest
+    cd $repo
+    return
   }
+
+  jj git clone --colocate $repo_url ...$rest
 
   cd $repo
 
