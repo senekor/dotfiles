@@ -27,8 +27,8 @@ p = ["git", "push"]
 r = ["rebase"]
 s = ["show"]
 
-# [revsets]
-# log = "ancestors(reachable(mine(), ~::trunk()), 2) | trunk()" # broken
+[revsets]
+log = "ancestors(::mine() ~ ::trunk(), 2) | trunk()"
 
 [templates]
 log = "builtin_log_comfortable"
