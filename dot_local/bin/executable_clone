@@ -53,12 +53,10 @@ def main [
 
   if ($host == github.zhaw.ch) {
     jj config set --repo user.email senk@zhaw.ch
-    jj config set --repo git.push-bookmark-prefix senk/
     jj describe --reset-author --no-edit
   }
   if ($owner == senekor) {
     jj config set --repo user.email remo@buenzli.dev
-    jj config set --repo git.push-bookmark-prefix remo/
     jj describe --reset-author --no-edit
   }
 }
