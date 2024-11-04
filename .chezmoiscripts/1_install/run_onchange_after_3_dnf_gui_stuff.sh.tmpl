@@ -42,8 +42,8 @@ for package in "${packages[@]}"; do
 done
 
 # hyprland plugins
-if ! hyprpm list | grep hyprfocus > /dev/null ; then
-    (
+if [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ] && ! hyprpm list | grep hyprfocus > /dev/null ; then
+    if ! [ -e ~/.local/bin/cmake ] ; then
         echo "Installing cmake 3.30 for hyprpm..."
         pushd "$(mktemp -d)"
         version="3.30.5"
@@ -51,7 +51,7 @@ if ! hyprpm list | grep hyprfocus > /dev/null ; then
         bash cmake-$version-linux-x86_64.sh --prefix="$HOME/.local" --exclude-subdir --skip-license
         rm cmake-$version-linux-x86_64.sh
         popd
-    )
+    fi
     hyprpm update --no-shallow
     hyprpm add https://github.com/pyt0xic/hyprfocus || true
     hyprpm enable hyprfocus
