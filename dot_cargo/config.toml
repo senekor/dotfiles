@@ -6,7 +6,7 @@ gen = "generate"
 global-credential-providers = ["cargo:token-from-stdout op read op://Personal/ncskkq6uqseteemqviapuisrbe/token"]
 
 [registries.buenzli-dev]
-# index = "sparse+https://git.buenzli.dev/api/packages/senekor/cargo/"
+# index = "sparse+https://git.buenzli.dev/api/packages/remo/cargo/"
 credential-provider = ["cargo:token-from-stdout", "bash", "-c", """
 printf "token "
 op read op://Personal/o7n5djqeb347qarbqx3x2l7z7m/token

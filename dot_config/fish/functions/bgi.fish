@@ -16,7 +16,7 @@ function bgi
 
     jj git init --colocate
 
-    jj git remote add origin "git@git.buenzli.dev:senekor/$name"
+    jj git remote add origin "git@git.buenzli.dev:remo/$name"
 
     jj bookmark create main --revision 'root()'
 end

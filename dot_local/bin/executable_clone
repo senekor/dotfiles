@@ -54,8 +54,7 @@ def main [
   if ($host == github.zhaw.ch) {
     jj config set --repo user.email senk@zhaw.ch
     jj describe --reset-author --no-edit
-  }
-  if ($owner == senekor) {
+  } else {
     jj config set --repo user.email remo@buenzli.dev
     jj describe --reset-author --no-edit
   }
