@@ -28,7 +28,7 @@ r = ["rebase"]
 s = ["show"]
 
 [revsets]
-log = "ancestors(::mine() ~ ::trunk(), 2) | trunk()"
+log = "present(@) | ancestors(trunk()..mine(), 2) | trunk()"
 
 [templates]
 log = "builtin_log_comfortable"
