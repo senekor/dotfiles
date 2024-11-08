@@ -5,8 +5,10 @@
 function bgi
     if set --query argv[1]
         set name $argv[1]
-        if string match '/*' $name
-            cd $name
+        if string match '*/*' $name
+            # specific path for initialization requested
+            mkdir --parents $name && cd $name
+            set name (basename $name)
         else
             mkdir ~/repos/$name && cd ~/repos/$name
         end
