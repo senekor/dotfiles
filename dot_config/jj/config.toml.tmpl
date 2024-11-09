@@ -27,6 +27,9 @@ p = ["git", "push"]
 r = ["rebase"]
 s = ["show"]
 
+# scripts
+yolo = ["config", "set", "--repo", "revset-aliases.'immutable_heads()'", "root()"]
+
 [revsets]
 log = "present(@) | ancestors(trunk()..mine(), 2) | trunk()"
 
