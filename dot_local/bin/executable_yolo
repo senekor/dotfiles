@@ -1,4 +1,0 @@
-#!/bin/bash
-set -euo pipefail
-
-jj config set --repo 'revset-aliases."immutable_heads()"' '"root()"'
