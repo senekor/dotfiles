@@ -7,8 +7,6 @@ echo "Performing system update..."
 sudo dnf update -y
 
 echo "Making sure rust is up to date..."
-# shellcheck source=/dev/null
-source "$HOME/.cargo/env"
 rustup --quiet update
 
 tldr --update &> /dev/null

@@ -26,3 +26,6 @@ email = {{ onepasswordRead (print $opdata "/email" ) | quote }}
 ssh_hosts = {{ onepasswordRead (print $opdata "/ssh_hosts" ) | quote }}
 git_repos = {{ onepasswordRead (print $opdata "/git_repos" ) | quote }}
 exercism_api_token = {{ onepasswordRead "op://chezmoi/Exercism API Token/credential" | quote }}
+
+[scriptEnv]
+PATH = "/nix/var/nix/profiles/default/bin:/home/remo/.local/bin:/home/remo/.cargo/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin"

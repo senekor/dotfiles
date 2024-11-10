@@ -22,6 +22,6 @@ do
 
     if ! [ -d ~/repos/"$repo_name" ] ; then
         echo "Cloning $repo_name..."
-        ~/.local/bin/clone "$repo" ~/repos/"$repo_name"
+        clone "$repo" ~/repos/"$repo_name"
     fi
 done
