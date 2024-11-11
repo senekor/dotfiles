@@ -13,8 +13,6 @@ diff-editor = ":builtin"
 
 [aliases]
 b = ["bookmark"]
-bm = ["bookmark", "move"]
-bmm = ["bookmark", "move", "main", "--to"]
 c = ["commit"]
 d = ["describe"]
 e = ["edit"]
@@ -30,6 +28,7 @@ s = ["show"]
 # scripts
 yolo = ["config", "set", "--repo", "revset-aliases.'immutable_heads()'", "root()"]
 yolont = ["config", "unset", "--repo", "revset-aliases.'immutable_heads()'"]
+drag = ["bookmark", "move", "--to", "@-"]
 
 [revsets]
 log = "present(@) | ancestors(trunk()..mine(), 2) | trunk()"
