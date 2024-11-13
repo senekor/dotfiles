@@ -64,10 +64,13 @@ def main [
 
   cd $repo
 
-  if ($host == github.zhaw.ch) {
-    jj config set --repo user.email senk@zhaw.ch
-    jj describe --reset-author --no-edit
-  } else {
+  let default_email = (open ~/.config/jj/config.toml | get user.email)
+  if $host == github.zhaw.ch {
+    if ($default_email != senk@zhaw.ch) {
+      jj config set --repo user.email senk@zhaw.ch
+      jj describe --reset-author --no-edit
+    }
+  } else if ($default_email != remo@buenzli.dev) {
     jj config set --repo user.email remo@buenzli.dev
     jj describe --reset-author --no-edit
   }
