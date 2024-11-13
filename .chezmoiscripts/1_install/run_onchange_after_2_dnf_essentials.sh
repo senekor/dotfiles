@@ -54,7 +54,7 @@ packages=(
     # needed by some rust crates, e.g. taplo-cli
     openssl-devel
 )
-installed="$(dnf list installed)"
+installed="$(dnf list --installed)"
 for package in "${packages[@]}"; do
     if ! [[ $installed =~ $package ]] ; then
         sudo dnf install -y "${packages[@]}"
