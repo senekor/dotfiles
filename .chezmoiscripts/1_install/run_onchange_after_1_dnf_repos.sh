@@ -48,6 +48,7 @@ fi
 copr_repos=(
     atim/starship
     varlad/zellij
+    claaj/typst
 )
 
 for copr_repo in "${copr_repos[@]}"
