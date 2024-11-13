@@ -13,11 +13,24 @@ def main [
   repo_url: string # the repo to clone
   ...rest: string # additional clone args for jj
 ] {
-  let parsed = (
-    $repo_url
-    | parse "{short_host}:{owner}/{repo}"
-    | get 0
-  )
+  let parsed = if $repo_url =~ "http(s)?://" {
+    let parsed_http = (
+      $repo_url
+      | parse "{http}://{domain}/{owner}/{repo}"
+      | get 0
+    )
+    {
+      short_host: $"git@($parsed_http.domain)"
+      owner: $parsed_http.owner,
+      repo: $parsed_http.repo,
+    }
+  } else {
+    (
+      $repo_url
+      | parse "{short_host}:{owner}/{repo}"
+      | get 0
+    )
+  }
   let owner = $parsed.owner
   let repo = $parsed.repo | str replace --regex '\.git$' ""
 
