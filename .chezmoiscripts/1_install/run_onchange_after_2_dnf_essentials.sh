@@ -8,7 +8,7 @@ packages=(
     rustup # still need to run rustup-init
     gcc # rust needs the linker from gcc
     nodejs yarnpkg
-    python3-pip python3-lsp-server+all
+    python3-pip python3-lsp-server+all uv python-launcher
     shellcheck nodejs-bash-language-server
 
     # shell
