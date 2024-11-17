@@ -44,15 +44,6 @@ log = "builtin_log_comfortable"
 op_log = 'builtin_op_log_comfortable'
 log_node = "my_log_node"
 
-# https://github.com/martinvonz/jj/blob/main/cli/src/config/colors.toml
-[colors]
-"change_id" = "cyan"
-"working_copy change_id" = "bright cyan"
-
-"node working_copy" = { fg = "yellow" }
-"node immutable" = { fg = "white" }
-"node working_copy immutable" = { fg = "yellow" }
-
 # https://github.com/martinvonz/jj/blob/main/cli/src/config/templates.toml
 [template-aliases]
 
@@ -86,6 +77,10 @@ if(root,
 )
 '''
 
+# changes compared to default:
+# - elided:    ':' instead of '~'
+# - immutable: '•' instead of '◆' (diamond is off-center in Roboto Mono)
+# - conflict:  '🗙' instead of '×'
 my_log_node = '''
 coalesce(
   if(!self, label("elided", ":")),
@@ -96,10 +91,10 @@ coalesce(
       if(conflict, "conflict"),
     ),
     coalesce(
-      if(current_working_copy, "⬤"),
+      if(current_working_copy, "@"),
       if(immutable, "•"),
       if(conflict, "🗙"),
-      "•",
+      "○",
     )
   )
 )
