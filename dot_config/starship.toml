@@ -31,7 +31,7 @@ format = '[($all_status$ahead_behind )]($style)'
 min_time = 10_000
 
 [character]
-success_symbol = "[❯](bold white)"
+success_symbol = "[❯](bold)"
 
 [time]
 format = "[$time]($style)"
