@@ -69,6 +69,7 @@
   "rust-analyzer.inlayHints.parameterHints.enable": false,
   "rust-analyzer.inlayHints.typeHints.enable": false,
   "rust-analyzer.lens.implementations.enable": false,
+  "security.workspace.trust.enabled": false,
   "terminal.integrated.enableMultiLinePasteWarning": "never",
   "terminal.integrated.shellIntegration.enabled": false,
   "terminal.integrated.tabs.enabled": false,
