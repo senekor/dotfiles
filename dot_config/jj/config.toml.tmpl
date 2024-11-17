@@ -11,6 +11,10 @@ default-description = "\n"
 diff-editor = ":builtin"
 # diff.tool = ["difft", "--color=always", "--syntax-highlight", "off", "$left", "$right"]
 
+[merge-tools.codium]
+merge-args = ["--wait", "--merge", "$left", "$right", "$base", "$output"]
+merge-tool-edits-conflict-markers = true
+
 [aliases]
 b = ["bookmark"]
 c = ["commit"]
