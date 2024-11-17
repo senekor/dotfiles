@@ -1,6 +1,7 @@
 [general]
 # import = ["~/.config/alacritty/themes/vscode.toml"]
 # import = ["~/.config/alacritty/themes/github_light_high_contrast.toml"]
+# import = ["~/.config/alacritty/themes/dayfox.toml"]
 
 live_config_reload = true
 
