@@ -28,4 +28,4 @@ git_repos = {{ onepasswordRead (print $opdata "/git_repos" ) | quote }}
 exercism_api_token = {{ onepasswordRead "op://chezmoi/Exercism API Token/credential" | quote }}
 
 [scriptEnv]
-PATH = "/nix/var/nix/profiles/default/bin:/home/remo/.local/bin:/home/remo/.cargo/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin"
+PATH = "/nix/var/nix/profiles/default/bin:{{ .chezmoi.homeDir }}/.local/bin:{{ .chezmoi.homeDir }}/.cargo/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin"
