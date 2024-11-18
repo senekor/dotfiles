@@ -16,25 +16,33 @@ merge-args = ["--wait", "--merge", "$left", "$right", "$base", "$output"]
 merge-tool-edits-conflict-markers = true
 
 [aliases]
-b = ["bookmark"]
-c = ["commit"]
-d = ["describe"]
-e = ["edit"]
-f = ["git", "fetch", "--all-remotes"]
-l = ["log", "--template", "builtin_log_oneline", "--revisions", "ancestors(@)"]
-ld =["log", "--template", "builtin_log_detailed","--revisions", "ancestors(@)"]
-g = ["log", "--template", "builtin_log_oneline", "--revisions", "all()"]
-gd =["log", "--template", "builtin_log_detailed","--revisions", "all()"]
-p = ["git", "push"]
-r = ["rebase"]
-s = ["show"]
+b  = ["bookmark"]
+c  = ["commit"]
+d  = ["describe"]
+e  = ["edit"]
+f  = ["git", "fetch", "--all-remotes"]
+l  = ["log", "--template", "builtin_log_oneline", "--revisions", "ancestors(@)"]
+ld = ["log", "--template", "builtin_log_detailed","--revisions", "ancestors(@)"]
+g  = ["log", "--template", "builtin_log_oneline", "--revisions", "all()"]
+gd = ["log", "--template", "builtin_log_detailed","--revisions", "all()"]
+p  = ["git", "push"]
+r  = ["rebase"]
+s  = ["show"]
 
-# scripts
 yolo = ["config", "set", "--repo", "revset-aliases.'immutable_heads()'", "root()"]
 yolont = ["config", "unset", "--repo", "revset-aliases.'immutable_heads()'"]
 drag = ["bookmark", "move", "--to", "@-"]
 track-mine = ["bookmark", "track", "glob:remo/*@origin"]
+
+# [scripts]
 clone = ["util", "exec", "--", "{{ .chezmoi.homeDir }}/.config/jj/scripts/clone.nu"]
+bgi   = [
+  "util", "exec", "--",
+  "cargo", "run", "--quiet",
+  "--manifest-path", "{{ .chezmoi.homeDir }}/.config/jj/scripts/bgi/Cargo.toml",
+  "--",
+]
+play  = ["bgi", "jj-play"]
 
 [revsets]
 log = "present(@) | ancestors(trunk()..mine(), 2) | trunk()"
