@@ -30,10 +30,7 @@ fn main() {
     sh("jj git remote add origin")
         .arg(format!("git@git.buenzli.dev:remo/{repo}"))
         .run(None);
-    write("README.md", format!("# {repo}\n")).unwrap();
-    sh("jj bookmark create main").run(None);
     sh("jj config set --repo revset-aliases.'trunk()' present(main@origin)").run(None);
-    sh("jj commit --message").arg("initial commit").run(None);
 
     let dir = current_dir().unwrap().to_str().unwrap().to_string();
 
