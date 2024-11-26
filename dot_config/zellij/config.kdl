@@ -23,14 +23,14 @@ plugins {
         format_left   "{mode}{tabs}"
         format_right  "{command_pwd} {command_batstat} {datetime}"
 
-        mode_normal "#[bg=#393836] #[fg=#393836]"
-        mode_tmux   "#[bg=#625e5a] #[fg=#625e5a]"
-        mode_resize "#[bg=#ffa066] #[fg=#ffa066]"
-        mode_locked "#[bg=#9e73e6] #[fg=#9e73e6]"
+        mode_normal "#[bg=#393836] #[fg=#393836]▊"
+        mode_tmux   "#[bg=#625e5a] #[fg=#625e5a]▊"
+        mode_resize "#[bg=#ffa066] #[fg=#ffa066]▊"
+        mode_locked "#[bg=#9e73e6] #[fg=#9e73e6]▊"
         mode_default_to_mode "resize"
 
-        tab_normal "#[fg=#141414,bg=#393836] #[bg=#393836,fg=#000000,bold]{name} #[fg=#393836]"
-        tab_active "#[fg=#141414,bg=#625e5a] #[bg=#625e5a,fg=#000000,bold]{name} #[fg=#625e5a]"
+        tab_normal "#[fg=#141414,bg=#393836]▎#[bg=#393836,fg=#000000,bold]{name}#[fg=#393836]▊"
+        tab_active "#[fg=#141414,bg=#625e5a]▎#[bg=#625e5a,fg=#000000,bold]{name}#[fg=#625e5a]▊"
 
         command_pwd_command "bash -c 'basename $PWD'"
         command_pwd_format  "#[fg=#393836,bold]{stdout}"
