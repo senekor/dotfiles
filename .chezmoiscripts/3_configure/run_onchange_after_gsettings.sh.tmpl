@@ -67,3 +67,11 @@ dconf write /org/gnome/shell/favorite-apps "[
 
 # nautilus
 gsettings set org.gnome.nautilus.preferences default-folder-viewer "list-view"
+
+# ptyxis terminal
+ptyxis_profile="$(dconf read /org/gnome/Ptyxis/default-profile-uuid | cut --delimiter "'" --fields 2)"
+dconf write "/org/gnome/Ptyxis/Profiles/$ptyxis_profile/palette" "'Vs Code'"
+dconf write /org/gnome/Ptyxis/audible-bell false
+dconf write /org/gnome/Ptyxis/visual-bell false
+dconf write /org/gnome/Ptyxis/use-system-font false
+dconf write /org/gnome/Ptyxis/font-name "'Roboto Mono 11'"
