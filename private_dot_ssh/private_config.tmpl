@@ -16,5 +16,33 @@ Host bg
   User git
   HostName git.buenzli.dev
 
+Host pi
+  User remo
+  HostName yd6kjn4il1zruspp.myfritz.net
+  ForwardAgent yes
+
 # chezmoi:template:left-delimiter="# {{"
-# {{ .op.ssh_hosts }}
+# {{- if eq .org "zhaw" }}
+
+# zhaw
+
+Host zhaw-desktop
+  User senk
+  HostName 160.85.232.182
+  ForwardAgent yes
+
+Host gh-actions-runner
+  User senk
+  HostName srv-lab-t-581.zhaw.ch
+
+Host savedge-ingest
+  User senk
+  HostName srv-lab-t-416.zhaw.ch
+  ForwardAgent yes
+
+Host nano-kistler
+  User kistler
+  HostName 192.168.101.23
+  ForwardAgent yes
+
+# {{- end }}

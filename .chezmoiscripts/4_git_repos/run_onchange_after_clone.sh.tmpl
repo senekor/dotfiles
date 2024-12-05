@@ -4,24 +4,35 @@ set -eo pipefail
 
 echo "Cloning git repos..."
 
-for host in git@github.com git@github.zhaw.ch git@git.buenzli.dev
+for host in ~/repos/*.* # at least one dot for domains
 do
+    host="$(basename "$host")"
     # workaround for jj using libssh instead of openssh, should be fixed at some point
-    ssh -o StrictHostKeyChecking=accept-new -T "$host" || true
+    ssh -o StrictHostKeyChecking=accept-new -T "git@$host" || true
 done
 
+# {{ template "skipOnServer" . }}
+
 repos=(
-# {{- if not .isServer }}
-# {{ .op.git_repos }}
+    github.com/rust-lang/www.rust-lang.org
+    github.com/exercism/rust-test-runner
+    github.com/martinvonz/jj
+    git.buenzli.dev/remo/async-rust-yoink
+# {{- if eq .org "zhaw" }}
+    github.zhaw.ch/senk/vt-embedded-linux-driver-rust
+    github.zhaw.ch/hpmm/mc2-labs
+    github.zhaw.ch/InES/werkzeugraum
 # {{- end }}
 )
 
-for repo in "${repos[@]}"
+for repo_path in "${repos[@]}"
 do
-    repo_name="$(basename "$repo")"
+    repo="$(basename "$repo_path")"
+    owner="$(basename "$(dirname "$repo_path")")"
+    host="$(dirname "$(dirname "$repo_path")")"
 
-    if ! [ -d ~/repos/"$repo_name" ] ; then
-        echo "Cloning $repo_name..."
-        jj clone "$repo" ~/repos/"$repo_name"
+    if ! [ -d ~/repos/"$host/$owner/$repo" ] ; then
+        echo "Cloning $repo..."
+        jj clone "git@$host:$owner/$repo"
     fi
 done

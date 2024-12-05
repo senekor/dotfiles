@@ -3,7 +3,7 @@
 
 # chezmoi apply the current state of the jj repo
 apply:
-    chezmoi git checkout $(jj log --no-graph -r @ -T commit_id)
+    git -C ~/.local/share/chezmoi checkout --force $(jj log --no-graph -r @ -T commit_id)
     @git reset --soft HEAD^ # make sure HEAD points to @-
     chezmoi apply
     @jj git export # not necessary but nice

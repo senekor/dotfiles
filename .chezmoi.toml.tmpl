@@ -14,17 +14,10 @@ isServer = {{ $isServer }}
 {{- $org := promptString "Which organziation does this machine belong to" "none" }}
 org = {{ $org | quote }}
 
-{{ if $isServer -}}
-[onepassword]
-command = "opw" # wrapper loading service account token
+{{ if not $isServer -}}
+exercism_api_token = {{ onepasswordRead "op://chezmoi/Exercism API Token/credential" | quote }}
 
 {{ end -}}
-
-[data.op]
-{{- $opdata := print "op://chezmoi/" $org }}
-ssh_hosts = {{ onepasswordRead (print $opdata "/ssh_hosts" ) | quote }}
-git_repos = {{ onepasswordRead (print $opdata "/git_repos" ) | quote }}
-exercism_api_token = {{ onepasswordRead "op://chezmoi/Exercism API Token/credential" | quote }}
 
 [scriptEnv]
 PATH = "/nix/var/nix/profiles/default/bin:{{ .chezmoi.homeDir }}/.local/bin:{{ .chezmoi.homeDir }}/.cargo/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin"
