@@ -41,8 +41,7 @@
 	pushInsteadOf = https://
 [user]
 	name = Remo Senekowitsch
-	# chezmoi:template:left-delimiter="# {{"
-	email = # {{ .op.email }}
+	email = remo@buenzli.dev
 
 [alias]
 	st = status --short

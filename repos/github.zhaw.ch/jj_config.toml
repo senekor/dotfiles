@@ -1,0 +1,4 @@
+[user]
+email = "senk@zhaw.ch"
+[git]
+push-bookmark-prefix = "senk/"

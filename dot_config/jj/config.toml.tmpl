@@ -1,6 +1,6 @@
 [user]
 name = "Remo Senekowitsch"
-email = "{{ .op.email }}"
+email = "remo@buenzli.dev"
 
 [git]
 push-bookmark-prefix = "remo/"
@@ -33,7 +33,7 @@ s  = ["show"]
 yolo = ["config", "set", "--repo", "revset-aliases.'immutable_heads()'", "root()"]
 yolont = ["config", "unset", "--repo", "revset-aliases.'immutable_heads()'"]
 drag = ["bookmark", "move", "--to", "@-"]
-track-mine = ["bookmark", "track", "glob:remo/*@origin"]
+track-mine = ["bookmark", "track", "glob:remo/*@origin", "glob:senekor/*@origin", "glob:senk/*@origin"]
 
 # [scripts]
 clone = ["util", "exec", "--", "{{ .chezmoi.homeDir }}/.config/jj/scripts/clone.nu"]

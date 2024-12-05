@@ -22,7 +22,6 @@ command = "opw" # wrapper loading service account token
 
 [data.op]
 {{- $opdata := print "op://chezmoi/" $org }}
-email = {{ onepasswordRead (print $opdata "/email" ) | quote }}
 ssh_hosts = {{ onepasswordRead (print $opdata "/ssh_hosts" ) | quote }}
 git_repos = {{ onepasswordRead (print $opdata "/git_repos" ) | quote }}
 exercism_api_token = {{ onepasswordRead "op://chezmoi/Exercism API Token/credential" | quote }}

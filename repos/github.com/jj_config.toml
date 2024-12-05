@@ -1,0 +1,4 @@
+[user]
+email = "remo@buenzli.dev"
+[git]
+push-bookmark-prefix = "senekor/"

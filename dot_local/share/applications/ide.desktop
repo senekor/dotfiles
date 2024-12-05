@@ -1,5 +1,5 @@
 [Desktop Entry]
 Name=IDE
-Exec=alacritty --command fish '-c ide'
+Exec=alacritty --command fish -c 'ide --fzf'
 Icon=zellij
 Type=Application
