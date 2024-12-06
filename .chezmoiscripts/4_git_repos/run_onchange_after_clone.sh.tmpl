@@ -2,7 +2,7 @@
 set -eo pipefail
 # chezmoi:template:left-delimiter="# {{"
 
-echo "Cloning git repos..."
+echo "Pinging git hosts..."
 
 for host in ~/repos/*.* # at least one dot for domains
 do
@@ -12,6 +12,8 @@ do
 done
 
 # {{ template "skipOnServer" . }}
+
+echo "Cloning git repos..."
 
 repos=(
     github.com/rust-lang/www.rust-lang.org
