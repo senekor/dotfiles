@@ -8,7 +8,10 @@ git remote set-url origin git@github.com:senekor/dotfiles
 dotfiles_dir="$HOME/repos/github.com/senekor/dotfiles"
 
 mkdir -p ~/repos
-[ -e "$dotfiles_dir" ] || jj git init --git-repo ~/.local/share/chezmoi "$dotfiles_dir"
+if ! [ -e "$dotfiles_dir" ] ; then
+  mkdir --parents "$(dirname "$dotfiles_dir")"
+  jj git init --git-repo ~/.local/share/chezmoi "$dotfiles_dir"
+fi
 cd "$dotfiles_dir"
 jj config set --repo user.email "remo@buenzli.dev"
 jj bookmark track main@origin
