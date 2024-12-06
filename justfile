@@ -2,10 +2,10 @@
     just --list --unsorted
 
 # chezmoi apply the current state of the jj repo
-apply:
+apply *chezmoi_args="":
     git -C ~/.local/share/chezmoi checkout --force $(jj log --no-graph -r @ -T commit_id)
     @git reset --soft HEAD^ # make sure HEAD points to @-
-    chezmoi apply
+    chezmoi apply {{ chezmoi_args }}
     @jj git export # not necessary but nice
 
 syncthing-server-ui:
