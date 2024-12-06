@@ -20,7 +20,11 @@ fn main() {
         repo = format!("jj-play-{}", sh("date -u +%Y-%m-%d-%H-%M-%S").run(None));
     } else {
         if !repo.contains('/') {
-            repo = format!("{}/repos/{}", var("HOME").unwrap(), repo);
+            repo = format!(
+                "{}/repos/git.buenzli.dev/remo/{}",
+                var("HOME").unwrap(),
+                repo
+            );
         }
         create_dir_all(&repo).unwrap();
         set_current_dir(&repo).unwrap();
