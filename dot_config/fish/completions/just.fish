@@ -1,109 +1,19 @@
+# These are in the process of being upstreamed:
+# https://github.com/casey/just/pull/2514
+#
+# You can check what completions your current version of just ships with using:
+#
+# jj --completions fish
+
 function __fish_just_complete_recipes
     if string match -rq '(-f|--justfile)\s*=?(?<justfile>[^\s]+)' -- (string split -- ' -- ' (commandline -pc))[1]
         set -fx JUST_JUSTFILE "$justfile"
     end
-
-    # We need the command line tokens to compare them against the module path
-    # of recipies within modules.
-    set commandline_tokens (commandline --current-process --tokenize --cut-at-cursor)
-
-    # Used to track the deepest matching module path. Once a path of a certain
-    # depth matches, all suggestions with shorter paths are invalidated.
-    set max_matching_module_depth 1
-
-    for line in (just --list --list-heading='' --list-prefix='>' --list-submodules 2>/dev/null)
-        if [ $line = '' ]
-            continue
-        end
-
-        # Determine the module depth of the current recipe.
-        set depth 0
-        while [ (string sub --end 1 $line) = '>' ]
-            set depth (math "$depth + 1")
-            set line (string sub --start 2 $line)
-        end
-        if [ (string sub --end 1 $line) = '[' ]
-            # Group headings start with '[', ignore this line.
-            continue
-        end
-        if [ $depth -lt $max_matching_module_depth ]
-            # We have previously found a deeper matching module. There is no
-            # chance any other recipes will match from this point forward.
-            break
-        end
-        # Pop segments off the module stack that aren't valid anymore.
-        for i in (seq $depth (count $module_stack))
-            set --erase module_stack[$i]
-        end
-        set cmd_args_desc (string split " # " $line)
-        set cmd_args "$cmd_args_desc[1]"
-        set desc "$cmd_args_desc[2]"
-
-        set cmd_args (string split " " $cmd_args)
-        set cmd "$cmd_args[1]"
-        set args "$cmd_args[2]"
-
-        # Detect modules based on the colon at the end. Strip the colon for
-        # completions and add it to the module stack.
-        if [ (string sub --start -1 $cmd) = ':' ]
-            set cmd (string sub --end -1 $cmd)
-            set --append module_stack $cmd
-        end
-
-        # If the current recipe is within a module, make sure its path is
-        # present on the commandline.
-        if [ $depth -gt 1 ]
-            set modules_to_find $module_stack[1..(math "$depth - 1")]
-            set num_modules (count $modules_to_find)
-            set commandline_offset (math "$(count $commandline_tokens) - $num_modules + 1")
-
-            if [ $commandline_offset -lt 1 ]
-                # The current commandline is shorter than the module path of
-                # the current recipe. No way it will match.
-                continue
-            end
-
-            set commandline_tail $commandline_tokens[$commandline_offset..-1]
-
-            if [ "$modules_to_find" != "$commandline_tail" ]
-                # The module path of the current recipe isn't on the
-                # commandline, so we shouldn't suggest it.
-                continue
-            end
-
-            if [ $depth -gt $max_matching_module_depth ]
-                set max_matching_module_depth $depth
-                # All the previous suggestions are now invalid, because they
-                # matched a shorter module path.
-                set --erase suggestions
-            end
-        end
-
-        # Register current recipe as suggestion. It may be invalidated later if
-        # a longer module path matches.
-        if [ "$args" != '' ]
-            if [ "$desc" != '' ]
-                set --append suggestions "$cmd\tArgs: $args; $desc"
-            else
-                set --append suggestions "$cmd\tArgs: $args"
-            end
-        else
-            if [ "$desc" != '' ]
-                set --append suggestions "$cmd\t$desc"
-            else
-                set --append suggestions "$cmd"
-            end
-        end
-    end
-
-    # Print the final suggestions
-    for s in $suggestions
-        printf "$s\n"
-    end
+    printf "%s\n" (string split " " (just --summary))
 end
 
-# don't suggest files
-complete -c just --no-files
+# don't suggest files right off
+complete -c just -n __fish_is_first_arg --no-files
 
 # complete recipes
 complete -c just -a '(__fish_just_complete_recipes)'
