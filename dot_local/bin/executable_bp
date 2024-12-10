@@ -13,6 +13,7 @@ touch "$path"
 
 options="\
 bash
+fish
 rust
 html"
 
@@ -20,6 +21,8 @@ if [ "$path" = "justfile" ] ; then
   choice="justfile"
 elif [[ "$path" = *.sh ]] ; then
   choice="bash"
+elif [[ "$path" = *.fish ]] ; then
+  choice="fish"
 elif [[ "$path" = *.rs ]] ; then
   choice="rust"
 elif [[ "$path" = *.html ]] ; then
@@ -32,8 +35,15 @@ case "$choice" in
   bash)
     executable="true"
     content="\
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
+
+echo \"Hello, world!\""
+    ;;
+  fish)
+    executable="true"
+    content="\
+#!/usr/bin/env fish
 
 echo \"Hello, world!\""
     ;;
