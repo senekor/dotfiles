@@ -73,7 +73,7 @@ fn main() {
     executable="false"
     content="\
 _default:
-    just --list --unsorted"
+    just --list --unsorted --list-submodules"
       ;;
 esac
 
