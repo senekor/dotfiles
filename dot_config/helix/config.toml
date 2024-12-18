@@ -37,6 +37,7 @@ h = "jump_backward"             # move through jumplist ("history")
 H = "jump_forward"              # move through jumplist ("history")
 k = ":buffer-close"             # "kill" or "klose" buffer
 K = ":buffer-close-others"      # "kill" or "klose" buffer
+X = "select_line_above"         # instead of extend_to_line_bounds
 S-left = "select_prev_sibling"  # shift-arrows to traverse syntax-tree
 S-right = "select_next_sibling" # shift-arrows to traverse syntax-tree
 S-up = "expand_selection"       # shift-arrows to traverse syntax-tree
