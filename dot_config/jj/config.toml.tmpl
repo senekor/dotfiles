@@ -3,14 +3,11 @@ name = "Remo Senekowitsch"
 email = "remo@buenzli.dev"
 
 [git]
-push-bookmark-prefix = "remo/"
+push-bookmark-prefix = "remo/" # fallback, usually overwritten by `jj clone`
 
 [ui]
 default-command = ["log", "--template", "my_log_compact_comfortable"]
-# default-command = ["log", "--template", "builtin_log_comfortable"]
-default-description = "\n"
-diff-editor = ":builtin"
-# diff.tool = ["difft", "--color=always", "--syntax-highlight", "off", "$left", "$right"]
+diff-editor = ":builtin" # suppress hint about this config option
 
 [merge-tools.codium]
 merge-args = ["--wait", "--merge", "$left", "$right", "$base", "$output"]
