@@ -40,5 +40,11 @@ if ! which deno &> /dev/null ; then
     sh <(curl -fsSL https://deno.land/install.sh) --yes --no-modify-path
 fi
 
+if ! which taplo &> /dev/null ; then
+    curl -fsSL "https://github.com/tamasfe/taplo/releases/latest/download/taplo-full-linux-$(arch).gz" \
+        | gzip -d - \
+        | install -m 755 /dev/stdin ~/.local/bin/taplo
+fi
+
 # {{ template "skipOnServer" . }}
 cargo binstall --no-confirm --log-level warn openscad-lsp
