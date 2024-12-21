@@ -45,6 +45,7 @@ packages=(
     tealdeer
     fzf
     patch
+    boxes
 
     # containerization
     distrobox
