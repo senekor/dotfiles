@@ -44,6 +44,7 @@ packages=(
     sd
     tealdeer
     fzf
+    patch
 
     # containerization
     distrobox
