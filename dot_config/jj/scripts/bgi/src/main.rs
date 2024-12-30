@@ -38,17 +38,7 @@ fn main() {
 
     let dir = current_dir().unwrap().to_str().unwrap().to_string();
 
-    if var("ZELLIJ").is_ok() {
-        // take over zellij pane to cd into repo directly
-        sh("zellij action write-chars cd").run(None);
-        sh("zellij action write 32").run(None); // ascii space
-        sh(&format!("zellij action write-chars {dir}")).run(None);
-        sh("zellij action write 10").run(None); // ascii line feed / new line
-    } else {
-        // copy path to clipboard so user can cd into it quickly
-        sh("wl-copy").run(Some(format!("cd {dir}")));
-        println!("Command to cd into repo is in clipboard.");
-    }
+    sh("wtype").arg(format!("{dir}\n")).run(None);
 }
 
 fn prompt_for_repo() -> String {

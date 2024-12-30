@@ -20,6 +20,8 @@ packages=(
     seahorse
     # gtk dark theme for legacy apps, see configure/gsettings
     adw-gtk3-theme
+    # simulate wayland input, used by wofi_emoji.sh and `jj bgi`
+    wtype
 
     # hyprland
     hyprland
@@ -33,7 +35,6 @@ packages=(
     blueman # bluetooth GUI
     pavucontrol # audio GUI
     brightnessctl # laptop screen brightness
-    wtype # needed by wofi_emoji.sh
     cmake meson cpio hyprland-devel # hyprpm
 )
 installed="$(dnf list --installed)"
