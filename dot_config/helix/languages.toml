@@ -13,12 +13,29 @@ formatter.command = "vhdl_fmt.sh"
 
 [[language]]
 name = "typescript"
-language-id = "typescript"
 scope = "source.ts"
-injection-regex = "^(ts|typescript)$"
-file-types = ["ts"]
+injection-regex = "(ts|typescript)"
+language-id = "typescript"
+file-types = ["ts", "mts", "cts"]
 shebangs = ["deno"]
 roots = ["deno.json", "deno.jsonc", "package.json"]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+indent = { tab-width = 2, unit = "  " }
+auto-format = true
+language-servers = ["deno-lsp"]
+
+[[language]]
+name = "javascript"
+scope = "source.js"
+injection-regex = "(js|javascript)"
+language-id = "javascript"
+file-types = ["js", "mjs", "cjs", "rules", "es6", "pac", { glob = ".node_repl_history" }, { glob = "jakefile" }]
+shebangs = ["deno"]
+roots = ["deno.json", "deno.jsonc", "package.json"]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+indent = { tab-width = 2, unit = "  " }
 auto-format = true
 language-servers = ["deno-lsp"]
 
