@@ -1,2 +1,11 @@
 #!/usr/bin/env bash
-boxes --design ansi
+
+# usage example:
+#
+# fitting box:
+# `echo foo | box`
+#
+# precisely sized box:
+# `echo foo | box --size 80x5`
+
+boxes --design ansi --size 80x5 --align hc --align vc "$@"
