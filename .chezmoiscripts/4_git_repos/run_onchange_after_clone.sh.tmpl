@@ -16,12 +16,28 @@ done
 echo "Cloning git repos..."
 
 repos=(
+    git.buenzli.dev/remo/notes.wiki
+    git.buenzli.dev/remo/container-test
+
+    github.com/senekor/rust-workshop
+    github.com/senekor/three-d-models
+
     github.com/rust-lang/www.rust-lang.org
+    github.com/exercism/rust
     github.com/exercism/rust-test-runner
     github.com/jj-vcs/jj
-    git.buenzli.dev/remo/async-rust-yoink
-# {{- if eq .org "zhaw" }}
+
     github.zhaw.ch/senk/vt-embedded-linux-driver-rust
+
+# {{- if eq .org "none" }}
+    git.buenzli.dev/remo/aoc
+    git.buenzli.dev/remo/async-rust-yoink
+    git.buenzli.dev/remo/data-structure-exercises
+    git.buenzli.dev/remo/keyboard-layouts
+    github.com/senekor/buenzlimarks
+# {{- end }}
+
+# {{- if eq .org "zhaw" }}
     github.zhaw.ch/hpmm/mc2-labs
     github.zhaw.ch/InES/werkzeugraum
 # {{- end }}
