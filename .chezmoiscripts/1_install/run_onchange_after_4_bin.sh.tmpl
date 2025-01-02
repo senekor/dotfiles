@@ -33,6 +33,11 @@ export GITHUB_TOKEN
 
 cargo binstall --no-confirm --log-level warn "${packages[@]}"
 
+# markdown-oxide is not yet published to crates.io (https://github.com/Feel-ix-343/markdown-oxide/issues/63)
+cargo binstall --no-confirm --log-level warn \
+    --git 'https://github.com/feel-ix-343/markdown-oxide' \
+    markdown-oxide
+
 [ -d "$HOME/.local/bin" ] || mkdir -p "$HOME/.local/bin"
 
 if ! which deno &> /dev/null ; then
