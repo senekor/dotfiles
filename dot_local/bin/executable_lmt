@@ -1,0 +1,20 @@
+#!/usr/bin/env fish
+
+set tags "\
+Signed-off-by
+Co-developed-by
+Acked-by
+From
+Tested-by
+Reviewed-by
+Suggested-by
+Reported-by
+Fixes
+"
+
+echo "$tags" | fzf | tr --delete '\n'
+
+echo "\
+: Remo Senekowitsch <remo@buenzli.dev>
+: 
+" | fzf
