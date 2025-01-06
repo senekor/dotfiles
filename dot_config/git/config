@@ -46,8 +46,8 @@
 [alias]
 	st = status --short
 	f = fetch --all
-	l = !git log --oneline || true
-	g = !git log --oneline --graph --branches='*' --remotes='*' HEAD || true
+	l = "!f() { git log --oneline --graph "$@" || true ; }; f"
+	g = "!f() { git log --oneline --graph --branches='*' --remotes='*' "$@" || true ; }; f"
 
 	au = add --update
 	aa = add --all
