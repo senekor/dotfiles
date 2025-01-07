@@ -12,7 +12,6 @@ auto-pairs = false
 # check if the defaults are good, i.e. this section can be removed.
 [editor.inline-diagnostics]
 cursor-line = "hint" # error, warning, info, hint
-other-lines = "error"
 
 [editor.cursor-shape]
 insert = "bar"
