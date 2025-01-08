@@ -27,3 +27,9 @@ language-servers = ["deno-lsp"]
 command = "deno"
 args = ["lsp"]
 config.deno.enable = true
+
+# fix for:  https://github.com/tamasfe/taplo/issues/320
+# sol from: https://github.com/tamasfe/taplo/issues/580#issuecomment-2004174721
+[[language]]
+name = "toml"
+roots = ["."]
