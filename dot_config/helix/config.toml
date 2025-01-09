@@ -54,6 +54,9 @@ S-down = "shrink_selection"     # shift-arrows to traverse syntax-tree
 j = "flip_selections" # "juxtapose"
 
 [keys.normal.space]
+# space-k is risky. forgetting space closes the buffer.
+t = "hover"
+k = "no_op"
 # These are usually the same. But when the current directory is not the
 # same as the git repository, I want the default to be inverted. By default,
 # open the file picker in the current directory, because I probably set that
