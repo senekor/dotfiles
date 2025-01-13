@@ -46,6 +46,7 @@ packages=(
     fzf
     patch
     boxes
+    pwgen
 
     # containerization
     distrobox
