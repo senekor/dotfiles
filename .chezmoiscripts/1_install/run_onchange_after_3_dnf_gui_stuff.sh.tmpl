@@ -37,6 +37,9 @@ packages=(
     pavucontrol # audio GUI
     brightnessctl # laptop screen brightness
     cmake meson cpio hyprland-devel # hyprpm
+
+    # niri
+    niri
 )
 installed="$(dnf list --installed)"
 for package in "${packages[@]}"; do
