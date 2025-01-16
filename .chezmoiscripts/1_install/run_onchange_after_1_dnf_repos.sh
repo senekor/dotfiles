@@ -40,6 +40,10 @@ fi
 
 copr_repos=(
     varlad/zellij
+# chezmoi:template:left-delimiter="# {{"
+# {{ if not .isServer }}
+    yalter/niri
+# {{ end }}
 )
 
 for copr_repo in "${copr_repos[@]}"
