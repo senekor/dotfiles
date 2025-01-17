@@ -52,3 +52,6 @@ if ! which deno &> /dev/null ; then
     export DENO_INSTALL=~/.local
     sh <(curl -fsSL https://deno.land/install.sh) --yes --no-modify-path
 fi
+
+# for niri
+cargo install xwayland-satellite --locked --git https://github.com/Supreeeme/xwayland-satellite

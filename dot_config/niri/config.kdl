@@ -3,6 +3,11 @@
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
 
+spawn-at-startup "xwayland-satellite"
+environment {
+    DISPLAY ":0"
+}
+
 cursor {
     hide-when-typing
     hide-after-inactive-ms 5000 // 2 seconds
