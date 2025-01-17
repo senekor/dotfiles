@@ -38,8 +38,8 @@ packages=(
     brightnessctl # laptop screen brightness
     cmake meson cpio hyprland-devel # hyprpm
 
-    # niri
     niri
+    xcb-util-cursor-devel # build-dep of xwayland-satellite
 )
 installed="$(dnf list --installed)"
 for package in "${packages[@]}"; do

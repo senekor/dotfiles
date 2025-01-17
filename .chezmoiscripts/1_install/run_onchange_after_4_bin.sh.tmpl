@@ -46,4 +46,8 @@ if ! which taplo &> /dev/null ; then
 fi
 
 # {{ template "skipOnServer" . }}
+
 cargo binstall --no-confirm --log-level warn openscad-lsp
+
+# for niri
+cargo install xwayland-satellite --locked --git https://github.com/Supreeeme/xwayland-satellite
