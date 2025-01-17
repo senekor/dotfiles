@@ -33,3 +33,8 @@ config.deno.enable = true
 [[language]]
 name = "toml"
 roots = ["."]
+
+[[language]]
+name = "typst"
+auto-format = true
+formatter.command = "typstyle"
