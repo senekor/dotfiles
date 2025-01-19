@@ -472,9 +472,8 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+    Mod+P { screenshot; }
+    Mod+Ctrl+P { screenshot-window; }
     // TODO: screenshot with editor ?
 // bind = $mainMod, P, exec, grim -g "$(slurp)" - | tee "$(xdg-user-dir PICTURES)/Screenshots/Screenshot from $(date "+%Y-%m-%d %H-%M-%S").png" | wl-copy
 // bind = $mainMod CTRL, P, exec, grim -g "$(slurp)" - | swappy -f -
