@@ -1,7 +1,7 @@
 theme = "kanagawa"
 
 [editor]
-scrolloff = 256 # big number -> cursor always centered
+scrolloff = 256                  # big number -> cursor always centered
 line-number = "absolute"
 bufferline = "multiple"
 mouse = false
@@ -36,18 +36,20 @@ enable = true
 # Maybe update these if default helix keymap changes in future releases.
 
 [keys.normal]
-esc = ":update"                 # save on escape
-C-h = "save_selection"          # "save" -> "history"
-j = "flip_selections"           # "juxtapose"
-h = "jump_backward"             # move through jumplist ("history")
-H = "jump_forward"              # move through jumplist ("history")
-k = ":buffer-close"             # "kill" or "klose" buffer
-K = ":buffer-close-others"      # "kill" or "klose" buffer
-X = "select_line_above"         # instead of extend_to_line_bounds
-S-left = "select_prev_sibling"  # shift-arrows to traverse syntax-tree
-S-right = "select_next_sibling" # shift-arrows to traverse syntax-tree
-S-up = "expand_selection"       # shift-arrows to traverse syntax-tree
-S-down = "shrink_selection"     # shift-arrows to traverse syntax-tree
+esc = ":update"                            # save on escape
+C-h = "save_selection"                     # "save" -> "history"
+j = "flip_selections"                      # "juxtapose"
+h = "jump_backward"                        # move through jumplist ("history")
+H = "jump_forward"                         # move through jumplist ("history")
+q = ":buffer-close"                        # "quit" buffer
+Q = ":buffer-close-others"                 # "quit" buffer
+k = "replay_macro"
+K = "record_macro"
+X = "select_line_above"                    # instead of extend_to_line_bounds
+S-left = "select_prev_sibling"             # shift-arrows to traverse syntax-tree
+S-right = "select_next_sibling"            # shift-arrows to traverse syntax-tree
+S-up = "expand_selection"                  # shift-arrows to traverse syntax-tree
+S-down = "shrink_selection"                # shift-arrows to traverse syntax-tree
 "{" = "rotate_selection_contents_backward"
 "}" = "rotate_selection_contents_forward"
 
@@ -55,7 +57,7 @@ S-down = "shrink_selection"     # shift-arrows to traverse syntax-tree
 j = "flip_selections" # "juxtapose"
 
 [keys.normal.space]
-# space-k is risky. forgetting space closes the buffer.
+# space-k is risky. forgetting space executes macro.
 t = "hover"
 k = "no_op"
 # These are usually the same. But when the current directory is not the
