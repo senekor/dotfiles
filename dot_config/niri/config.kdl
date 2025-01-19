@@ -8,6 +8,11 @@ environment {
     DISPLAY ":0"
 }
 
+cursor {
+    hide-when-typing
+    hide-after-inactive-ms 5000 // 2 seconds
+}
+
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
