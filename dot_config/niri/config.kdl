@@ -13,6 +13,10 @@ cursor {
     hide-after-inactive-ms 5000 // 2 seconds
 }
 
+hotkey-overlay {
+    skip-at-startup
+}
+
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
