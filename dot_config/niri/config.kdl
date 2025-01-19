@@ -339,7 +339,7 @@ binds {
     XF86MonBrightnessDown { spawn "brightnessctl" "--min-value=1" "set" "10%-"; }
     XF86MonBrightnessUp   { spawn "brightnessctl" "set" "+10%"; }
 
-    Mod+K { close-window; }
+    Mod+Q { close-window; }
 
     Mod+R { focus-column-left; }
     Mod+S { focus-window-or-workspace-down; }
@@ -483,7 +483,7 @@ binds {
 // bind = $mainMod CTRL, P, exec, grim -g "$(slurp)" - | swappy -f -
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
-    Mod+Q { quit; }
+    Mod+Ctrl+Q { quit; }
     Ctrl+Alt+Delete { quit; }
 
     // Powers off the monitors. To turn them back on, do any input like
