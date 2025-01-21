@@ -5,10 +5,17 @@ complete --command jj \
     --condition "__fish_seen_subcommand_from b bookmark; and __fish_seen_subcommand_from c create" \
     --arguments "(jj config get git.push-bookmark-prefix)"
 
-# complete `jj clone` with repo url
+# complete `jj clone` and `jj git remote add / set-url` with repo url
 complete --command jj \
     --condition "__fish_seen_subcommand_from clone" \
     --arguments "(__jj_clone (commandline --current-token))"
+complete --command jj \
+    --condition "__fish_seen_subcommand_from git ; and __fish_seen_subcommand_from remote ; __fish_seen_subcommand_from add" \
+    --arguments "(__jj_clone (commandline --current-token))"
+complete --command jj \
+    --condition "__fish_seen_subcommand_from git ; and __fish_seen_subcommand_from remote ; __fish_seen_subcommand_from set-url" \
+    --arguments "(__jj_clone (commandline --current-token))"
+
 function __jj_clone --argument-names token
     if string match "git@*" $token &>/dev/null
         __jj_clone_from_host (string sub --start 5 $token)
