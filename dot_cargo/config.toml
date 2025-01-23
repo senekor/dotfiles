@@ -11,3 +11,11 @@ credential-provider = ["cargo:token-from-stdout", "bash", "-c", """
 printf "token "
 op read op://Personal/o7n5djqeb347qarbqx3x2l7z7m/token
 """]
+
+[target.x86_64-unknown-linux-gnu]
+linker = "clang"
+rustflags = ["-C", "link-arg=-fuse-ld=/usr/bin/mold"]
+
+[target.aarch64-unknown-linux-gnu]
+linker = "clang"
+rustflags = ["-C", "link-arg=-fuse-ld=/usr/bin/mold"]
