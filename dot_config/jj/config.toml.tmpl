@@ -8,6 +8,7 @@ push-bookmark-prefix = "remo/" # fallback, usually overwritten by `jj clone`
 [ui]
 default-command = ["log", "--template", "my_log_compact_comfortable"]
 diff-editor = ":builtin" # suppress hint about this config option
+conflict-marker-style = "snapshot"
 
 [merge-tools.codium]
 merge-args = ["--wait", "--merge", "$left", "$right", "$base", "$output"]
