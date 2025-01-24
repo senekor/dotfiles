@@ -5,6 +5,8 @@
 [clean]
 	requireForce = false
 [diff]
+	colorMoved = default
+	colorMovedWS = allow-indentation-change
 	tool = difftastic
 	submodule = log
 [difftool]
@@ -22,6 +24,8 @@
 	defaultBranch = main
 [pager]
 	difftool = true
+[merge]
+  conflictStyle = zdiff3
 [pull]
 	rebase = true
 	ff = only
