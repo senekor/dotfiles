@@ -72,6 +72,7 @@
 
 	p = push
 	pf = push --force-with-lease
+	pfa = push --force-with-lease --all # act like jj
 
 	bd = branch --delete --force
 
