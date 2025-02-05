@@ -2,16 +2,9 @@
 set -eo pipefail
 # chezmoi:template:left-delimiter="# {{"
 
-echo "Pinging git hosts..."
-
-for host in ~/repos/*.* # at least one dot for domains
-do
-    host="$(basename "$host")"
-    # workaround for jj using libssh instead of openssh, should be fixed at some point
-    ssh -o StrictHostKeyChecking=accept-new -T "git@$host" || true
-done
-
 # {{ template "skipOnServer" . }}
+
+export GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new"
 
 echo "Cloning git repos..."
 
