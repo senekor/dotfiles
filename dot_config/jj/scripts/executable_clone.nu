@@ -18,8 +18,10 @@ def main [
   let owner = $parsed.owner
   let repo = $parsed.repo | str replace --regex '\.git$' ""
 
+  let short_host = $host | shorten_host
+
   let repo_url = $"git@($host):($owner)/($repo)"
-  let destination = $"($env.HOME)/repos/($host)/($owner)/($repo)"
+  let destination = $"($env.HOME)/repos/($short_host)/($owner)/($repo)"
 
   let plain_git_repo = $jj_block_list | any { |elem| $elem == $repo }
 
@@ -34,14 +36,6 @@ def main [
     # location anyway.
     cd ~
     jj git clone --colocate $repo_url $destination ...$rest
-  }
-
-  cd $destination
-  cat ../../.gitconfig | save --append .git/config
-
-  if not $plain_git_repo {
-    cat ../../.jj_config.toml | save --append .jj/repo/config.toml
-    jj describe --reset-author --no-edit --quiet
   }
 }
 
@@ -84,4 +78,12 @@ def resolve_short_host []: string -> string {
   } else {
     $host | parse "git@{host}" | get 0.host
   }
+}
+
+def shorten_host []: string -> string {
+  # use second-to-last fragment of domain as short_host
+  # git.buenzli.dev -> buenzli
+  # github.com      -> github
+  # github.zhaw.ch  -> zhaw
+  $in | split row "." | reverse | get 1
 }

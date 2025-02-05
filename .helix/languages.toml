@@ -15,6 +15,7 @@ file-types = [
   { glob = ".git/config" },
   { glob = ".config/git/config" },
   { glob = "git/config" },
+  { glob = "git/config.*" },
 ]
 [[language]]
 name = "sshclientconfig"

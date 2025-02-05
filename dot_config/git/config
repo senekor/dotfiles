@@ -53,8 +53,12 @@
 	pushInsteadOf = https://
 [user]
 	name = Remo Senekowitsch
-	email = remo@buenzli.dev
+	email = remo@buenzli.dev # default, overruled by domain-specific setting
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2geN1p04/RFi6LPt8hoCvTfEKhR1RH6iuH9N9wKpD7
+
+# domain-specific overrides, make sure to update jj config as well!
+[includeif "gitdir:~/repos/zhaw/"]
+	path = config.zhaw
 
 [alias]
 	st = status --short

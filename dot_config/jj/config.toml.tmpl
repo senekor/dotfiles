@@ -2,12 +2,21 @@
 
 [user]
 name = "Remo Senekowitsch"
-email = "remo@buenzli.dev"
+email = "remo@buenzli.dev" # default, overruled by domain-specific setting
 
 [git]
-push-bookmark-prefix = "remo/" # fallback, usually overwritten by `jj clone`
+push-bookmark-prefix = "remo/" # default, overruled by domain-specific setting
 subprocess = true
 sign-on-push = true
+
+# domain-specific overrides, make sure to update git config as well!
+[[--scope]]
+--when.repositories = ["~/repos/github"]
+git.push-bookmark-prefix = "senekor/"
+[[--scope]]
+--when.repositories = ["~/repos/zhaw"]
+user.email = "senk@zhaw.ch"
+git.push-bookmark-prefix = "senk/"
 
 [ui]
 default-command = ["log", "--template", "my_log_compact_comfortable"]
