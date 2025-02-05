@@ -26,6 +26,13 @@ def main [
   if $plain_git_repo {
     git clone $repo_url $destination ...$rest
   } else {
+    # Suppress an annoying warning where jj clone picks up trunk() revset
+    # alias from current repo and complains if that doesn't match the trunk of
+    # the repo being cloned. Other users probably don't experience this often
+    # because they only run `jj git clone` in directories which aren't already
+    # a repo. I do this because this script puts the repo in a predetermined
+    # location anyway.
+    cd ~
     jj git clone --colocate $repo_url $destination ...$rest
   }
 
