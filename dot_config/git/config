@@ -4,6 +4,8 @@
 	defaultRemote = origin
 [clean]
 	requireForce = false
+[commit]
+	gpgsign = true
 [diff]
 	colorMoved = default
 	colorMovedWS = allow-indentation-change
@@ -20,6 +22,10 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /opt/1Password/op-ssh-sign
 [init]
 	defaultBranch = main
 [pager]
@@ -48,6 +54,7 @@
 [user]
 	name = Remo Senekowitsch
 	email = remo@buenzli.dev
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2geN1p04/RFi6LPt8hoCvTfEKhR1RH6iuH9N9wKpD7
 
 [alias]
 	st = status --short
