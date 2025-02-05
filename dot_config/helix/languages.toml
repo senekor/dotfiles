@@ -2,7 +2,7 @@
 config.check.command = "clippy"
 
 [language-server.pylsp.config.pylsp.plugins]
-pycodestyle.maxLineLength = 120
+pycodestyle.maxLineLength = 240
 mccabe.enabled = false # cyclomatic complexity
 # more pylsp config options:
 # https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
