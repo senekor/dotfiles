@@ -40,7 +40,7 @@ def main [
   cat ../../.gitconfig | save --append .git/config
 
   if not $plain_git_repo {
-    cat ../../jj_config.toml | save --append .jj/repo/config.toml
+    cat ../../.jj_config.toml | save --append .jj/repo/config.toml
     jj describe --reset-author --no-edit --quiet
   }
 }
