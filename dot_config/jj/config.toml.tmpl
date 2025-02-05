@@ -7,6 +7,7 @@ email = "remo@buenzli.dev"
 [git]
 push-bookmark-prefix = "remo/" # fallback, usually overwritten by `jj clone`
 subprocess = true
+sign-on-push = true
 
 [ui]
 default-command = ["log", "--template", "my_log_compact_comfortable"]
@@ -49,6 +50,11 @@ play  = ["bgi", "jj-play"]
 
 [revsets]
 log = "present(@) | ancestors(trunk()..mine(), 2) | trunk()"
+
+[signing]
+backend = "ssh"
+key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2geN1p04/RFi6LPt8hoCvTfEKhR1RH6iuH9N9wKpD7"
+backends.ssh.program = "/opt/1Password/op-ssh-sign"
 
 [templates]
 log = "builtin_log_comfortable"
