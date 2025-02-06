@@ -17,31 +17,35 @@ complete --command jj \
     --arguments "(__jj_clone (commandline --current-token))"
 
 function __jj_clone --argument-names token
-    if string match "git@*" $token &>/dev/null
-        __jj_clone_from_host (string sub --start 5 $token)
-        return
-    end
-    echo "git@"
-end
-function __jj_clone_from_host --argument-names token
-    set --local hosts
-    for host in ~/repos/*.* # at least one dot for domains
-        set --append hosts (basename $host)
-    end
-    for host in $hosts
-        set --local host (basename $host)
-        if string match "$host*" $token &>/dev/null
-            set --local offset (math "$(string length $host) - 1")
-            set --local token (string sub --start $offset $token)
-            __jj_clone_from_owner $host $token
-            return
+    set lines (cat ~/.ssh/config | string split "\n")
+    set len (count $lines)
+
+    set i 1
+    while [ $i -le $len ]
+        set words (echo $lines[$i] | string split " ")
+        if [ $words[1] = Host ] && [ $lines[(math "$i + 1")] = "  User git" ]
+            set --local host $words[2]
+            set --append hosts $host
+            set --local long_host (echo $lines[(math "$i + 2")] | string sub --start 12)
+            set --append long_hosts $long_host
+
+            if string match "$host:*" $token &>/dev/null || string match "$long_host:*" $token &>/dev/null
+                set --local offset (math "$(string length $host) - 1")
+                set --local token (string sub --start $offset $token)
+                __jj_clone_from_owner $host $long_host $token
+                return
+            end
         end
+        set i (math "$i + 1")
     end
-    printf "git@%s:\n" $hosts
+
+    printf "%s:\n" $hosts
 end
-function __jj_clone_from_owner --argument-names host token
+function __jj_clone_from_owner --argument-names host long_host token
+    set --local fragments (echo $long_host | string split ".")
+    set --local short_long_host $fragments[-2]
     set --local owners
-    for owner in ~/repos/$host/*/
+    for owner in ~/repos/$short_long_host/*/
         set --append owners (basename $owner)
     end
     for owner in $owners
@@ -52,5 +56,5 @@ function __jj_clone_from_owner --argument-names host token
             return
         end
     end
-    printf "git@$host:%s/\n" $owners
+    printf "$host:%s/\n" $owners
 end
