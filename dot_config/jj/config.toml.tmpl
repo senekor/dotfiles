@@ -65,6 +65,7 @@ log = "present(@) | ancestors(trunk()..mine(), 2) | trunk()"
 backend = "ssh"
 key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2geN1p04/RFi6LPt8hoCvTfEKhR1RH6iuH9N9wKpD7"
 backends.ssh.program = "/opt/1Password/op-ssh-sign"
+backends.ssh.allowed-signers = "{{ .chezmoi.homeDir }}/.config/allowed_signers"
 
 [templates]
 log = "builtin_log_comfortable"

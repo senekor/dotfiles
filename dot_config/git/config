@@ -26,6 +26,7 @@
 	format = ssh
 [gpg "ssh"]
 	program = /opt/1Password/op-ssh-sign
+	allowedSignersFile = ~/.config/allowed_signers
 [init]
 	defaultBranch = main
 [pager]
