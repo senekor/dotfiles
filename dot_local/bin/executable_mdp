@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# MarkDownPreview
+
+set -m # job control
+
+GH_TOKEN="$(op read "op://Personal/GitHub Personal Access Token/token")" gh markdown-preview --disable-auto-open "$@" &
+sleep 1
+firefox --new-window localhost:3333
+fg

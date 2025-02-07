@@ -47,6 +47,8 @@ for package in "${packages[@]}"; do
     fi
 done
 
+GH_TOKEN="$(op read "op://Personal/GitHub Personal Access Token/token")" gh extension install yusukebe/gh-markdown-preview
+
 # hyprland plugins
 if [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ] && ! hyprpm list | grep hyprfocus > /dev/null ; then
     if ! [ -e ~/.local/bin/cmake ] ; then
