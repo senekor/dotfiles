@@ -1,8 +1,8 @@
 layout {
 	tab name="helix" {
-		pane size=1 borderless=true {
-			plugin location="compact-bar" // builtin, configurable alias
-		}
+		// pane size=1 borderless=true {
+		// 	plugin location="compact-bar" // builtin, configurable alias
+		// }
 		pane {
 			command "hx"
 			args "."

@@ -3,7 +3,7 @@ theme = "kanagawa"
 [editor]
 scrolloff = 256                  # big number -> cursor always centered
 line-number = "absolute"
-bufferline = "multiple"
+bufferline = "always"
 mouse = false
 true-color = true
 auto-pairs = false
