@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=RustRover
+Icon=/opt/RustRover-2024.3.4/bin/rustrover.svg
+Exec="/opt/RustRover-2024.3.4/bin/rustrover" %f
+Comment=Focus on what matters
+Categories=Development;IDE;
+Terminal=false
+StartupWMClass=jetbrains-rustrover
+StartupNotify=true
