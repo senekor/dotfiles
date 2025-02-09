@@ -20,7 +20,7 @@ user.email = "senk@zhaw.ch"
 git.push-bookmark-prefix = "senk/"
 
 [ui]
-default-command = ["log", "--template", "my_log_compact_comfortable"]
+default-command = ["log", "--template", "custom_log_oneline"]
 diff-editor = ":builtin" # suppress hint about this config option
 conflict-marker-style = "snapshot"
 
@@ -35,10 +35,8 @@ ci = ["commit", "--interactive"]
 d  = ["describe"]
 e  = ["edit"]
 f  = ["git", "fetch", "--all-remotes"]
-l  = ["log", "--template", "builtin_log_oneline", "--revisions", "ancestors(@)"]
-ld = ["log", "--template", "builtin_log_detailed","--revisions", "ancestors(@)"]
-g  = ["log", "--template", "builtin_log_oneline", "--revisions", "all()"]
-gd = ["log", "--template", "builtin_log_detailed","--revisions", "all()"]
+l  = ["log", "--template", "custom_log_oneline", "--revisions", "ancestors(@)"]
+g  = ["log", "--template", "custom_log_oneline", "--revisions", "all()"]
 p  = ["git", "push"]
 r  = ["rebase"]
 s  = ["show"]
@@ -77,7 +75,7 @@ log_node = "my_log_node"
 
 'format_short_change_id(id)' = 'id.shortest(5)'
 
-my_log_compact_comfortable = '''
+custom_log_oneline = '''
 if(root,
   format_root_commit(self),
   label(if(current_working_copy, "working_copy"),
