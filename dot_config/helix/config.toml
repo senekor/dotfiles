@@ -58,6 +58,9 @@ S-down = "shrink_selection"                # shift-arrows to traverse syntax-tre
 j = "flip_selections" # "juxtapose"
 
 [keys.normal.space]
+# shortcuts for quitting
+q = ":quit-all"
+x = ":write-quit-all"
 # space-k is risky. forgetting space executes macro.
 t = "hover"
 k = "no_op"
