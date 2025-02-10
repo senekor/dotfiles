@@ -60,6 +60,7 @@ j = "flip_selections" # "juxtapose"
 [keys.normal.space]
 # shortcuts for quitting
 q = ":quit-all"
+Q = ":quit-all!"
 x = ":write-quit-all"
 # space-k is risky. forgetting space executes macro.
 t = "hover"
