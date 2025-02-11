@@ -1,0 +1,5 @@
+#!/bin/bash
+set -eo pipefail
+
+sudo cp "{{ .chezmoi.sourceDir }}/assets/zellij.png" \
+    /usr/share/pixmaps/

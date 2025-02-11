@@ -8,6 +8,8 @@
 #   Also, it's nice for testing to be able to re-run init and change values.
 #   https://www.chezmoi.io/reference/templates/init-functions/promptChoiceOnce/
 # */ -}}
+sourceDir = "# {{ .chezmoi.homeDir }}/repos/github/senekor/dotfiles"
+
 [data]
 # {{ $isServer := promptBool "Is this machine a server" false -}}
 # {{ list "isServer" $isServer | join " = " }} # TODO: isServer =

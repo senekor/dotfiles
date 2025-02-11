@@ -1,0 +1,6 @@
+#!/bin/bash
+set -euo pipefail
+
+cd "{{ .chezmoi.sourceDir }}"
+jj git init --colocate
+jj bookmark track main@origin
