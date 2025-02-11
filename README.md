@@ -14,7 +14,7 @@ otherwise:
 
 ```sh
 source <(curl -L raw.githubusercontent.com/senekor/dotfiles/main/.install_1password.sh)
-BINDIR="$HOME/.local/bin" sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply senekor
+BINDIR="$HOME/.local/bin" sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply senekor --source ~/repos/github/senekor/dotfiles
 ```
 
 ## Manual post-setup
