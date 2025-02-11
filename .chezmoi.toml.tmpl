@@ -15,7 +15,7 @@ isServer = {{ $isServer }}
 org = {{ $org | quote }}
 
 {{ if not $isServer -}}
-exercism_api_token = {{ onepasswordRead "op://chezmoi/Exercism API Token/credential" | quote }}
+exercism_api_token = {{ onepasswordRead "op://chezmoi/Exercism Token/credential" | quote }}
 
 {{ end -}}
 
