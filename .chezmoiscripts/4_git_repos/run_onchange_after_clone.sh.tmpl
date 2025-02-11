@@ -9,43 +9,43 @@ export GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new"
 echo "Cloning git repos..."
 
 repos=(
-    git.buenzli.dev/remo/notes.wiki
-    git.buenzli.dev/remo/container-test
+    buenzli:remo/notes.wiki
+    buenzli:remo/container-test
 
-    github.com/senekor/rust-workshop
-    github.com/senekor/three-d-models
+    github:senekor/rust-workshop
+    github:senekor/three-d-models
 
-    github.com/rust-lang/www.rust-lang.org
-    github.com/exercism/rust
-    github.com/exercism/rust-test-runner
-    github.com/jj-vcs/jj
-    github.com/helix-editor/helix
+    github:rust-lang/www.rust-lang.org
+    github:exercism/rust
+    github:exercism/rust-test-runner
+    github:jj-vcs/jj
+    github:helix-editor/helix
 
-    github.zhaw.ch/senk/vt-embedded-linux-driver-rust
+    zhaw:senk/vt-embedded-linux-driver-rust
 
 # {{- if eq .org "none" }}
-    git.buenzli.dev/remo/aoc
-    git.buenzli.dev/remo/raspi-deploy
-    git.buenzli.dev/remo/async-rust-yoink
-    git.buenzli.dev/remo/data-structure-exercises
-    git.buenzli.dev/remo/keyboard-layouts
-    github.com/senekor/buenzlimarks
+    buenzli:remo/aoc
+    buenzli:remo/raspi-deploy
+    buenzli:remo/async-rust-yoink
+    buenzli:remo/data-structure-exercises
+    buenzli:remo/keyboard-layouts
+    github:senekor/buenzlimarks
 # {{- end }}
 
 # {{- if eq .org "zhaw" }}
-    github.zhaw.ch/hpmm/mc2-labs
-    github.zhaw.ch/InES/werkzeugraum
+    zhaw:hpmm/mc2-labs
+    zhaw:InES/werkzeugraum
 # {{- end }}
 )
 
-for repo_path in "${repos[@]}"
+for repo_url in "${repos[@]}"
 do
-    repo="$(basename "$repo_path")"
-    owner="$(basename "$(dirname "$repo_path")")"
-    host="$(dirname "$(dirname "$repo_path")")"
+    repo="$(basename "$repo_url")"
+    owner="$(dirname "$repo_url" | cut --delimiter ":" --fields 2)"
+    host="$(echo "$repo_url" | cut --delimiter ":" --fields 1)"
 
     if ! [ -d ~/repos/"$host/$owner/$repo" ] ; then
         echo "Cloning $repo..."
-        jj clone "git@$host:$owner/$repo"
+        jj clone "$repo_url"
     fi
 done
