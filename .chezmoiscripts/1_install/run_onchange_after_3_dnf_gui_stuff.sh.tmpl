@@ -47,6 +47,9 @@ for package in "${packages[@]}"; do
     fi
 done
 
+# hyprland has a stupid weak dep nwg-panel which clutters my app launcher
+sudo dnf remove -yq nwg-panel &> /dev/null
+
 # Don't forget to update the version in the desktop entry !
 rr_version="2024.3.4"
 if ! test -d "/opt/RustRover-$rr_version" ; then
