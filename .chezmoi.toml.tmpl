@@ -1,23 +1,24 @@
-{{/*
-    See the general templating guide:
-    https://www.chezmoi.io/user-guide/templating/
-
-    There is also functionality to only prompt once for a value during init.
-    I seems overkill while there aren't many values here yet.
-    Also, it's nice for testing to be able to re-run init and change values.
-    https://www.chezmoi.io/reference/templates/init-functions/promptChoiceOnce/
-*/ -}}
+# chezmoi:template:left-delimiter="# {{"
+# {{/*
+#   See the general templating guide:
+#   https://www.chezmoi.io/user-guide/templating/
+#
+#   There is also functionality to only prompt once for a value during init.
+#   I seems overkill while there aren't many values here yet.
+#   Also, it's nice for testing to be able to re-run init and change values.
+#   https://www.chezmoi.io/reference/templates/init-functions/promptChoiceOnce/
+# */ -}}
 [data]
-{{ $isServer := promptBool "Is this machine a server" false -}}
-isServer = {{ $isServer }}
+# {{ $isServer := promptBool "Is this machine a server" false -}}
+# {{ list "isServer" $isServer | join " = " }} # TODO: isServer =
 
-{{- $org := promptString "Which organziation does this machine belong to" "none" }}
-org = {{ $org | quote }}
+# {{- $org := promptString "Which organziation does this machine belong to" "none" }}
+org = "# {{ $org }}"
 
-{{ if not $isServer -}}
-exercism_api_token = {{ onepasswordRead "op://chezmoi/Exercism Token/credential" | quote }}
+# {{ if not $isServer -}}
+exercism_api_token = """# {{ onepasswordRead "op://chezmoi/exercism-token/credential" }}"""
 
-{{ end -}}
+# {{ end -}}
 
 [scriptEnv]
-PATH = "/nix/var/nix/profiles/default/bin:{{ .chezmoi.homeDir }}/.local/bin:{{ .chezmoi.homeDir }}/.cargo/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin"
+PATH = "/nix/var/nix/profiles/default/bin:# {{ .chezmoi.homeDir }}/.local/bin:# {{ .chezmoi.homeDir }}/.cargo/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin"
