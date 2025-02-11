@@ -1,6 +1,10 @@
 @_default:
     just --list --unsorted
 
+# chezmoi apply
+apply *args="":
+    chezmoi apply {{ args }}
+
 syncthing-server-ui:
     #!/bin/bash
     set -emo pipefail # -m to enable job control
