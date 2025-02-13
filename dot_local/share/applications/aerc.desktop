@@ -11,5 +11,5 @@ Categories=Office;Network;Email;ConsoleOnly
 
 Type=Application
 Icon=utilities-terminal
-Exec=env LESS=R alacritty --command aerc %u
+Exec=env LESS=R alacritty --command fish -c aerc %u
 MimeType=x-scheme-handler/mailto
