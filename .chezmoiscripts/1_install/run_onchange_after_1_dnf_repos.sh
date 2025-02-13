@@ -34,17 +34,6 @@ metadata_expire=1h
 " | sudo tee -a /etc/yum.repos.d/vscodium.repo > /dev/null
 fi
 
-# for glow
-if ! dnf repolist | grep "charm" &> /dev/null ; then
-    echo "\
-[charm]
-name=Charm
-baseurl=https://repo.charm.sh/yum/
-enabled=1
-gpgcheck=1
-gpgkey=https://repo.charm.sh/yum/gpg.key" | sudo tee /etc/yum.repos.d/charm.repo
-fi
-
 copr_repos=(
     atim/starship
     varlad/zellij

@@ -37,7 +37,6 @@ packages=(
     htop btop
     helix
     zellij
-    glow
 
     # util
     ripgrep
