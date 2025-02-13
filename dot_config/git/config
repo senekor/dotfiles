@@ -64,7 +64,9 @@
 [alias]
 	st = status --short
 	f = fetch --all
-	l = "!f() { git log --oneline --graph "$@" || true ; }; f"
+	# l = "!f() { git log --oneline --graph "$@" || true ; }; f"
+	# --ancestry-path is much faster for big repos like linux
+	l = "!f() { git log --oneline --graph --ancestry-path "$(git merge-base main HEAD)"^.. "$@" || true ; }; f"
 	g = "!f() { git log --oneline --graph --branches='*' --remotes='*' HEAD "$@" || true ; }; f"
 
 	au = add --update
