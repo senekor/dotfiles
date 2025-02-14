@@ -42,12 +42,31 @@ pa = ["git", "push", "--all"]
 r  = ["rebase"]
 s  = ["show"]
 
+tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
 yolo = ["config", "set", "--repo", "revset-aliases.'immutable_heads()'", "root()"]
 yolont = ["config", "unset", "--repo", "revset-aliases.'immutable_heads()'"]
 track-mine = ["bookmark", "track", "regex:(remo|senekor|senk)/.*@.*"]
 
 # [scripts]
 clone = ["util", "exec", "--", "{{ .chezmoi.homeDir }}/.config/jj/scripts/clone.nu"]
+cob = ["util", "exec", "--", "bash", "-c", """
+#!/usr/bin/env bash
+set -euo pipefail
+
+if test -z ${1+x}
+then
+    echo "You need to specify a bookmark onto which to place the commit!"
+    exit 1
+fi
+target_bookmark="$1" ; shift
+
+jj commit "$@"
+
+change_id="$(jj --ignore-working-copy log --revisions @- --no-graph --template change_id)"
+
+jj --ignore-working-copy rebase --revisions "$change_id" --insert-after "$target_bookmark"
+jj --ignore-working-copy bookmark move "$target_bookmark" --to "$change_id"
+""", ""]
 bgi   = [
   "util", "exec", "--",
   "cargo", "run", "--quiet",
@@ -55,18 +74,6 @@ bgi   = [
   "--",
 ]
 play  = ["bgi", "jj-play"]
-tug = ["util", "exec", "--", "bash", "-c", """
-#!/usr/bin/env bash
-set -euo pipefail
-
-for parent in $(jj log --no-graph --revisions @- --template 'commit_id ++ "\n"')
-do
-    jj --ignore-working-copy \
-        bookmark move \
-        --from "heads(::$parent & bookmarks())" \
-        --to "$parent"
-done
-""", ""]
 
 [revsets]
 log = "present(@) | ancestors(trunk()..mine(), 2) | trunk()"
