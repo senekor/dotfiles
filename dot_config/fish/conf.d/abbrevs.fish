@@ -3,11 +3,10 @@ if status is-interactive
 
     # facilitate hybrid usage of git and jj
     function gg --on-variable PWD
-        if [ -d "$PWD/.git" ]
+        if ! test -d "$PWD/.jj"
             abbr --add -- t git
             abbr --add -- f git # for US qwerty keyboards
-        end
-        if [ -d "$PWD/.jj" ]
+        else
             abbr --add -- t jj
             abbr --add -- f jj # for US qwerty keyboards
         end
