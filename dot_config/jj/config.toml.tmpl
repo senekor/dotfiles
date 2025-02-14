@@ -49,6 +49,7 @@ track-mine = ["bookmark", "track", "regex:(remo|senekor|senk)/.*@.*"]
 
 # [scripts]
 clone = ["util", "exec", "--", "{{ .chezmoi.homeDir }}/.config/jj/scripts/clone.nu"]
+tnp = ["util", "exec", "--", "bash", "-c", "set -e ; jj tug ; jj git push"] # tug'n'push
 cob = ["util", "exec", "--", "bash", "-c", """
 #!/usr/bin/env bash
 set -euo pipefail
