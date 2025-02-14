@@ -56,6 +56,7 @@ set -euo pipefail
 if test -z ${1+x}
 then
     echo "You need to specify a bookmark onto which to place the commit!"
+    echo "\nUsage: $0 <BOOKMARK_NAME> [COMMIT_ARGS]...\n"
     exit 1
 fi
 target_bookmark="$1" ; shift
@@ -66,7 +67,7 @@ change_id="$(jj --ignore-working-copy log --revisions @- --no-graph --template c
 
 jj --ignore-working-copy rebase --revisions "$change_id" --insert-after "$target_bookmark"
 jj --ignore-working-copy bookmark move "$target_bookmark" --to "$change_id"
-""", ""]
+""", "jj cob"]
 bgi   = [
   "util", "exec", "--",
   "cargo", "run", "--quiet",
