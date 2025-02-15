@@ -1391,7 +1391,7 @@ exit
 〰️ wavy dash draw line moustache mustache squiggle scribble
 ©️ copyright ip license circle law legal
 ®️ registered alphabet circle
-™️ trade mark trademark brand law legal
+™ trade mark trademark brand law legal
 #️⃣ keycap  symbol blue-square twitter
 *️⃣ keycap  star keycap
 0️⃣ keycap 0 0 numbers blue-square null
