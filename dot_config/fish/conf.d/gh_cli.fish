@@ -5,7 +5,7 @@ if status is-interactive
     end
     function ghz --wraps gh --description 'gh alias with auth token for zhaw'
         set --export GH_HOST "github.zhaw.ch"
-        set --export GH_ENTERPRISE_TOKEN "$(op read "op://InES/GitHub Personal Access Token/token")"
+        set --export GH_ENTERPRISE_TOKEN "$(op read "op://InES/7fr7ilqmeufblq33ko6a6l735e/token")"
         command gh $argv
     end
 end
