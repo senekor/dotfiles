@@ -28,12 +28,6 @@ packages=(
     ec2hx
 )
 
-# {{ if not .isServer }}
-echo "Exporting GITHUB_TOKEN secret for cargo-binstall..."
-GITHUB_TOKEN="$(op read "op://Personal/GitHub Personal Access Token/token")"
-export GITHUB_TOKEN
-# {{ end }}
-
 cargo binstall --no-confirm --log-level warn "${packages[@]}"
 
 # markdown-oxide is not yet published to crates.io (https://github.com/Feel-ix-343/markdown-oxide/issues/63)

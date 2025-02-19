@@ -1,3 +1,5 @@
+set --export GH_TOKEN "$(cat ~/.local/share/gh_token_ro)"
+
 if status is-interactive
     function gh --wraps gh --description 'gh alias with auth token'
         set --export GH_TOKEN "$(op read "op://Personal/GitHub Personal Access Token/token")"

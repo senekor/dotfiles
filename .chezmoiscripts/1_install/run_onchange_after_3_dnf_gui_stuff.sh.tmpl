@@ -59,8 +59,7 @@ fi
 
 if ! test -d "$HOME/.local/share/gh/extensions/gh-markdown-preview" ; then
     echo "Downloading and gh-markdown-preview..."
-    GH_TOKEN="$(op read "op://Personal/GitHub Personal Access Token/token")" \
-        gh extension install yusukebe/gh-markdown-preview
+    gh extension install yusukebe/gh-markdown-preview
 fi
 
 # hyprland plugins

@@ -5,7 +5,7 @@ set -euo pipefail
 
 set -m # job control
 
-GH_TOKEN="$(op read "op://Personal/GitHub Personal Access Token/token")" gh markdown-preview --disable-auto-open "$@" &
+gh markdown-preview --disable-auto-open "$@" &
 sleep 1
 firefox --new-window localhost:3333
 fg
