@@ -6,30 +6,22 @@ use std::{
     env::*,
     fs::*,
     io::{Read, Write},
-    path::*,
 };
 
 fn main() {
     let mut repo = args().nth(1).unwrap_or_else(prompt_for_repo);
 
-    if repo == "jj-play" {
-        let dir = sh("mktemp --directory").run(None);
-        let dir = PathBuf::from(dir).join("jj-play");
-        create_dir_all(&dir).unwrap();
-        set_current_dir(&dir).unwrap();
-        repo = format!("jj-play-{}", sh("date -u +%Y-%m-%d-%H-%M-%S").run(None));
-    } else {
-        if !repo.contains('/') {
-            repo = format!(
-                "{}/repos/git.buenzli.dev/remo/{}",
-                var("HOME").unwrap(),
-                repo
-            );
-        }
-        create_dir_all(&repo).unwrap();
-        set_current_dir(&repo).unwrap();
-        repo = repo.rsplit_once('/').unwrap().1.into();
+    if !repo.contains('/') {
+        repo = format!(
+            "{}/repos/git.buenzli.dev/remo/{}",
+            var("HOME").unwrap(),
+            repo
+        );
     }
+    create_dir_all(&repo).unwrap();
+    set_current_dir(&repo).unwrap();
+    repo = repo.rsplit_once('/').unwrap().1.into();
+
     sh("jj git init --colocate").run(None);
     sh("jj git remote add origin")
         .arg(format!("git@git.buenzli.dev:remo/{repo}"))
@@ -38,7 +30,8 @@ fn main() {
 
     let dir = current_dir().unwrap().to_str().unwrap().to_string();
 
-    sh("wtype").arg(format!("{dir}\n")).run(None);
+    sh("wl-copy").run(Some(dir.to_string()));
+    println!("path copied to clipboard");
 }
 
 fn prompt_for_repo() -> String {
