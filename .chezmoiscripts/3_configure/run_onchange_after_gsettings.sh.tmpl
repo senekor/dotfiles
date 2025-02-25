@@ -51,7 +51,8 @@ gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag-lock true
 gsettings set org.gnome.desktop.peripherals.touchpad speed 0.2
 
 # keyboard
-gsettings set org.gnome.desktop.input-sources xkb-options "['compose:ralt']"
+gsettings set org.gnome.desktop.input-sources xkb-options "[]" # deactivate compose key
+dconf write /org/gnome/desktop/input-sources/sources "[('xkb', 'us+mac')]"
 dconf write /desktop/ibus/panel/emoji/hotkey "@as []" # was Ctrl-. which overlaps with vscode
 
 # locale
