@@ -1,22 +1,30 @@
 [advice]
 	detachedHead = false
+[branch]
+	sort = -committerdate
 [checkout]
 	defaultRemote = origin
 [clean]
 	requireForce = false
 [commit]
 	gpgsign = true
+	verbose = true
 [diff]
-	colorMoved = default
+	algorith = histogram
+	colorMoved = plain
 	colorMovedWS = allow-indentation-change
-	tool = difftastic
+	mnemonicPrefix = true
+	renames = true
 	submodule = log
+	tool = difftastic
 [difftool]
 	prompt = false
 [difftool "difftastic"]
 	cmd = difft "$LOCAL" "$REMOTE"
 [fetch]
 	prune = true
+	pruneTags = true
+	all = true
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
@@ -27,17 +35,20 @@
 [gpg "ssh"]
 	program = /opt/1Password/op-ssh-sign
 	allowedSignersFile = ~/.config/allowed_signers
+[help]
+	autocorrect = prompt
 [init]
 	defaultBranch = main
 [pager]
 	difftool = true
 [merge]
-  conflictStyle = zdiff3
+	conflictStyle = zdiff3
 [pull]
 	rebase = true
 	ff = only
 [push]
 	autoSetupRemote = true
+	followTags = true
 	recurseSubmodules = on-demand
 [rebase]
 	autoSquash = true
@@ -46,8 +57,11 @@
 	updateRefs = true
 [rerere]
 	enabled = true
+	autoupdate = true
 [submodule]
 	recurse = true
+[tag]
+	sort = version:refname
 # This allows submodules to have https urls so anyone can easily download them.
 # Users who only want to fetch with ssh can still do that with this config.
 [url "ssh://git@"]
@@ -63,7 +77,7 @@
 
 [alias]
 	st = status --short
-	f = fetch --all
+	f = fetch
 	l = "!f() { git log --oneline --graph "$@" || true ; }; f"
 	g = "!f() { git log --oneline --graph --branches='*' --remotes='*' HEAD "$@" || true ; }; f"
 
