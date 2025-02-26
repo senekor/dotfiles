@@ -2,7 +2,7 @@ theme = "kanagawa" # modus_operandi
 
 [editor]
 scrolloff = 256                  # big number -> cursor always centered
-line-number = "absolute"
+gutters = ["diff"]               # ["line-numbers", "spacer", "diff"]
 bufferline = "always"
 mouse = false
 true-color = true
