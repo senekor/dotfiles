@@ -1,0 +1,4 @@
+inherits = "kanagawa"
+
+# gutter background same regular background, make it "invisible"
+"ui.gutter" = { bg = "sumiInk1" }
