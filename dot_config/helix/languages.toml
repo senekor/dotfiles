@@ -1,4 +1,5 @@
 [language-server.rust-analyzer]
+config.cargo.targetDir = true
 config.check.command = "clippy"
 
 [language-server.pylsp.config.pylsp.plugins]
