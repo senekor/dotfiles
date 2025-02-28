@@ -12,11 +12,7 @@ fn main() {
     let mut repo = args().nth(1).unwrap_or_else(prompt_for_repo);
 
     if !repo.contains('/') {
-        repo = format!(
-            "{}/repos/git.buenzli.dev/remo/{}",
-            var("HOME").unwrap(),
-            repo
-        );
+        repo = format!("{}/repos/buenzli/remo/{}", var("HOME").unwrap(), repo);
     }
     create_dir_all(&repo).unwrap();
     set_current_dir(&repo).unwrap();
@@ -24,7 +20,7 @@ fn main() {
 
     sh("jj git init --colocate").run(None);
     sh("jj git remote add origin")
-        .arg(format!("git@git.buenzli.dev:remo/{repo}"))
+        .arg(format!("buenzli:remo/{repo}"))
         .run(None);
     sh("jj config set --repo revset-aliases.'trunk()' present(main@origin)").run(None);
 
