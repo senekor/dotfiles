@@ -1,3 +1,4 @@
+# chezmoi:template:left-delimiter="# {{"
 [advice]
 	detachedHead = false
 [branch]
@@ -7,7 +8,9 @@
 [clean]
 	requireForce = false
 [commit]
+# {{- if not .isServer }}
 	gpgsign = true
+# {{- end }}
 	verbose = true
 [diff]
 	algorith = histogram

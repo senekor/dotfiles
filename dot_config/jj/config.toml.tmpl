@@ -1,4 +1,5 @@
 #:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+# chezmoi:template:left-delimiter="# {{"
 
 [user]
 name = "Remo Senekowitsch"
@@ -8,7 +9,9 @@ email = "remo@buenzli.dev" # default, overruled by domain-specific setting
 push-bookmark-prefix = "remo/" # default, overruled by domain-specific setting
 push-new-bookmarks = true
 subprocess = true
+# {{- if not .isServer }}
 sign-on-push = true
+# {{- end }}
 
 # domain-specific overrides, make sure to update git config as well!
 [[--scope]]
@@ -48,7 +51,7 @@ yolont = ["config", "unset", "--repo", "revset-aliases.'immutable_heads()'"]
 track-mine = ["bookmark", "track", "regex:(remo|senekor|senk)/.*@.*"]
 
 # [scripts]
-clone = ["util", "exec", "--", "{{ .chezmoi.homeDir }}/.config/jj/scripts/clone.nu"]
+clone = ["util", "exec", "--", "# {{ .chezmoi.homeDir }}/.config/jj/scripts/clone.nu"]
 tnp = ["util", "exec", "--", "bash", "-c", "set -e ; jj tug ; jj git push"] # tug'n'push
 cob = ["util", "exec", "--", "bash", "-c", """
 #!/usr/bin/env bash
@@ -72,7 +75,7 @@ jj --ignore-working-copy bookmark move "$target_bookmark" --to "$change_id"
 bgi   = [
   "util", "exec", "--",
   "cargo", "run", "--quiet",
-  "--manifest-path", "{{ .chezmoi.homeDir }}/.config/jj/scripts/bgi/Cargo.toml",
+  "--manifest-path", "# {{ .chezmoi.homeDir }}/.config/jj/scripts/bgi/Cargo.toml",
   "--",
 ]
 play  = ["bgi", "jj-play"]
@@ -84,7 +87,7 @@ log = "present(@) | ancestors(trunk()..mine(), 2) | trunk()"
 backend = "ssh"
 key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2geN1p04/RFi6LPt8hoCvTfEKhR1RH6iuH9N9wKpD7"
 backends.ssh.program = "/opt/1Password/op-ssh-sign"
-backends.ssh.allowed-signers = "{{ .chezmoi.homeDir }}/.config/allowed_signers"
+backends.ssh.allowed-signers = "# {{ .chezmoi.homeDir }}/.config/allowed_signers"
 
 [templates]
 log = "builtin_log_comfortable"
