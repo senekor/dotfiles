@@ -18,7 +18,8 @@ sourceDir = "# {{ .chezmoi.homeDir }}/repos/github/senekor/dotfiles"
 org = "# {{ $org }}"
 
 # {{ if not $isServer -}}
-exercism_api_token = """# {{ onepasswordRead "op://chezmoi/exercism-token/credential" }}"""
+exercism_api_token = """# {{ onepasswordRead "op://Personal/exercism-token/credential" }}"""
+github_token_read_only = """# {{ onepasswordRead "op://Personal/drdd2i4hfe3ewrxmqg63gpn7ge/token" }}"""
 
 # {{ end -}}
 
