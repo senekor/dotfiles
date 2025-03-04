@@ -26,9 +26,14 @@ Host pi
 
 # zhaw
 
-Host zhaw-desktop
+Host senk
   User senk
-  HostName 160.85.232.182
+  HostName senk.zhaw.ch
+  ForwardAgent yes
+
+Host senk-desktop
+  User senk
+  HostName senk-desktop.zhaw.ch
   ForwardAgent yes
 
 Host gh-actions-runner
@@ -38,11 +43,6 @@ Host gh-actions-runner
 Host savedge-ingest
   User senk
   HostName srv-lab-t-416.zhaw.ch
-  ForwardAgent yes
-
-Host nano-kistler
-  User kistler
-  HostName 192.168.101.23
   ForwardAgent yes
 
 # {{- end }}
