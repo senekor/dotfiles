@@ -8,7 +8,6 @@ email = "remo@buenzli.dev" # default, overruled by domain-specific setting
 [git]
 push-bookmark-prefix = "remo/" # default, overruled by domain-specific setting
 push-new-bookmarks = true
-subprocess = true
 # {{- if not .isServer }}
 sign-on-push = true
 # {{- end }}
@@ -46,6 +45,7 @@ r  = ["rebase"]
 s  = ["show"]
 
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+init = ["git", "init", "--colocate"]
 yolo = ["config", "set", "--repo", "revset-aliases.'immutable_heads()'", "root()"]
 yolont = ["config", "unset", "--repo", "revset-aliases.'immutable_heads()'"]
 track-mine = ["bookmark", "track", "regex:(remo|senekor|senk)/.*@.*"]
@@ -87,7 +87,7 @@ log = "present(@) | ancestors(trunk()..mine(), 2) | trunk()"
 backend = "ssh"
 key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2geN1p04/RFi6LPt8hoCvTfEKhR1RH6iuH9N9wKpD7"
 backends.ssh.program = "/opt/1Password/op-ssh-sign"
-backends.ssh.allowed-signers = "# {{ .chezmoi.homeDir }}/.config/allowed_signers"
+backends.ssh.allowed-signers = "~/.config/allowed_signers"
 
 [templates]
 log = "builtin_log_comfortable"
