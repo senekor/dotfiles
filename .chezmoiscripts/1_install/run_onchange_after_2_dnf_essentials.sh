@@ -16,7 +16,6 @@ packages=(
     util-linux # chsh
     fish
     nu
-    starship
 
     # core util replacement
     bat

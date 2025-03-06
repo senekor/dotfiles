@@ -39,7 +39,6 @@ metadata_expire=1h
 fi
 
 copr_repos=(
-    atim/starship
     varlad/zellij
 )
 
