@@ -46,6 +46,7 @@ packages=(
     patch
     boxes
     pwgen
+    aha
 
     # containerization
     distrobox
