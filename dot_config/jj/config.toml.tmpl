@@ -8,6 +8,7 @@ email = "remo@buenzli.dev" # default, overruled by domain-specific setting
 [git]
 push-bookmark-prefix = "remo/" # default, overruled by domain-specific setting
 push-new-bookmarks = true
+private-commits = "description(glob:'PRIV*')"
 # {{- if not .isServer }}
 sign-on-push = true
 # {{- end }}
