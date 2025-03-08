@@ -5,6 +5,11 @@ complete --command jj \
     --condition "__fish_seen_subcommand_from b bookmark; and __fish_seen_subcommand_from c create" \
     --arguments "(jj config get git.push-bookmark-prefix)"
 
+# complete `cob` with bookmark names
+complete --command jj \
+    --condition "__fish_seen_subcommand_from cob" \
+    --arguments "(jj bookmark list --revisions 'heads(::@-- & bookmarks())' --template 'name ++ \"\\n\"')"
+
 # complete `jj clone` and `jj git remote add / set-url` with repo url
 complete --command jj \
     --condition "__fish_seen_subcommand_from clone" \
