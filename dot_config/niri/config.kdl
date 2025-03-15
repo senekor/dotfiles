@@ -75,6 +75,22 @@ input {
     focus-follows-mouse
 }
 
+// reitweg-desktop
+output "GIGA-BYTE TECHNOLOGY CO., LTD. AORUS FO32U2P 24090B001780" {
+    scale 1.5
+}
+
+// ines-desktop
+output "Dell Inc. DELL U2713H C6F0K52C07TL" {
+    transform "90"
+    position x=0 y=-570
+}
+
+// abtwil-desktop
+output "Philips Consumer Electronics Company PHL 276E8V 0x00000CC2" {
+    position x=0 y=0
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
