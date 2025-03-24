@@ -8,7 +8,7 @@ email = "remo@buenzli.dev" # default, overruled by domain-specific setting
 [git]
 push-bookmark-prefix = "remo/" # default, overruled by domain-specific setting
 push-new-bookmarks = true
-private-commits = "description(glob:'PRIV*')"
+private-commits = "private()"
 # {{- if not .isServer }}
 sign-on-push = true
 # {{- end }}
@@ -41,7 +41,7 @@ f  = ["git", "fetch", "--all-remotes"]
 l  = ["log", "--template", "custom_log_oneline", "--revisions", "ancestors(@)"]
 g  = ["log", "--template", "custom_log_oneline", "--revisions", "all()"]
 p  = ["git", "push"]
-pa = ["git", "push", "--all"]
+pa = ["git", "push", "--revisions", "all() ~ private()"]
 r  = ["rebase"]
 s  = ["show"]
 
@@ -95,6 +95,9 @@ backends.ssh.allowed-signers = "~/.config/allowed_signers"
 log = "builtin_log_comfortable"
 op_log = 'builtin_op_log_comfortable'
 log_node = "my_log_node"
+
+[revset-aliases]
+'private()' = "description(glob:'PRIV*')"
 
 # https://github.com/martinvonz/jj/blob/main/cli/src/config/templates.toml
 [template-aliases]
