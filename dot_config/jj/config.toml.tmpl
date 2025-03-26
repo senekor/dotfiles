@@ -50,6 +50,7 @@ init = ["git", "init", "--colocate"]
 yolo = ["config", "set", "--repo", "revset-aliases.'immutable_heads()'", "root()"]
 yolont = ["config", "unset", "--repo", "revset-aliases.'immutable_heads()'"]
 track-mine = ["bookmark", "track", "regex:(remo|senekor|senk)/.*@.*"]
+track-all = ["bookmark", "track", "glob:*@*"] # for personal repos where I don't use the prefix
 
 # [scripts]
 clone = ["util", "exec", "--", "# {{ .chezmoi.homeDir }}/.config/jj/scripts/clone.nu"]
