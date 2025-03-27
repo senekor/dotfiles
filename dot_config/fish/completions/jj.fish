@@ -8,7 +8,7 @@ complete --command jj \
 # complete `cob` with bookmark names
 complete --command jj \
     --condition "__fish_seen_subcommand_from cob" \
-    --arguments "(jj bookmark list --revisions 'heads(::@-- & bookmarks())' --template 'name ++ \"\\n\"')"
+    --arguments "(jj bookmark list --revisions 'fork_point(@--)::' --template 'if(!remote, name ++ \"\\n\")')"
 
 # complete `jj clone` and `jj git remote add / set-url` with repo url
 complete --command jj \
