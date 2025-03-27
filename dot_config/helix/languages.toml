@@ -6,12 +6,6 @@ config.check.command = "clippy"
 name = "python"
 auto-format = true
 
-[language-server.pylsp.config.pylsp.plugins]
-pycodestyle.enabled = false # don't need style diagnostics with auto-format
-mccabe.enabled = false # cyclomatic complexity
-# more pylsp config options:
-# https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
-
 [[language]]
 name = "vhdl"
 formatter.command = "vhdl_fmt.sh"
