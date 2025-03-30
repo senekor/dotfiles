@@ -39,6 +39,7 @@ enable = true
 esc = ":update"                            # save on escape
 C-h = "save_selection"                     # "save" -> "history"
 j = "flip_selections"                      # "juxtapose"
+J = "select_all_siblings"                  # "juggle"
 l = ":reflow"
 L = ":reload-all"
 h = "jump_backward"                        # move through jumplist ("history")
