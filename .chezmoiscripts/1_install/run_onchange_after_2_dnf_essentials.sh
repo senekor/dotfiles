@@ -8,6 +8,7 @@ packages=(
     rustup # still need to run rustup-init
     mold clang # rust needs a linker
     gcc # maybe not needed with mold, but gcc seems good to have
+    golang gopls
     nodejs yarnpkg
     uv ruff python-launcher
     shellcheck nodejs-bash-language-server
