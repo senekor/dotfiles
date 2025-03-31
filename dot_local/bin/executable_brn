@@ -1,0 +1,31 @@
+#!/usr/bin/env nu
+
+# bulk-rename with your $EDITOR
+#
+# inspired by bulk rename in yazi / nnn
+
+def main [...files] {
+    if ($files | length) == 0 {
+        print "provide files to rename as arguments"
+        exit 1
+    }
+
+    let editor = $env.EDITOR? | default "/usr/bin/hx"
+
+    mkdir "/tmp/brn"
+    let pre = $"/tmp/brn/($nu.PID)"
+    let post = $"($pre)-post"
+
+    touch $pre
+    for f in $files {
+        $"($f)\n" | save --append $pre
+    }
+    cp $pre $post
+    fish -c $"($editor) ($post) < /dev/tty > /dev/tty"
+    for it in (cat $pre | split row "\n" | zip { cat $post | split row "\n" }) {
+        if $it.0 != $it.1 {
+            mv $it.0 $it.1
+        }
+    }
+    rm $pre $post
+}
