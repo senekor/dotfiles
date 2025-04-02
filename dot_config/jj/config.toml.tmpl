@@ -35,6 +35,7 @@ merge-tool-edits-conflict-markers = true
 b  = ["bookmark"]
 c  = ["commit"]
 ci = ["commit", "--interactive"]
+cm = ["util", "exec", "--", "bash", "-c", """set -eo pipefail ; echo "$@" | jj describe --stdin ; jj new""", ""]
 d  = ["describe"]
 e  = ["edit"]
 f  = ["git", "fetch", "--all-remotes"]
