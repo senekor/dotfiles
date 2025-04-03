@@ -3,6 +3,7 @@
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
 
+spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1" // package: mate-polkit
 spawn-at-startup "xwayland-satellite"
 environment {
     DISPLAY ":0"
