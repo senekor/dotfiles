@@ -14,30 +14,16 @@ fi
 
 packages=(
     cargo-binstall # self-update
-    cargo-generate
-    cargo-nextest
-    # cargo-outdated (no binaries for ARM)
     starship
     atuin
-    unlicense
     jj-cli
     ccase
     watchexec-cli
     choose
-    typst-cli
-    typstyle
-    ec2hx
-    kdlfmt
 )
-
 cargo binstall --no-confirm --log-level warn "${packages[@]}"
 
 [ -d "$HOME/.local/bin" ] || mkdir -p "$HOME/.local/bin"
-
-if ! which deno &> /dev/null ; then
-    export DENO_INSTALL=~/.local
-    sh <(curl -fsSL https://deno.land/install.sh) --yes --no-modify-path
-fi
 
 if ! which taplo &> /dev/null ; then
     curl -fsSL "https://github.com/tamasfe/taplo/releases/latest/download/taplo-full-linux-$(arch).gz" \
@@ -46,4 +32,23 @@ if ! which taplo &> /dev/null ; then
 fi
 
 # {{ template "skipOnServer" . }}
-cargo binstall --no-confirm --log-level warn openscad-lsp
+
+packages=(
+    cargo-generate
+    cargo-nextest
+    # cargo-outdated (no binaries for ARM)
+    typst-cli
+    typstyle
+    kdlfmt
+    openscad-lsp
+
+    # I maed dis
+    unlicense
+    ec2hx
+)
+cargo binstall --no-confirm --log-level warn "${packages[@]}"
+
+if ! which deno &> /dev/null ; then
+    export DENO_INSTALL=~/.local
+    sh <(curl -fsSL https://deno.land/install.sh) --yes --no-modify-path
+fi
