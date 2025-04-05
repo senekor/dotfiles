@@ -103,7 +103,7 @@ log_node = "my_log_node"
 # https://github.com/martinvonz/jj/blob/main/cli/src/config/templates.toml
 [template-aliases]
 
-'format_short_change_id(id)' = 'id.shortest(5)'
+'format_short_change_id(id)' = 'id.shortest(6)'
 
 custom_log_oneline = '''
 if(root,
@@ -113,13 +113,6 @@ if(root,
       format_short_change_id_with_hidden_and_divergent_info(self),
       if(divergent, format_short_commit_id(commit_id)),
       if(conflict, label("conflict", "conflict")),
-      if(author.email(),
-        pad_end(4, if(author.email().local().contains("dependabot"),
-          author.email().local().substr(9, 13),
-          author.email().local().substr(0, 4),
-        )),
-        email_placeholder,
-      ),
       bookmarks,
       tags,
       working_copies,
