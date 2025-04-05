@@ -4,7 +4,14 @@ set -euo pipefail
 # source:
 # https://github.com/Zeioth/wofi-emoji?tab=readme-ov-file
 
-EMOJI="$(sed '1,/^### DATA ###$/d' $0 | wofi -p "emoji" --show dmenu -i | cut -d ' ' -f 1 | tr -d '\n')"
+EMOJI="$(
+    sed '1,/^### DATA ###$/d' "$0" \
+        | fuzzel --dmenu \
+            --placeholder "emoji" \
+            --font "Noto Color Emoji,Adwaita" \
+            --width 64 \
+        | cut -d ' ' -f 1 | tr -d '\n'
+)"
 wtype "$EMOJI"; wl-copy "$EMOJI"
 exit
 ### DATA ###

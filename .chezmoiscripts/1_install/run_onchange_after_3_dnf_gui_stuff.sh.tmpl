@@ -19,7 +19,7 @@ packages=(
     seahorse
     # gtk dark theme for legacy apps, see configure/gsettings
     adw-gtk3-theme
-    # simulate wayland input, used by wofi_emoji.sh and `jj bgi`
+    # simulate wayland input, used by fuzzel_emoji.sh and `jj bgi`
     wtype
     # TUI email client, needs 1Password CLI for auth
     aerc
@@ -29,7 +29,7 @@ packages=(
     mate-polkit # authentication agent
     hyprpaper # wallpaper
     hypridle hyprlock # lock screen on idle
-    wofi # app launcher
+    fuzzel # installed by default for niri
     dunst # notification daemon
     grim slurp swappy # screenshots
     wlsunset # disabled in current config
@@ -39,6 +39,7 @@ packages=(
     cmake meson cpio hyprland-devel # hyprpm
 
     niri
+    adwaita-fonts-all # used by fuzzel_emoji.sh
     xcb-util-cursor-devel # build-dep of xwayland-satellite
 )
 installed="$(dnf list --installed)"

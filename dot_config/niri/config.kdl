@@ -270,7 +270,7 @@ binds {
     // completely custom:
     Mod+O { spawn "fish" "-c" "rotate_monitor.sh"; } // TODO: update to work with niri
     Mod+U { spawn "systemctl" "suspend"; }
-    Mod+Y { spawn "fish" "-c" "wofi_emoji.sh"; }
+    Mod+Y { spawn "fish" "-c" "fuzzel_emoji.sh"; }
     
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program
