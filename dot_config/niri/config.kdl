@@ -43,6 +43,7 @@ input {
         tap
         // dwt // disable when typing
         // dwtp // disable when trackpointing
+        drag-lock
         natural-scroll
         // accel-speed 0.2
         // accel-profile "flat"
