@@ -10,16 +10,13 @@ set -eo pipefail
 
 echo "Making sure authentication with yubikey is enabled..."
 
-yubico_dir=~/.config/Yubico
-keys_path=$yubico_dir/u2f_keys
-
 # u2f_keys must not be a symlink but a regular file
-if ! [ -f $keys_path ] ; then
-    mkdir -p $yubico_dir
+if ! [ -f ~/.config/Yubico/u2f_keys ] ; then
+    mkdir -p ~/.config/Yubico
     echo "Please get your security key ready and press enter."
     read -r _
-    echo "Now touch your security key."
-    pamu2fcfg > $keys_path
+    echo "Now touch your security key (after PIN entry)."
+    pamu2fcfg > ~/.config/Yubico/u2f_keys
 fi
 
 if ! authselect current | rg u2f > /dev/null ; then
