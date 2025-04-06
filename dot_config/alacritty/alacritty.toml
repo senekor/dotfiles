@@ -10,7 +10,7 @@ live_config_reload = true
 # draw_bold_text_with_bright_colors = true
 
 [font.normal]
-family = "Roboto Mono"
+family = "Adwaita Mono"
 
 [window]
 decorations = "none"

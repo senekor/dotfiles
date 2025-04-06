@@ -129,8 +129,6 @@ if(root,
 
 # changes compared to default:
 # - elided:    ':' instead of '~'
-# - immutable: '•' instead of '◆' (diamond is off-center in Roboto Mono)
-# - conflict:  '🗙' instead of '×'
 my_log_node = '''
 coalesce(
   if(!self, label("elided", ":")),
@@ -142,8 +140,8 @@ coalesce(
     ),
     coalesce(
       if(current_working_copy, "@"),
-      if(immutable, "•"),
-      if(conflict, "🗙"),
+      if(immutable, "◆"),
+      if(conflict, "×"),
       "○",
     )
   )
