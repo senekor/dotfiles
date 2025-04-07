@@ -6,7 +6,7 @@ name = "Remo Senekowitsch"
 email = "remo@buenzli.dev" # default, overruled by domain-specific setting
 
 [git]
-push-bookmark-prefix = "remo/" # default, overruled by domain-specific setting
+push-bookmark-prefix = "senekor/" # default, overruled by domain-specific setting
 push-new-bookmarks = true
 private-commits = "private()"
 # {{- if not .isServer }}
@@ -15,8 +15,8 @@ sign-on-push = true
 
 # domain-specific overrides, make sure to update git config as well!
 [[--scope]]
---when.repositories = ["~/repos/github"]
-git.push-bookmark-prefix = "senekor/"
+--when.repositories = ["~/repos/buenzli"]
+git.push-bookmark-prefix = "remo/"
 [[--scope]]
 --when.repositories = ["~/repos/zhaw"]
 user.email = "senk@zhaw.ch"
