@@ -37,8 +37,11 @@ e  = ["edit"]
 f  = ["git", "fetch", "--all-remotes"]
 l  = ["log", "--template", "custom_log_oneline", "--revisions", "ancestors(@)"]
 g  = ["log", "--template", "custom_log_oneline", "--revisions", "all()"]
-p  = ["git", "push", "--revisions", "all() ~ private()"]
+p  = ["git", "push"]
+pa = ["git", "push", "--all"]
+pt = ["git", "push", "--tracked"]
 pc = ["git", "push", "--change"]
+pb = ["git", "push", "--bookmark"]
 pd = ["git", "push", "--deleted"]
 r  = ["rebase"]
 s  = ["show"]
@@ -52,7 +55,7 @@ track-all = ["bookmark", "track", "glob:*@*"] # for personal repos where I don't
 
 # [scripts]
 clone = ["util", "exec", "--", "# {{ .chezmoi.homeDir }}/.config/jj/scripts/clone.nu"]
-tnp = ["util", "exec", "--", "bash", "-c", "set -e ; jj tug ; jj git push"] # tug'n'push
+tnp = ["util", "exec", "--", "bash", "-c", "set -e ; jj tug ; jj git push --revisions @-"] # tug'n'push
 cob = ["util", "exec", "--", "bash", "-c", """
 #!/usr/bin/env bash
 set -euo pipefail
