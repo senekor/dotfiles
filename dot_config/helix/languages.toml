@@ -47,3 +47,7 @@ name = "bash"
 indent = { unit = "    ", tab-width = 4 }
 formatter = { command = "ec2hx", args = ["trim-trailing-whitespace"] }
 auto-format = true
+
+[[language]]
+name = "mail"
+text-width = 72
