@@ -96,7 +96,6 @@ backends.ssh.allowed-signers = "~/.config/allowed_signers"
 
 [templates]
 op_log = 'builtin_op_log_comfortable'
-log_node = "my_log_node"
 
 [revset-aliases]
 'private()' = "description(glob:'PRIV*')"
@@ -123,27 +122,6 @@ if(root,
         label(if(empty, "empty"), description_placeholder),
       ),
     ),
-  )
-)
-'''
-
-# changes compared to default:
-# - elided:    ':' instead of '~'
-my_log_node = '''
-coalesce(
-  if(!self, label("elided", ":")),
-  label(
-    separate(" ",
-      if(current_working_copy, "working_copy"),
-      if(immutable, "immutable"),
-      if(conflict, "conflict"),
-    ),
-    coalesce(
-      if(current_working_copy, "@"),
-      if(immutable, "◆"),
-      if(conflict, "×"),
-      "○",
-    )
   )
 )
 '''
