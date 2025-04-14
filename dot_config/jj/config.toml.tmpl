@@ -34,6 +34,7 @@ c  = ["commit"]
 ci = ["commit", "--interactive"]
 cm = ["util", "exec", "--", "bash", "-c", """set -eo pipefail ; echo "$@" | jj describe --stdin ; jj new""", ""]
 d  = ["describe"]
+dv = ["--config=templates.draft_commit_description=commit_description_verbose", "describe"]
 e  = ["edit"]
 f  = ["git", "fetch", "--all-remotes"]
 l  = ["log", "--template", "custom_log_oneline", "--revisions", "ancestors(@)"]
@@ -123,6 +124,17 @@ if(root,
       ),
     ),
   )
+)
+'''
+
+commit_description_verbose = '''
+concat(
+  description,
+  "\n\n",
+  "JJ: This commit contains the following changes:\n",
+  indent("JJ:    ", diff.stat(72)),
+  "JJ: ignore-rest\n",
+  diff.git(),
 )
 '''
 
