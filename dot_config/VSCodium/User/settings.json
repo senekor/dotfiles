@@ -75,7 +75,6 @@
   "terminal.integrated.tabs.enabled": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typst-lsp.exportPdf": "never",
-  "vsicons.dontShowNewVersionMessage": true,
   "window.titleBarStyle": "custom",
   "workbench.colorCustomizations": {
     "[*Dark*]": {
@@ -95,7 +94,6 @@
       "editorInlayHint.typeForeground": "#aaa"
     }
   },
-  "workbench.iconTheme": "vscode-icons",
   "workbench.panel.opensMaximized": "always",
   "workbench.startupEditor": "none"
 }
