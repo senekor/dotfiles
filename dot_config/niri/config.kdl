@@ -79,6 +79,7 @@ input {
 
 // reitweg-desktop
 output "GIGA-BYTE TECHNOLOGY CO., LTD. AORUS FO32U2P 24090B001780" {
+    mode "3840x2160@120.000"
     scale 1.5
 }
 
