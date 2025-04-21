@@ -101,6 +101,7 @@ op_log = 'builtin_op_log_comfortable'
 
 [revset-aliases]
 'private()' = "description(glob:'PRIV*')"
+'immutable_heads()' = "builtin_immutable_heads() | remote_bookmarks('', remote='upstream')"
 
 # https://github.com/martinvonz/jj/blob/main/cli/src/config/templates.toml
 [template-aliases]
