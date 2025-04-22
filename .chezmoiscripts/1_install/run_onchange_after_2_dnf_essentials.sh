@@ -20,7 +20,6 @@ packages=(
 
     # core util replacement
     bat
-    eza
 
     # repo interaction
     make
