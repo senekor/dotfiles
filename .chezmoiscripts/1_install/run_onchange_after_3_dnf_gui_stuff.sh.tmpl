@@ -23,22 +23,15 @@ packages=(
     # TUI email client, needs 1Password CLI for auth
     aerc
 
-    # hyprland
-    hyprland
+    # niri
+    niri
     mate-polkit # authentication agent
-    hyprpaper # wallpaper
-    hypridle hyprlock # lock screen on idle
     fuzzel # installed by default for niri
-    dunst # notification daemon
-    grim slurp swappy # screenshots
     wlsunset # disabled in current config
     blueman # bluetooth GUI
     pavucontrol # audio GUI
     brightnessctl # laptop screen brightness
-    cmake meson cpio hyprland-devel # hyprpm
-
-    niri
-    adwaita-fonts-all # used by fuzzel_emoji.sh
+    adwaita-fonts-all # used by fuzzel_emoji.sh (maybe installed by default since F42?)
     xcb-util-cursor-devel # build-dep of xwayland-satellite
 )
 installed="$(dnf list --installed)"
@@ -48,9 +41,6 @@ for package in "${packages[@]}"; do
         break
     fi
 done
-
-# hyprland has a stupid weak dep nwg-panel which clutters my app launcher
-sudo dnf remove -yq nwg-panel &> /dev/null
 
 # Don't forget to update the version in the desktop entry !
 rr_version="2024.3.4"
@@ -64,20 +54,4 @@ if ! test -d "$HOME/.local/share/gh/extensions/gh-markdown-preview" ; then
     echo "Downloading and gh-markdown-preview..."
     # launch fish to make sure GH_TOKEN is loaded on fresh setup
     fish -c "gh extension install yusukebe/gh-markdown-preview"
-fi
-
-# hyprland plugins
-if [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ] && ! hyprpm list | grep hyprfocus > /dev/null ; then
-    if ! [ -e ~/.local/bin/cmake ] ; then
-        echo "Installing cmake 3.30 for hyprpm..."
-        pushd "$(mktemp -d)"
-        version="3.30.5"
-        wget https://github.com/Kitware/CMake/releases/download/v$version/cmake-$version-linux-x86_64.sh
-        bash cmake-$version-linux-x86_64.sh --prefix="$HOME/.local" --exclude-subdir --skip-license
-        rm cmake-$version-linux-x86_64.sh
-        popd
-    fi
-    hyprpm update --no-shallow
-    hyprpm add https://github.com/pyt0xic/hyprfocus || true
-    hyprpm enable hyprfocus
 fi
