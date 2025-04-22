@@ -62,7 +62,8 @@ fi
 
 if ! test -d "$HOME/.local/share/gh/extensions/gh-markdown-preview" ; then
     echo "Downloading and gh-markdown-preview..."
-    gh extension install yusukebe/gh-markdown-preview
+    # launch fish to make sure GH_TOKEN is loaded on fresh setup
+    fish -c "gh extension install yusukebe/gh-markdown-preview"
 fi
 
 # hyprland plugins
