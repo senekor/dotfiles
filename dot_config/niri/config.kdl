@@ -5,6 +5,7 @@
 
 spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1" // package: mate-polkit
 spawn-at-startup "xwayland-satellite"
+spawn-at-startup "swaybg" "--mode=fill" "--image=/usr/share/backgrounds/f34/default/f34.png"
 environment {
     DISPLAY ":0"
 }
