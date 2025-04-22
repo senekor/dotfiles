@@ -17,6 +17,7 @@ packages=(
     util-linux # chsh
     fish
     nu
+    atuin
 
     # core util replacement
     bat
