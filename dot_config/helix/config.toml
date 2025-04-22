@@ -73,9 +73,9 @@ k = "no_op"
 # intentionally.
 f = "file_picker_in_current_directory"
 F = "file_picker"
-# same inversion of default of file explorer as file picker
-e = "file_explorer_in_current_buffer_directory"
-E = "file_explorer"
+# same inversion of default of file explorer as file picker (not yet on stable helix)
+# e = "file_explorer_in_current_buffer_directory"
+# E = "file_explorer"
 
 [keys.normal.space.w]
 h = "hsplit"              # "save" -> "history"
