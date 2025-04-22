@@ -41,7 +41,6 @@ packages=(
     # util
     ripgrep
     fd-find
-    sd
     tealdeer
     fzf
     patch

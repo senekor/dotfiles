@@ -7,4 +7,4 @@ set -eo pipefail
 
 sudo mkdir -p "/root/.config/helix"
 sudo cp "$HOME/.config/helix/config.toml" "/root/.config/helix/config.toml"
-sudo sd '^theme.*$' 'theme = "zenburn"' "/root/.config/helix/config.toml"
+sudo sed --in-place 's/^theme.*$/theme = "zenburn"/g' "/root/.config/helix/config.toml"
