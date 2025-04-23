@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eo pipefail
 
-if [ "$(hostname)" = "fedora" ]
+if [[ "$(hostname)" = "fedora"* ]]
 then
     echo "Enter a new hostname:"
     read -r new_hostname
