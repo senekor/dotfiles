@@ -6,6 +6,7 @@
 spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1" // package: mate-polkit
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "swaybg" "--mode=fill" "--image=/usr/share/backgrounds/f34/default/f34.png"
+spawn-at-startup "swayidle" "-w" "before-sleep" "swaylock" "lock" "swaylock"
 environment {
     DISPLAY ":0"
 }
@@ -272,7 +273,7 @@ window-rule {
 binds {
     // completely custom:
     Mod+O { spawn "fish" "-c" "rotate_monitor.sh"; } // TODO: update to work with niri
-    Mod+U { spawn "systemctl" "suspend"; }
+    Mod+U allow-when-locked=true { spawn "systemctl" "suspend"; }
     Mod+Y { spawn "fish" "-c" "fuzzel_emoji.sh"; }
     
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
@@ -291,7 +292,7 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Ctrl+S { spawn "alacritty" "--command" "zellij"; }
     Mod+A { spawn "fuzzel"; }
-    Super+L { spawn "swaylock"; }
+    Super+L { spawn "loginctl" "lock-session"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
