@@ -97,6 +97,11 @@ output "Philips Consumer Electronics Company PHL 276E8V 0x00000CC2" {
     position x=0 y=0
 }
 
+// framework-13
+output "BOE 0x095F Unknown" {
+    transform "normal" // rotatable
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
@@ -273,7 +278,7 @@ window-rule {
 
 binds {
     // completely custom:
-    Mod+O { spawn "fish" "-c" "rotate_monitor.sh"; } // TODO: update to work with niri
+    Mod+O { spawn "fish" "-c" "rotate_monitor.sh"; }
     Mod+U allow-when-locked=true { spawn "systemctl" "suspend"; }
     Mod+Y { spawn "fish" "-c" "fuzzel_emoji.sh"; }
     

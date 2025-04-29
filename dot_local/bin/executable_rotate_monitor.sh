@@ -1,22 +1,22 @@
 #!/bin/bash
 set -euo pipefail
 
-# usually called via keybind, see hyprland.conf
+# usually called via keybind, see niri/config.kdl
 
 current_rotation=$(
-  rg 'rotation = ' ~/.config/hypr/monitors.conf \
-    | choose --field-separator 'rotation = ' 1
+  rg 'transform "[a-z0-9]*" // rotatable' ~/.config/niri/config.kdl \
+    | choose --field-separator ' ' 1
 )
 case $current_rotation in
-  0) next_rotation=1 ;;
-  1) next_rotation=3 ;;
-  3) next_rotation=0 ;;
+  '"normal"') next_rotation='"90"'     ;;
+      '"90"') next_rotation='"270"'    ;;
+     '"270"') next_rotation='"normal"' ;;
   *)
-    err="unknown current rotation: '$current_rotation' (expected 0,1 or 3)"
+    err="unknown current rotation: '$current_rotation' (expected normal, 90 or 270)"
     echo "$err" >&2
     notify-send --urgency=critical "$err"
     exit 1
     ;;
 esac
 
-sd 'rotation = \d' "rotation = $next_rotation" ~/.config/hypr/monitors.conf
+sd 'transform "[a-z0-9]*" // rotatable' "transform $next_rotation // rotatable" ~/.config/niri/config.kdl
