@@ -5,5 +5,6 @@
 
 [Default Applications]
 image/png=org.gnome.Loupe.desktop
+image/jpeg=org.gnome.Loupe.desktop
 text/plain=org.gnome.TextEditor.desktop
 application/x-shellscript=org.gnome.TextEditor.desktop
