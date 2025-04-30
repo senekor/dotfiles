@@ -1,0 +1,5 @@
+[Unit]
+Description=Highly customizable Wayland bar
+
+[Service]
+ExecStart=/usr/bin/waybar
