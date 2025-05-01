@@ -242,6 +242,7 @@ binds {
     // `niri msg action do-something`.
 
     // custom:
+    Mod+B { spawn "fish" "-c" "toggle_bloated_mode.sh"; }
     Mod+G { spawn "fish" "-c" "toggle_gui_mode.sh"; }
     Mod+L { spawn "loginctl" "lock-session"; }
     Mod+U allow-when-locked=true { spawn "systemctl" "suspend"; }
