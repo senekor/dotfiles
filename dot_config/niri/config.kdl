@@ -131,10 +131,10 @@ layout {
     // You can change how the focus ring looks.
     focus-ring {
         // Uncomment this line to disable the focus ring.
-        off
+        off // focus-ring
 
         // How many logical pixels the ring extends out from the windows.
-        width 4
+        width 6
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -155,26 +155,20 @@ layout {
         // Changing the color space is also supported, check the wiki for more info.
         //
         // active-gradient from="#80c8ff" to="#bbddff" angle=45
-
-        // You can also color the gradient relative to the entire view
-        // of the workspace, rather than relative to just the window itself.
-        // To do that, set relative-to="workspace-view".
-        //
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+        active-gradient from="#ff6f00" to="#b600ff" angle=135
+        inactive-gradient from="#505050" to="#808080" angle=45
     }
 
     // You can also add a border. It's similar to the focus ring, but always visible.
     border {
         // The settings are the same as for the focus ring.
         // If you enable the border, you probably want to disable the focus ring.
-        // off
+        off
 
         width 3
+
         active-color "oklch(0.28 0.05 291.089)" // darkest tailwind purple with reduced chroma
         inactive-color "oklch(0.13 0.028 261.692)"
-
-        // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
 
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.
@@ -209,6 +203,11 @@ screenshot-path "~/cloud/pictures/screenshots/screenshot_%Y-%m-%dT%H:%M:%S.png"
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
 
+/-window-rule { // rounded corners
+    geometry-corner-radius 4
+    clip-to-geometry true
+}
+
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     // This app-id regular expression will work for both:
@@ -229,13 +228,6 @@ window-rule {
 
     // Use this instead if you want them visible on third-party screenshot tools.
     // block-out-from "screencast"
-}
-
-window-rule {
-    match app-id=r#"firefox$"#
-    border {
-        off
-    }
 }
 
 binds {
