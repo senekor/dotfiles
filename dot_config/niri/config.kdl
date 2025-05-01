@@ -9,7 +9,7 @@
 // See the binds section below for more spawn examples.
 spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1" // package: mate-polkit
 spawn-at-startup "swaybg" "--mode=fill" "--image=/usr/share/backgrounds/f34/default/f34.png"
-spawn-at-startup "swayidle" "-w" "before-sleep" "swaylock" "lock" "swaylock"
+spawn-at-startup "swayidle" "-w" // config in swayidle/config
 spawn-at-startup "wlsunset" "-S" "4:00" "-s" "20:00" "-T" "6500" "-t" "2000"
 environment {
     DISPLAY ":0"
