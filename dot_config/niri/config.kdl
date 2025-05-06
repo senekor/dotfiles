@@ -145,7 +145,7 @@ layout {
         active-color "#7fc8ff"
 
         // Color of the ring on inactive monitors.
-        inactive-color "#505050"
+        inactive-color "#00000000"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -156,7 +156,7 @@ layout {
         //
         // active-gradient from="#80c8ff" to="#bbddff" angle=45
         active-gradient from="#ff6f00" to="#b600ff" angle=135
-        inactive-gradient from="#505050" to="#808080" angle=45
+        // inactive-gradient from="#505050" to="#808080" angle=45
     }
 
     // You can also add a border. It's similar to the focus ring, but always visible.
