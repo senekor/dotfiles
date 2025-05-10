@@ -17,8 +17,8 @@
         "tray",
         "pulseaudio",
         "network",
-        "power-profiles-daemon",
-        "backlight"
+        "power-profiles-daemon"
+        // "backlight",
         // "idle_inhibitor",
         // "cpu",
         // "memory",
