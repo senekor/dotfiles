@@ -171,6 +171,10 @@ layout {
         inactive-color "oklch(0.13 0.028 261.692)"
     }
 
+    insert-hint {
+        color "#ff8b32ff"
+    }
+
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.
     // You can think of them as a kind of outer gaps. They are set in logical pixels.
     // Left and right struts will cause the next window to the side to always be visible.
