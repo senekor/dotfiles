@@ -17,12 +17,13 @@
         "tray",
         "pulseaudio",
         "network",
-        "power-profiles-daemon"
+        "power-profiles-daemon",
         // "backlight",
         // "idle_inhibitor",
         // "cpu",
         // "memory",
         // "temperature",
+        "custom/power"
     ],
     // Modules configuration
     "idle_inhibitor": {
@@ -128,5 +129,16 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
+    },
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "$HOME/.config/waybar/power_menu.xml",
+        "menu-actions": {
+            "suspend": "systemctl suspend",
+            "poweroff": "systemctl poweroff",
+            "reboot": "systemctl reboot",
+        },
     },
 }
