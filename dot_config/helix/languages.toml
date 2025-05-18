@@ -34,10 +34,6 @@ name = "toml"
 roots = ["."]
 
 [[language]]
-name = "typst"
-formatter.command = "typstyle"
-
-[[language]]
 name = "just"
 formatter = { command = "ec2hx", args = ["trim-trailing-whitespace"] }
 auto-format = true
