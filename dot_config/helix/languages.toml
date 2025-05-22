@@ -47,3 +47,7 @@ auto-format = true
 [[language]]
 name = "mail"
 text-width = 72
+
+[[language]]
+name = "openscad"
+auto-format = true
