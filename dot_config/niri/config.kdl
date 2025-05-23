@@ -351,7 +351,7 @@ binds {
     // Mod+Period { switch-preset-window-height; }
     // Mod+Ctrl+R { reset-window-height; }
     Mod+W { fullscreen-window; }
-    Mod+C { center-column; }
+    Mod+C { center-visible-columns; }
 
     // Move the focused window between the floating and the tiling layout.
     Mod+V      { toggle-window-floating; }
