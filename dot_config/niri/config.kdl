@@ -94,6 +94,9 @@ output "Dell Inc. DELL U2713H C6F0K52C07TL" {
     transform "90"
     position x=0 y=-570
 }
+output "Dell Inc. DELL U2722D 469S2P3" {
+    focus-at-startup
+}
 
 // abtwil-desktop
 output "Philips Consumer Electronics Company PHL 276E8V 0x00000CC2" {
