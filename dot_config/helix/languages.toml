@@ -5,6 +5,11 @@ config.check.command = "clippy"
 [[language]]
 name = "python"
 auto-format = true
+language-servers = ["pyrefly", "ruff"]
+
+[language-server.pyrefly]
+command = "pyrefly"
+args = ["lsp"]
 
 [[language]]
 name = "vhdl"
