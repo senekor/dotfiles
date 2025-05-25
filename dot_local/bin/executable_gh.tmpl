@@ -1,0 +1,11 @@
+#!/bin/bash
+set -euo pipefail
+
+# chezmoi:template:left-delimiter="# {{"
+# {{ if not .isServer -}}
+# This token is read-only. It makes stuff like `mdp` work without auth.
+: "${GH_TOKEN:= # {{ .github_token_read_only }} }"
+export GH_TOKEN
+# {{ end -}}
+
+exec /usr/bin/gh "$@"

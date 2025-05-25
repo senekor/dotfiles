@@ -1,10 +1,3 @@
-# chezmoi:template:left-delimiter="# {{"
-# {{ if not .isServer -}}
-# This token is read-only. It makes stuff like `mdp` work without auth.
-set --export GH_TOKEN # {{ onepasswordRead "op://Personal/drdd2i4hfe3ewrxmqg63gpn7ge/token" }}
-
-# {{ end -}}
-
 if status is-interactive
     function gh --wraps gh --description 'gh alias with auth token'
         set --export GH_TOKEN "$(op read "op://Personal/GitHub Personal Access Token/token")"
