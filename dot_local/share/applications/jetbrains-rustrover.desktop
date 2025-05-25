@@ -2,8 +2,8 @@
 Version=1.0
 Type=Application
 Name=RustRover
-Icon=/opt/RustRover-2024.3.4/bin/rustrover.svg
-Exec="/opt/RustRover-2024.3.4/bin/rustrover" %f
+Icon=/opt/RustRover-2025.1.2/bin/rustrover.svg
+Exec="/opt/RustRover-2025.1.2/bin/rustrover" %f
 Comment=Focus on what matters
 Categories=Development;IDE;
 Terminal=false
