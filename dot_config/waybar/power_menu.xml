@@ -7,6 +7,11 @@
       </object>
     </child>
     <child>
+      <object class="GtkMenuItem" id="logout">
+        <property name="label">Logout</property>
+      </object>
+    </child>
+    <child>
       <object class="GtkMenuItem" id="poweroff">
         <property name="label">Poweroff</property>
       </object>
