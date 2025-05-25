@@ -70,8 +70,9 @@ dconf write /org/gnome/shell/favorite-apps "[
 gsettings set org.gnome.nautilus.preferences default-folder-viewer "list-view"
 
 # ptyxis terminal
-ptyxis_profile="$(dconf read /org/gnome/Ptyxis/default-profile-uuid | cut --delimiter "'" --fields 2)"
-dconf write "/org/gnome/Ptyxis/Profiles/$ptyxis_profile/palette" "'Vs Code'"
+# buggy, only works if ptyxis was run at least once
+# ptyxis_profile="$(dconf read /org/gnome/Ptyxis/default-profile-uuid | cut --delimiter "'" --fields 2)"
+# dconf write "/org/gnome/Ptyxis/Profiles/$ptyxis_profile/palette" "'Vs Code'"
 dconf write /org/gnome/Ptyxis/audible-bell false
 dconf write /org/gnome/Ptyxis/visual-bell false
 dconf write /org/gnome/Ptyxis/use-system-font false
