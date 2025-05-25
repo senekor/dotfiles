@@ -49,6 +49,7 @@ if ! test -d "/opt/RustRover-$rr_version" ; then
     echo "Downloading and extracting RustRover..."
     curl -L "https://download.jetbrains.com/rustrover/RustRover-$rr_version.tar.gz" \
         | sudo tar xz --directory /opt
+    echo "-Dawt.toolkit.name=WLToolkit" | sudo tee --append /opt/RustRover-$rr_version/bin/rustrover64.vmoptions > /dev/null
 fi
 
 if ! test -d "$HOME/.local/share/gh/extensions/gh-markdown-preview" ; then
