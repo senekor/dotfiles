@@ -144,6 +144,7 @@
         "menu": "on-click",
         "menu-file": "$HOME/.config/waybar/power_menu.xml",
         "menu-actions": {
+            "lock": "loginctl lock-session",
             "suspend": "systemctl suspend",
             "logout": "niri msg action quit --skip-confirmation",
             "poweroff": "systemctl poweroff",

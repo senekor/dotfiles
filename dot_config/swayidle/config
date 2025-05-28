@@ -1,4 +1,4 @@
 before-sleep swaylock
-lock swaylock
+lock "swaylock ; sleep 5 ; niri msg action power-off-monitors"
 timeout 6600 "notify-send 'Are you still there?' 'The monitors will be turned off in 10 minutes.'"
 timeout 7200 "niri msg action power-off-monitors"
