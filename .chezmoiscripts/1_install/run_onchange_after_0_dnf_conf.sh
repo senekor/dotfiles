@@ -14,4 +14,3 @@ append_once() {
 append_once $conf "max_parallel_downloads=10"
 append_once $conf "defaultyes=True"
 append_once $conf "keepcache=True"
-append_once $conf "installonly_limit=8"
