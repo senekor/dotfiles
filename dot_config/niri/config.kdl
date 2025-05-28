@@ -272,7 +272,7 @@ binds {
     Mod+B { spawn "fish" "-c" "~/.local/bin2/toggle_bloated_mode.sh"; }
     Mod+G { spawn "fish" "-c" "~/.local/bin2/systemctl_user_toggle.sh waybar"; }
     Mod+L { spawn "loginctl" "lock-session"; }
-    Mod+U allow-when-locked=true { spawn "systemctl" "suspend"; }
+    Mod+U allow-when-locked=true { spawn "fish" "-c" "loginctl lock-session ; sleep 2 ; niri msg action power-off-monitors"; }
     Mod+Y { spawn "fish" "-c" "~/.local/bin2/fuzzel_emoji.sh"; }
     Mod+N { spawn "fuzzel"; }
     Mod+E { spawn "alacritty" "--command" "zellij"; }
