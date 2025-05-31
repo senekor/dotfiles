@@ -84,6 +84,15 @@ p = "rotate_view_reverse" # counterpart of <space>ww
 [keys.insert]
 C-h = "commit_undo_checkpoint" # "save" -> "history"
 
+# dollar-store blame UI
+[keys.normal."["]
+"r" = [ # "previous revision", checks out the commit just before the current line was last edited
+  ":write-all", # prevent other buffer content from being lost, jj command will snapshot it
+  # need append-output to block until command is complete
+  ":append-output jj new %sh{jj file annotate %{buffer_name} -T 'if(line_number == %{cursor_line}, commit.change_id())'}- &> /dev/null",
+  ":reload-all",
+]
+
 #### "save" -> "history"
 # remapping currently not supported, don't care anyway
 # [keys.picker]
