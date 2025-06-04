@@ -9,7 +9,6 @@ email = "remo@buenzli.dev" # default, overruled by domain-specific setting
 push-bookmark-prefix = "senekor-" # default, overruled by domain-specific setting
 push-new-bookmarks = true
 private-commits = "private()"
-write-change-id-header = true
 # {{- if not .isServer }}
 sign-on-push = true
 # {{- end }}
@@ -27,6 +26,7 @@ git.push-bookmark-prefix = "senk-"
 default-command = ["log", "--template", "custom_log_oneline"]
 diff-editor = ":builtin" # suppress hint about this config option
 conflict-marker-style = "snapshot"
+# show-cryptographic-signatures = true
 
 [aliases]
 b  = ["bookmark"]
