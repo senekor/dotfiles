@@ -43,6 +43,9 @@ for package in "${packages[@]}"; do
     fi
 done
 
+# Zed editor
+curl -f https://zed.dev/install.sh | sh
+
 # Don't forget to update the version in the desktop entry !
 rr_version="2025.1.2"
 if ! test -d "/opt/RustRover-$rr_version" ; then
