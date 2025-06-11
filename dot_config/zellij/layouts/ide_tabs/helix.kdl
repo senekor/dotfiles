@@ -5,7 +5,6 @@ layout {
 		// }
 		pane {
 			command "hx"
-			args "."
 		}
 	}
 
