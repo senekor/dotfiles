@@ -25,12 +25,12 @@ packages=(
 )
 cargo binstall --no-confirm --log-level warn "${packages[@]}"
 
-[ -d "$HOME/.local/bin" ] || mkdir -p "$HOME/.local/bin"
+[ -d "$HOME/.local/bin" ] || mkdir --parents "$HOME/.local/bin"
 
 if ! which taplo &> /dev/null ; then
     curl -fsSL "https://github.com/tamasfe/taplo/releases/latest/download/taplo-full-linux-$(arch).gz" \
-        | gzip -d - \
-        | install -m 755 /dev/stdin ~/.local/bin/taplo
+        | gzip --decompress - \
+        | install --mode 755 /dev/stdin ~/.local/bin/taplo
 fi
 
 # {{ template "skipOnServer" . }}
