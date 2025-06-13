@@ -5,6 +5,7 @@ set -eo pipefail
 
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo flatpak remote-modify --enable flathub
+sudo flatpak remote-modify --disable fedora
 
 packages=(
     org.telegram.desktop
