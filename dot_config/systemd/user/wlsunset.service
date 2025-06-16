@@ -1,0 +1,8 @@
+[Unit]
+Description=Day/night gamma adjustments for Wayland
+BindsTo=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/wlsunset -S 4:00 -s 20:00 -T 6500 -t 3500
+Restart=always

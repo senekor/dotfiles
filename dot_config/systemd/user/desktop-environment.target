@@ -2,6 +2,7 @@
 Description=Target collecting all custom desktop-environment services
 Wants=xwayland-satellite.service
 Wants=1password.service
+Wants=wlsunset.service
 
 # activate by adding an override to the service of your window manager,
 # e.g. ~/.config/systemd/user/niri.service.d/override.conf with content:
