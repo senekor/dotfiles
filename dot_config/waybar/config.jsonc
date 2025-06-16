@@ -1,3 +1,5 @@
+// find more icons here:
+// https://fontawesome.com/search?ic=free
 {
     "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
@@ -23,6 +25,7 @@
         // "cpu",
         // "memory",
         // "temperature",
+        "custom/wlsunset",
         "custom/power"
     ],
     // Modules configuration
@@ -129,6 +132,11 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
+    },
+    "custom/wlsunset": {
+        "format": "",
+        "tooltip-format": "toggle wlsunset",
+        "on-click": "$HOME/.local/bin2/systemctl_user_toggle.sh wlsunset",
     },
     "custom/power": {
         "format": "",

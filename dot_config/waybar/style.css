@@ -33,6 +33,7 @@ button {
 #tray,
 #idle_inhibitor,
 #power-profiles-daemon,
+#custom-wlsunset,
 #custom-power {
     padding: 0 10px;
     color: #ffffff;
