@@ -55,6 +55,7 @@ S-up = "expand_selection"                  # shift-arrows to traverse syntax-tre
 S-down = "shrink_selection"                # shift-arrows to traverse syntax-tree
 "{" = "rotate_selection_contents_backward"
 "}" = "rotate_selection_contents_forward"
+del = "delete_selection_noyank"
 
 [keys.select]
 j = "flip_selections" # "juxtapose"
