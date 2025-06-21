@@ -1,0 +1,35 @@
+This file is basically just a note containing box drawing characters for easy
+access. I found myself often searching for the table online and copy-pasting
+from it. The Wikipedia table isn't even convenient to copy-paste from.
+
+┌─┬─┐
+│ │ │
+├─┼─┤
+│ │ │
+└─┴─┘
+╭─┬─╮
+│ │ │
+├─┼─┤
+│ │ │
+╰─┴─╯
+┏━┳━┓
+┃ ┃ ┃
+┣━╋━┫
+┃ ┃ ┃
+┗━┻━┛
+
+─ ━ │ ┃ ┄ ┅ ┆ ┇ ┈ ┉ ┊ ┋ ┌ ┍ ┎ ┏
+
+┐ ┑ ┒ ┓ └ ┕ ┖ ┗ ┘ ┙ ┚ ┛ ├ ┝ ┞ ┟
+
+┠ ┡ ┢ ┣ ┤ ┥ ┦ ┧ ┨ ┩ ┪ ┫ ┬ ┭ ┮ ┯
+
+┰ ┱ ┲ ┳ ┴ ┵ ┶ ┷ ┸ ┹ ┺ ┻ ┼ ┽ ┾ ┿
+
+╀ ╁ ╂ ╃ ╄ ╅ ╆ ╇ ╈ ╉ ╊ ╋ ╌ ╍ ╎ ╏
+
+═ ║ ╒ ╓ ╔ ╕ ╖ ╗ ╘ ╙ ╚ ╛ ╜ ╝ ╞ ╟
+
+╠ ╡ ╢ ╣ ╤ ╥ ╦ ╧ ╨ ╩ ╪ ╫ ╬ ╭ ╮ ╯
+
+╰ ╱ ╲ ╳ ╴ ╵ ╶ ╷ ╸ ╹ ╺ ╻ ╼ ╽ ╾ ╿
