@@ -9,9 +9,7 @@ email = "remo@buenzli.dev" # default, overruled by domain-specific setting
 push-bookmark-prefix = "senekor-" # default, overruled by domain-specific setting
 push-new-bookmarks = true
 private-commits = "private()"
-# {{- if not .isServer }}
 sign-on-push = true
-# {{- end }}
 
 # domain-specific overrides, make sure to update git config as well!
 [[--scope]]
@@ -92,7 +90,9 @@ play  = ["bgi", "jj-play"]
 behavior = "drop"
 backend = "ssh"
 key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2geN1p04/RFi6LPt8hoCvTfEKhR1RH6iuH9N9wKpD7"
+# {{- if not .isServer }}
 backends.ssh.program = "/opt/1Password/op-ssh-sign"
+# {{- end }}
 backends.ssh.allowed-signers = "~/.config/allowed_signers"
 
 [templates]
