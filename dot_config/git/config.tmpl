@@ -8,9 +8,7 @@
 [clean]
 	requireForce = false
 [commit]
-# {{- if not .isServer }}
 	gpgsign = true
-# {{- end }}
 	verbose = true
 [diff]
 	algorith = histogram
@@ -36,7 +34,9 @@
 [gpg]
 	format = ssh
 [gpg "ssh"]
+# {{- if not .isServer }}
 	program = /opt/1Password/op-ssh-sign
+# {{- end }}
 	allowedSignersFile = ~/.config/allowed_signers
 [help]
 	autocorrect = prompt
