@@ -44,7 +44,9 @@ for package in "${packages[@]}"; do
 done
 
 # Zed editor
-curl -f https://zed.dev/install.sh | sh
+if ! which zed &> /dev/null ; then
+    curl -f https://zed.dev/install.sh | sh
+fi
 
 # Don't forget to update the version in the desktop entry !
 rr_version="2025.1.2"
