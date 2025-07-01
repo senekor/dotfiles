@@ -11,6 +11,7 @@
   // "vim": {
   //   "default_mode": "helix_normal"
   // },
+  "autosave": "on_focus_change",
   "ui_font_size": 17,
   "buffer_font_size": 15,
   "buffer_font_family": "Adwaita Mono",
