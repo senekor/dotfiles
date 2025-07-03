@@ -6,19 +6,14 @@ name = "Remo Senekowitsch"
 email = "remo@buenzli.dev" # default, overruled by domain-specific setting
 
 [git]
-push-bookmark-prefix = "senekor-" # default, overruled by domain-specific setting
 push-new-bookmarks = true
 private-commits = "private()"
 sign-on-push = true
 
 # domain-specific overrides, make sure to update git config as well!
 [[--scope]]
---when.repositories = ["~/repos/buenzli"]
-git.push-bookmark-prefix = "remo-"
-[[--scope]]
 --when.repositories = ["~/repos/zhaw"]
 user.email = "senk@zhaw.ch"
-git.push-bookmark-prefix = "senk-"
 
 [ui]
 default-command = ["log", "--template", "custom_log_oneline"]
@@ -97,6 +92,14 @@ backends.ssh.allowed-signers = "~/.config/allowed_signers"
 
 [templates]
 op_log = 'builtin_op_log_comfortable'
+git_push_bookmark = '"senekor-" ++ change_id.short()' # default, overruled by domain-specific setting
+
+[[--scope]]
+--when.repositories = ["~/repos/buenzli"]
+templates.git_push_bookmark = '"remo-" ++ change_id.short()'
+[[--scope]]
+--when.repositories = ["~/repos/zhaw"]
+templates.git_push_bookmark = '"senk-" ++ change_id.short()'
 
 [revset-aliases]
 'private()' = "description(glob:'PRIV*')"
