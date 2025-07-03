@@ -1,6 +1,19 @@
 #!/usr/bin/env fish
 
-# toggle dark and light themes for various programs
+# Toggle dark and light themes globally, as well as for various programs that
+# don't adjust with the global settings.
+
+function is_dark
+    [ "$(gsettings get org.gnome.desktop.interface color-scheme)" = "'prefer-dark'" ]
+end
+
+if is_dark
+    gsettings set org.gnome.desktop.interface color-scheme default
+    gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3
+else
+    gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+    gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-dark
+end
 
 # helix
 sd '^theme = "(?<current_theme>[^"]+)" # (?<other_theme>.+)$' \
