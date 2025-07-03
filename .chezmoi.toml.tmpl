@@ -11,8 +11,16 @@
 sourceDir = "# {{ .chezmoi.homeDir }}/repos/github/senekor/dotfiles"
 
 [data]
+# {{/*
+#   Boolean definitions inline doesn't work well with syntax highlighting / LSP.
+# */ -}}
 # {{ $isServer := promptBool "Is this machine a server" false -}}
-# {{ list "isServer" $isServer | join " = " }} # TODO: isServer =
+# {{ list "isServer" $isServer | join " = " }}
+
+# {{ if not $isServer -}}
+# {{ $isLaptop := promptBool "Is this machine a laptop" false -}}
+# {{ list "isLaptop" $isLaptop | join " = " -}}
+# {{ end }}
 
 # {{- $org := promptString "Which organziation does this machine belong to" "none" }}
 org = "# {{ $org }}"

@@ -8,6 +8,9 @@ file-types = [ "toml", { glob = "*.toml.tmpl" } ]
 name = "fish"
 file-types = [ "fish", { glob = "*.fish.tmpl" } ]
 [[language]]
+name = "kdl"
+file-types = [ "kdl", { glob = "*.kdl.tmpl" } ]
+[[language]]
 name = "git-config"
 file-types = [
   { glob = ".gitmodules" },
