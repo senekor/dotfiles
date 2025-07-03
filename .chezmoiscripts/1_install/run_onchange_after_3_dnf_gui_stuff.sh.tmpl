@@ -43,6 +43,12 @@ for package in "${packages[@]}"; do
     fi
 done
 
+# get rid of bloat
+if dnf list --installed | grep libreoffice &> /dev/null ; then
+    echo "Uninstalling libre office..."
+    sudo dnf remove -y "libreoffice-*"
+fi
+
 # Zed editor
 if ! which zed &> /dev/null ; then
     curl -f https://zed.dev/install.sh | sh
