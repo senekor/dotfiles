@@ -48,23 +48,3 @@ if dnf list --installed | grep libreoffice &> /dev/null ; then
     echo "Uninstalling libre office..."
     sudo dnf remove -y "libreoffice-*"
 fi
-
-# Zed editor
-if ! which zed &> /dev/null ; then
-    curl -f https://zed.dev/install.sh | sh
-fi
-
-# Don't forget to update the version in the desktop entry !
-rr_version="2025.1.2"
-if ! test -d "/opt/RustRover-$rr_version" ; then
-    echo "Downloading and extracting RustRover..."
-    curl -L "https://download.jetbrains.com/rustrover/RustRover-$rr_version.tar.gz" \
-        | sudo tar xz --directory /opt
-    echo "-Dawt.toolkit.name=WLToolkit" | sudo tee --append /opt/RustRover-$rr_version/bin/rustrover64.vmoptions > /dev/null
-fi
-
-if ! test -d "$HOME/.local/share/gh/extensions/gh-markdown-preview" ; then
-    echo "Downloading and gh-markdown-preview..."
-    # launch fish to make sure GH_TOKEN is loaded on fresh setup
-    fish -c "gh extension install yusukebe/gh-markdown-preview"
-fi
