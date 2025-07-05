@@ -13,10 +13,10 @@
     ],
     "modules-center": [
         "clock",
-        "battery",
     ],
     "modules-right": [
         "tray",
+        "battery",
         "pulseaudio",
         "network",
         "power-profiles-daemon",
