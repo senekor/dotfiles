@@ -92,14 +92,14 @@ backends.ssh.allowed-signers = "~/.config/allowed_signers"
 
 [templates]
 op_log = 'builtin_op_log_comfortable'
-git_push_bookmark = '"senekor-" ++ change_id.short()' # default, overruled by domain-specific setting
+git_push_bookmark = '"senekor/" ++ change_id.short()' # default, overruled by domain-specific setting
 
 [[--scope]]
 --when.repositories = ["~/repos/buenzli"]
-templates.git_push_bookmark = '"remo-" ++ change_id.short()'
+templates.git_push_bookmark = '"remo/" ++ change_id.short()'
 [[--scope]]
 --when.repositories = ["~/repos/zhaw"]
-templates.git_push_bookmark = '"senk-" ++ change_id.short()'
+templates.git_push_bookmark = '"senk/" ++ change_id.short()'
 
 [revset-aliases]
 'private()' = "description(glob:'PRIV*')"
