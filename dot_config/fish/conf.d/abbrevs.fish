@@ -1,6 +1,8 @@
 if status is-interactive
     abbr --add -- lt eza --tree --level 2
 
+    abbr --add -- r mise run # "run"
+
     # facilitate hybrid usage of git and jj
     function gg --on-variable PWD
         set --local current_dir (pwd)

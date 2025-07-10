@@ -5,6 +5,12 @@ set -euo pipefail
 
 echo "Making sure prebuilt binaries are installed..."
 
+if ! which mise &> /dev/null ; then
+    curl https://mise.run | sh
+else
+    mise self-update
+fi
+
 if ! which cargo-binstall &> /dev/null ; then
     echo "installing cargo-binstall..."
     curl -L --proto '=https' --tlsv1.2 -sSf \
