@@ -20,6 +20,8 @@ sourceDir = "# {{ .chezmoi.homeDir }}/repos/github/senekor/dotfiles"
 # {{ if not $isServer -}}
 # {{ $isLaptop := promptBool "Is this machine a laptop" false -}}
 # {{ list "isLaptop" $isLaptop | join " = " -}}
+# {{ else }}
+isLaptop = false
 # {{ end }}
 
 # {{- $org := promptString "Which organziation does this machine belong to" "none" }}
