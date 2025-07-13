@@ -6,7 +6,6 @@ name = "Remo Senekowitsch"
 email = "remo@buenzli.dev" # default, overruled by domain-specific setting
 
 [git]
-push-new-bookmarks = true
 private-commits = "private()"
 sign-on-push = true
 
@@ -18,7 +17,6 @@ user.email = "senk@zhaw.ch"
 [ui]
 default-command = ["log", "--template", "custom_log_oneline"]
 diff-editor = ":builtin" # suppress hint about this config option
-conflict-marker-style = "snapshot"
 # show-cryptographic-signatures = true # sometimes very slow for unknown signatures
 
 [aliases]
@@ -91,7 +89,6 @@ backends.ssh.program = "/opt/1Password/op-ssh-sign"
 backends.ssh.allowed-signers = "~/.config/allowed_signers"
 
 [templates]
-op_log = 'builtin_op_log_comfortable'
 
 [[--scope]]
 --when.repositories = ["~/repos/github", "~/repos/codeberg"]
@@ -110,7 +107,8 @@ templates.git_push_bookmark = '"senk/" ++ change_id.short()'
 # https://github.com/martinvonz/jj/blob/main/cli/src/config/templates.toml
 [template-aliases]
 
-'format_short_change_id(id)' = 'id.shortest(6)'
+# TODO: uncomment when I'm done with "Jujutsu for everyone"
+# 'format_short_change_id(id)' = 'id.shortest(6)'
 
 custom_log_oneline = '''
 if(root,
