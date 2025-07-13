@@ -59,6 +59,7 @@ del = "delete_selection_noyank"
 
 [keys.select]
 j = "flip_selections" # "juxtapose"
+del = "delete_selection_noyank"
 
 [keys.normal.space]
 # shortcuts for quitting
