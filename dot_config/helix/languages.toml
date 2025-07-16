@@ -52,20 +52,7 @@ auto-format = true
 [[language]]
 name = "mail"
 text-width = 72
-language-servers = ["codebook"]
 
 [[language]]
 name = "openscad"
 auto-format = true
-
-[language-server.codebook]
-command = "codebook-lsp"
-args = ["serve"]
-
-[[language]]
-name = "markdown"
-language-servers = ["codebook"]
-
-[[language]]
-name = "typst"
-language-servers = ["tinymist", "codebook"]
