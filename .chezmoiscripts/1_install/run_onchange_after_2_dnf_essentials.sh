@@ -6,8 +6,7 @@ echo "Installing essentials..."
 packages=(
     # programming language
     rustup # still need to run rustup-init
-    mold clang # rust needs a linker
-    gcc # maybe not needed with mold, but gcc seems good to have
+    gcc # rust needs a linker
     golang gopls
     nodejs yarnpkg
     uv ruff python-launcher
