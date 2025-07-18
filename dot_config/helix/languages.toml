@@ -56,3 +56,11 @@ text-width = 72
 [[language]]
 name = "openscad"
 auto-format = true
+
+[[language]]
+name = "git-commit"
+rulers = [73]
+
+[[language]]
+name = "jjdescription"
+rulers = [73]
