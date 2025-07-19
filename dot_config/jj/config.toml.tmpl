@@ -94,7 +94,7 @@ backends.ssh.allowed-signers = "~/.config/allowed_signers"
 op_log = 'builtin_op_log_comfortable'
 
 [[--scope]]
---when.repositories = ["~/repos/github"]
+--when.repositories = ["~/repos/github", "~/repos/codeberg"]
 templates.git_push_bookmark = '"senekor/" ++ change_id.short()'
 [[--scope]]
 --when.repositories = ["~/repos/buenzli"]
