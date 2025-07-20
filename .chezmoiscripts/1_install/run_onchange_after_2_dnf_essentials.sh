@@ -52,6 +52,7 @@ packages=(
 
     # service
     syncthing
+    msmtp s-nail
 
     # needed by some rust crates, e.g. taplo-cli
     openssl-devel

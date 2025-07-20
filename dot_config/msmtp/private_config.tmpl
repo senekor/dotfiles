@@ -1,0 +1,17 @@
+defaults
+auth           on
+tls            on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+
+account        bot
+host           smtp.mailbox.org
+port           587
+from           Buenzli Bot <bot@buenzli.dev>
+user           mhazyhlu@mailbox.org
+{{- if .isServer }}
+passwordeval   "cat ~/.local/share/mailbox_pw"
+{{- else }}
+passwordeval   "op read op://Personal/Mailbox/passwort"
+{{- end }}
+
+account default : bot
