@@ -3,7 +3,7 @@ COMPLETE=fish jj | source
 # complete `bookmark create` with push prefix
 complete --command jj \
     --condition "__fish_seen_subcommand_from b bookmark; and __fish_seen_subcommand_from c create" \
-    --arguments "(jj config get git.push-bookmark-prefix)"
+    --arguments "(jj config get templates.git_push_bookmark | cut --delimiter '\"' --fields 2)"
 
 # complete `cob` with bookmark names
 complete --command jj \
