@@ -40,6 +40,7 @@ packages=(
     # util
     ripgrep
     fd-find
+    du-dust
     tealdeer
     fzf
     patch
