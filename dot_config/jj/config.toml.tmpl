@@ -80,13 +80,6 @@ change_id="$(jj --ignore-working-copy log --revisions @- --no-graph --template c
 jj --ignore-working-copy rebase --revisions "$change_id" --insert-after "$target_bookmark"
 jj --ignore-working-copy bookmark move "$target_bookmark" --to "$change_id"
 """, "jj cob"]
-bgi   = [
-  "util", "exec", "--",
-  "cargo", "run", "--quiet",
-  "--manifest-path", "# {{ .chezmoi.homeDir }}/.config/jj/scripts/bgi/Cargo.toml",
-  "--",
-]
-play  = ["bgi", "jj-play"]
 
 [signing]
 behavior = "drop"
