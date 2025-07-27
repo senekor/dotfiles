@@ -7,9 +7,7 @@ $jobs\
 $cmd_duration\
 $character
 """
-
 # right_format = "$time"
-
 add_newline = false
 
 [username]
@@ -21,11 +19,11 @@ truncation_length = 1
 
 [git_branch]
 style = "bold green"
-format = '[$branch ]($style)'
+format = "[$branch ]($style)"
 truncation_length = 16
 
 [git_status]
-format = '[($all_status$ahead_behind )]($style)'
+format = "[($all_status$ahead_behind )]($style)"
 
 [cmd_duration]
 min_time = 10_000

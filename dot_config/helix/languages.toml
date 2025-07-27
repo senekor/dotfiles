@@ -1,15 +1,7 @@
-[language-server.rust-analyzer]
-config.cargo.targetDir = true
-config.check.command = "clippy"
-
 [[language]]
 name = "python"
 auto-format = true
 language-servers = ["pyrefly", "ruff"]
-
-[language-server.pyrefly]
-command = "pyrefly"
-args = ["lsp"]
 
 [[language]]
 name = "vhdl"
@@ -26,17 +18,6 @@ name = "javascript"
 roots = ["deno.json", "deno.jsonc", "package.json"]
 auto-format = true
 language-servers = ["deno-lsp"]
-
-[language-server.deno-lsp]
-command = "deno"
-args = ["lsp"]
-config.deno.enable = true
-
-# fix for:  https://github.com/tamasfe/taplo/issues/320
-# sol from: https://github.com/tamasfe/taplo/issues/580#issuecomment-2004174721
-[[language]]
-name = "toml"
-roots = ["."]
 
 [[language]]
 name = "just"
@@ -65,10 +46,6 @@ rulers = [73]
 name = "jjdescription"
 rulers = [73]
 
-[language-server.harper-ls]
-command = "harper-ls"
-args = ["--stdio"]
-
 [[language]]
 name = "markdown"
 language-servers = ["marksman", "markdown-oxide", "harper-ls"]
@@ -76,3 +53,22 @@ language-servers = ["marksman", "markdown-oxide", "harper-ls"]
 [[language]]
 name = "typst"
 language-servers = ["tinymist", "harper-ls"]
+
+# -------- language servers -------- #
+
+[language-server.rust-analyzer]
+config.cargo.targetDir = true
+config.check.command = "clippy"
+
+[language-server.pyrefly]
+command = "pyrefly"
+args = ["lsp"]
+
+[language-server.deno-lsp]
+command = "deno"
+args = ["lsp"]
+config.deno.enable = true
+
+[language-server.harper-ls]
+command = "harper-ls"
+args = ["--stdio"]

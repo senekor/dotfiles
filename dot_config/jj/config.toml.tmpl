@@ -3,20 +3,29 @@
 
 [user]
 name = "Remo Senekowitsch"
-email = "remo@buenzli.dev" # default, overruled by domain-specific setting
-
-[git]
-private-commits = "private()"
-sign-on-push = true
+email = "remo@buenzli.dev"  # default, overruled by domain-specific setting
 
 # domain-specific overrides, make sure to update git config as well!
 [[--scope]]
 --when.repositories = ["~/repos/zhaw"]
 user.email = "senk@zhaw.ch"
+templates.git_push_bookmark = '"senk/" ++ change_id.short()'
+
+[[--scope]]
+--when.repositories = ["~/repos/github", "~/repos/codeberg"]
+templates.git_push_bookmark = '"senekor/" ++ change_id.short()'
+
+[[--scope]]
+--when.repositories = ["~/repos/buenzli"]
+templates.git_push_bookmark = '"remo/" ++ change_id.short()'
+
+[git]
+private-commits = "private()"
+sign-on-push = true
 
 [ui]
 default-command = ["log", "--template", "custom_log_oneline"]
-diff-editor = ":builtin" # suppress hint about this config option
+diff-editor = ":builtin"  # suppress hint about this config option
 # show-cryptographic-signatures = true # sometimes very slow for unknown signatures
 
 [aliases]
@@ -88,25 +97,12 @@ backends.ssh.program = "/opt/1Password/op-ssh-sign"
 # {{- end }}
 backends.ssh.allowed-signers = "~/.config/allowed_signers"
 
-[templates]
-
-[[--scope]]
---when.repositories = ["~/repos/github", "~/repos/codeberg"]
-templates.git_push_bookmark = '"senekor/" ++ change_id.short()'
-[[--scope]]
---when.repositories = ["~/repos/buenzli"]
-templates.git_push_bookmark = '"remo/" ++ change_id.short()'
-[[--scope]]
---when.repositories = ["~/repos/zhaw"]
-templates.git_push_bookmark = '"senk/" ++ change_id.short()'
-
 [revset-aliases]
 'private()' = "description(glob:'PRIV*')"
 'immutable_heads()' = "builtin_immutable_heads() | remote_bookmarks('', remote='upstream')"
 
 # https://github.com/martinvonz/jj/blob/main/cli/src/config/templates.toml
 [template-aliases]
-
 # TODO: uncomment when I'm done with "Jujutsu for everyone"
 # 'format_short_change_id(id)' = 'id.shortest(6)'
 
@@ -130,7 +126,6 @@ if(root,
   )
 )
 '''
-
 commit_description_verbose = '''
 concat(
   description,

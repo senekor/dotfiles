@@ -1,6 +1,6 @@
 # Nightfox Alacritty Colors
-## name: dayfox
-## upstream: https://github.com/edeneast/nightfox.nvim/raw/main/extra/dayfox/alacritty.toml
+# name: dayfox
+# upstream: https://github.com/edeneast/nightfox.nvim/raw/main/extra/dayfox/alacritty.toml
 
 [colors.primary]
 background = "#f6f2ee"

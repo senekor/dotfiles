@@ -1,7 +1,7 @@
-theme = "kanagawa_deluxe" # modus_operandi
+theme = "kanagawa_deluxe"  # modus_operandi
 
 [editor]
-scrolloff = 256                  # big number -> cursor always centered
+scrolloff = 256  # big number -> cursor always centered
 gutters = ["diff"]
 bufferline = "always"
 mouse = false
@@ -12,7 +12,7 @@ end-of-line-diagnostics = "hint"
 # TODO: Once there is a stable helix release with inline diagnostics,
 # check if the defaults are good, i.e. this section can be removed.
 [editor.inline-diagnostics]
-cursor-line = "hint" # error, warning, info, hint
+cursor-line = "hint"  # error, warning, info, hint
 
 [editor.cursor-shape]
 insert = "bar"
@@ -25,7 +25,7 @@ hidden = false
 [editor.soft-wrap]
 enable = true
 
-#### keybinds
+# -------- keybinds -------- #
 #
 # across all modes:
 #
@@ -36,29 +36,30 @@ enable = true
 # Maybe update these if default helix keymap changes in future releases.
 
 [keys.normal]
-esc = ":update"                            # save on escape
-C-h = "save_selection"                     # "save" -> "history"
-j = "flip_selections"                      # "juxtapose"
-J = "select_all_siblings"                  # "juggle"
+esc = ":update"  # save on escape
+C-h = "save_selection"  # "save" -> "history"
+j = "flip_selections"  # "juxtapose"
+J = "select_all_siblings"  # "juggle"
 l = ":reflow"
 L = ":reload-all"
-h = "jump_backward"                        # move through jumplist ("history")
-H = "jump_forward"                         # move through jumplist ("history")
-q = ":buffer-close"                        # "quit" buffer
-Q = ":buffer-close!"                       # force "quit" buffer
+h = "jump_backward"  # move through jumplist ("history")
+H = "jump_forward"  # move through jumplist ("history")
+q = ":buffer-close"  # "quit" buffer
+Q = ":buffer-close!"  # force "quit" buffer
 k = "replay_macro"
 K = "record_macro"
-X = "select_line_above"                    # instead of extend_to_line_bounds
-S-left = "select_prev_sibling"             # shift-arrows to traverse syntax-tree
-S-right = "select_next_sibling"            # shift-arrows to traverse syntax-tree
-S-up = "expand_selection"                  # shift-arrows to traverse syntax-tree
-S-down = "shrink_selection"                # shift-arrows to traverse syntax-tree
+X = "select_line_above"  # instead of extend_to_line_bounds
+# shift-arrows to traverse syntax-tree
+S-left = "select_prev_sibling"
+S-right = "select_next_sibling"
+S-up = "expand_selection"
+S-down = "shrink_selection"
 "{" = "rotate_selection_contents_backward"
 "}" = "rotate_selection_contents_forward"
 del = "delete_selection_noyank"
 
 [keys.select]
-j = "flip_selections" # "juxtapose"
+j = "flip_selections"  # "juxtapose"
 del = "delete_selection_noyank"
 
 [keys.normal.space]
@@ -80,22 +81,24 @@ F = "file_picker"
 # E = "file_explorer"
 
 [keys.normal.space.w]
-h = "hsplit"              # "save" -> "history"
-p = "rotate_view_reverse" # counterpart of <space>ww
+h = "hsplit"  # "save" -> "history"
+p = "rotate_view_reverse"  # counterpart of <space>ww
 
 [keys.insert]
-C-h = "commit_undo_checkpoint" # "save" -> "history"
+C-h = "commit_undo_checkpoint"  # "save" -> "history"
 
 # dollar-store blame UI
 [keys.normal."["]
-"r" = [ # "previous revision", checks out the commit just before the current line was last edited
-  ":write-all", # prevent other buffer content from being lost, jj command will snapshot it
+# "previous revision", checks out the commit just before the current line was last edited
+"r" = [
+  ":write-all",  # prevent other buffer content from being lost, jj command will snapshot it
   # need append-output to block until command is complete
   ":append-output jj new %sh{jj file annotate %{buffer_name} -T 'if(line_number == %{cursor_line}, commit.change_id())'}- &> /dev/null",
   ":reload-all",
 ]
 
-#### "save" -> "history"
+# -------- "save" -> "history" -------- #
+#
 # remapping currently not supported, don't care anyway
 # [keys.picker]
 # C-h = "Open horizontally"

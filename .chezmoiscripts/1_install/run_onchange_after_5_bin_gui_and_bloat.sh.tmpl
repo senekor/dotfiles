@@ -19,12 +19,6 @@ packages=(
 )
 cargo binstall --no-confirm --log-level warn "${packages[@]}"
 
-if ! which taplo &> /dev/null ; then
-    curl -fsSL "https://github.com/tamasfe/taplo/releases/latest/download/taplo-full-linux-$(arch).gz" \
-        | gzip --decompress - \
-        | install --mode 755 /dev/stdin ~/.local/bin/taplo
-fi
-
 if ! which deno &> /dev/null ; then
     export DENO_INSTALL=~/.local
     sh <(curl -fsSL https://deno.land/install.sh) --yes --no-modify-path
@@ -34,6 +28,7 @@ fi
 cargo install xwayland-satellite --locked --git https://github.com/Supreeeme/xwayland-satellite
 
 uv tool install pyrefly
+uv tool install tombi
 
 # Zed editor
 if ! which zed &> /dev/null ; then

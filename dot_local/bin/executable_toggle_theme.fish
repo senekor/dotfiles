@@ -16,14 +16,14 @@ else
 end
 
 # helix
-sd '^theme = "(?<current_theme>[^"]+)" # (?<other_theme>.+)$' \
-    'theme = "$other_theme" # $current_theme' \
+sd '^theme = "(?<current_theme>[^"]+)"  # (?<other_theme>.+)$' \
+    'theme = "$other_theme"  # $current_theme' \
     ~/.config/helix/config.toml
 killall -USR1 hx
 
 # fish
-sd '^theme = "(?<current_theme>[^"]+)" # (?<other_theme>.+)$' \
-    'theme = "$other_theme" # $current_theme' \
+sd '^theme = "(?<current_theme>[^"]+)"  # (?<other_theme>.+)$' \
+    'theme = "$other_theme"  # $current_theme' \
     ~/.config/fish/conf.d/theme.toml
 yes | fish_config theme save "$(rg ^theme ~/.config/fish/conf.d/theme.toml | cut --delimiter '"' --fields 2)"
 

@@ -1,6 +1,6 @@
 # see https://atuin.sh/docs/config/
 
-dialect = "uk"
+dialect = "uk"  # for dates
 update_check = false
 show_help = false
 enter_accept = true

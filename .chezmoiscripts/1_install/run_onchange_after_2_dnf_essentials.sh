@@ -49,7 +49,7 @@ packages=(
     syncthing
     msmtp s-nail
 
-    # needed by some rust crates, e.g. taplo-cli
+    # needed by some rust crates
     openssl-devel
 )
 installed="$(dnf list --installed)"

@@ -1,15 +1,19 @@
 [[language]]
 name = "bash"
-file-types = [ "sh", "bash", { glob = "*.sh.tmpl" } ]
+file-types = ["sh", "bash", { glob = "*.sh.tmpl" }]
+
 [[language]]
 name = "toml"
-file-types = [ "toml", { glob = "*.toml.tmpl" } ]
+file-types = ["toml", { glob = "*.toml.tmpl" }]
+
 [[language]]
 name = "fish"
-file-types = [ "fish", { glob = "*.fish.tmpl" } ]
+file-types = ["fish", { glob = "*.fish.tmpl" }]
+
 [[language]]
 name = "kdl"
-file-types = [ "kdl", { glob = "*.kdl.tmpl" } ]
+file-types = ["kdl", { glob = "*.kdl.tmpl" }]
+
 [[language]]
 name = "git-config"
 file-types = [
@@ -20,6 +24,7 @@ file-types = [
   { glob = "git/config" },
   { glob = "git/config.*" },
 ]
+
 [[language]]
 name = "sshclientconfig"
 file-types = [
