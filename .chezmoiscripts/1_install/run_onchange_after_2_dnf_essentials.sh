@@ -18,14 +18,6 @@ packages=(
     nu
     atuin
 
-    # core util replacement
-    bat
-
-    # repo interaction
-    make
-    just
-    direnv
-
     # git
     git-lfs
     difftastic
@@ -38,8 +30,10 @@ packages=(
     zellij
 
     # util
+    make
     ripgrep
     fd-find
+    bat
     du-dust
     tealdeer
     fzf
