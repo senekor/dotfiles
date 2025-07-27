@@ -25,6 +25,7 @@
         // "cpu",
         // "memory",
         // "temperature",
+        "custom/dark-theme",
         "custom/wlsunset",
         "custom/power"
     ],
@@ -132,6 +133,11 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
+    },
+    "custom/dark-theme": {
+        "format": "",
+        "tooltip-format": "toggle dark theme",
+        "on-click": "$HOME/.local/bin2/toggle_theme.fish",
     },
     "custom/wlsunset": {
         "format": "",
