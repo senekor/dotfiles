@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-codium "$@"
+flatpak run com.vscodium.codium "$@"

@@ -27,10 +27,10 @@ extensions=(
 
 mkdir -p ~/.vscode-oss/extensions
 
-installed=$(ls ~/.vscode-oss/extensions/)
+installed=$(ls ~/.var/app/com.vscodium.codium/data/codium/extensions/)
 for extension in "${extensions[@]}"; do
     if ! [[ $installed =~ $extension ]] ; then
         echo "$extension..."
-        codium --install-extension "$extension" > /dev/null
+        flatpak run com.vscodium.codium --install-extension "$extension" > /dev/null
     fi
 done

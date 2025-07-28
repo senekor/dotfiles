@@ -16,27 +16,19 @@ if ! dnf repo list | grep fedora-cisco-openh264 &> /dev/null ; then
     sudo dnf config-manager --set-enabled fedora-cisco-openh264
 fi
 
-if dnf repo list | grep phracek &> /dev/null ; then
-    sudo dnf copr disable -q phracek/PyCharm
-fi
+repos_to_remove=(
+    # preinstalled repos I don't want
+    _copr:copr.fedorainfracloud.org:phracek:PyCharm.repo
+    google-chrome.repo
+    # repos I installed myself but don't want / need anymore:
+    vscodium.repo # replaced with flatpak
+)
 
-if dnf repo list | grep google-chrome &> /dev/null ; then
-    sudo rm /etc/yum.repos.d/google-chrome.repo
-fi
-
-if ! dnf repo list | grep "com_paulcarroty_vscodium_repo" &> /dev/null ; then
-    sudo rpmkeys --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
-    printf "
-[gitlab.com_paulcarroty_vscodium_repo]
-name=download.vscodium.com
-baseurl=https://download.vscodium.com/rpms/
-enabled=1
-gpgcheck=1
-repo_gpgcheck=1
-gpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
-metadata_expire=1h
-" | sudo tee -a /etc/yum.repos.d/vscodium.repo > /dev/null
-fi
+for repo in "${repos_to_remove[@]}" ; do
+    if test -f "/etc/yum.repos.d/$repo" ; then
+        sudo rm "/etc/yum.repos.d/$repo"
+    fi
+done
 
 copr_repos=(
     varlad/zellij
