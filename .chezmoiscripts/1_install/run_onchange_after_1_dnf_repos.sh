@@ -22,6 +22,8 @@ repos_to_remove=(
     google-chrome.repo
     # repos I installed myself but don't want / need anymore:
     vscodium.repo # replaced with flatpak
+    _copr:copr.fedorainfracloud.org:atim:starship.repo # via cargo-binstall
+    _copr:copr.fedorainfracloud.org:claaj:typst.repo # via mise per repo
 )
 
 for repo in "${repos_to_remove[@]}" ; do
