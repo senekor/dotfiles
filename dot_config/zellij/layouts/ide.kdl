@@ -12,7 +12,7 @@ layout {
 for tab in $(ls devel/zellij/tabs); do
 	zellij action new-tab --layout devel/zellij/tabs/$tab
 done
-for task in $(mise task ls | rg zellij); do
+for task in $(mise task ls --hidden | rg zellij); do
 	mise run $task
 done
 for tab in $(ls ~/.config/zellij/layouts/ide_tabs); do
