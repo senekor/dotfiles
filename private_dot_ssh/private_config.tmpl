@@ -25,6 +25,12 @@ Host pi
   HostName buenzli.ipv64.de
   ForwardAgent yes
 
+Host desktop
+  User remo
+  HostName 192.168.1.104
+  ForwardAgent yes
+  ProxyCommand ssh pi -W %h:%p
+
 # chezmoi:template:left-delimiter="# {{"
 # {{- if eq .org "zhaw" }}
 
