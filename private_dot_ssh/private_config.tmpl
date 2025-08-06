@@ -36,9 +36,14 @@ Host desktop
 
 # zhaw
 
-Host senk
+Host senk-srv
   User senk
-  HostName senk.zhaw.ch
+  HostName senk-srv.zhaw.ch
+  ForwardAgent yes
+
+Host hpmm-gha
+  User hpmm-gha
+  HostName senk-srv.zhaw.ch
   ForwardAgent yes
 
 Host senk-desktop
