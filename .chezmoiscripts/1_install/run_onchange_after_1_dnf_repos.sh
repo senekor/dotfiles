@@ -24,6 +24,8 @@ repos_to_remove=(
     vscodium.repo # replaced with flatpak
     _copr:copr.fedorainfracloud.org:atim:starship.repo # via cargo-binstall
     _copr:copr.fedorainfracloud.org:claaj:typst.repo # via mise per repo
+    _copr:copr.fedorainfracloud.org:varlad:zellij.repo # via cargo-binstall
+    docker-ce.repo # screw docker
 )
 
 for repo in "${repos_to_remove[@]}" ; do
@@ -33,7 +35,6 @@ for repo in "${repos_to_remove[@]}" ; do
 done
 
 copr_repos=(
-    varlad/zellij
 # chezmoi:template:left-delimiter="# {{"
 # {{ if not .isServer }}
     yalter/niri

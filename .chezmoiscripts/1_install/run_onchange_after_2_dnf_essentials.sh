@@ -27,7 +27,6 @@ packages=(
     # TUI
     htop btop
     helix
-    zellij
 
     # util
     make
