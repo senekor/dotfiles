@@ -37,3 +37,8 @@ else
         'import = ["$theme"]' \
         ~/.config/alacritty/alacritty.toml
 end
+
+# zellij
+sd '^theme "(?<current_theme>[^"]+)" // (?<other_theme>.+)$' \
+    'theme "$other_theme" // $current_theme' \
+    ~/.config/zellij/config.kdl

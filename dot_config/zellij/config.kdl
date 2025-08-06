@@ -1,5 +1,5 @@
 pane_frames false
-theme "kanagawa"
+theme "kanagawa" // iceberg-light
 ui {
     pane_frames {
         rounded_corners true
