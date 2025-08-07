@@ -1,9 +1,3 @@
-# Only use 1password as the ssh-agent when there is no active ssh session.
-# While ssh'd onto a remote machine, we use ssh-agent forwarding.
-#
-Match host * exec "test -z $SSH_CONNECTION"
-  IdentityAgent "~/.1password/agent.sock"
-
 Host github
   User git
   HostName github.com
