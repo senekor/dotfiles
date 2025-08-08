@@ -9,10 +9,8 @@ true-color = true
 auto-pairs = false
 end-of-line-diagnostics = "hint"
 
-# TODO: Once there is a stable helix release with inline diagnostics,
-# check if the defaults are good, i.e. this section can be removed.
 [editor.inline-diagnostics]
-cursor-line = "hint"  # error, warning, info, hint
+cursor-line = "info"  # error, warning, info, hint
 
 [editor.cursor-shape]
 insert = "bar"
