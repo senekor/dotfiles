@@ -2,6 +2,7 @@ if status is-interactive
     abbr --add -- lt eza --tree --level 2
 
     abbr --add -- r mise run # "run"
+    abbr --add -- s mise run # for US qwerty keyboards
 
     # facilitate hybrid usage of git and jj
     function gg --on-variable PWD
