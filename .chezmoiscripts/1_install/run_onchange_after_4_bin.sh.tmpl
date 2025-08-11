@@ -33,6 +33,14 @@ packages=(
 )
 cargo binstall --no-confirm --log-level warn "${packages[@]}"
 
-# Not really needed, because I have many scripts in this location synced via
-# chezmoi anyway. Doesn't hurt though.
-[ -d "$HOME/.local/bin" ] || mkdir --parents "$HOME/.local/bin"
+# I don't use `mise use -g` because I don't currently "activate" mise in every
+# shell session. I also don't generate shims. I just want regular binaries.
+mise_tools=(
+    marksman
+)
+for tool in "${mise_tools[@]}" ; do
+    if ! which "$tool" > /dev/null ; then
+        mise install-into "$tool@latest" "/tmp/$tool-install"
+        mv "/tmp/$tool-install/$tool" ~/.local/bin
+    fi
+done
