@@ -85,7 +85,11 @@ jj commit "$@"
 
 change_id="$(jj --ignore-working-copy log --revisions @- --no-graph --template change_id)"
 
-jj --ignore-working-copy rebase --revisions "$change_id" --insert-before "all:$target_bookmark+ & mutable()"
+jj --ignore-working-copy rebase \
+    --revisions "$change_id" \
+    --insert-after "$target_bookmark" \
+    --insert-before "$target_bookmark+ & mutable()"
+
 jj --ignore-working-copy bookmark move "$target_bookmark" --to "$change_id"
 """, "jj cob"]
 
