@@ -91,7 +91,22 @@ jj --ignore-working-copy rebase \
     --insert-before "$target_bookmark+ & mutable()"
 
 jj --ignore-working-copy bookmark move "$target_bookmark" --to "$change_id"
-""", "jj cob"]
+""", "jj cob"] # commit onto branch
+emm = ["util", "exec", "--", "bash", "-c", """
+#!/usr/bin/env bash
+set -euo pipefail
+
+if test -z "$(jj --ignore-working-copy show @ -T description --no-patch)"
+then
+    jj describe
+fi
+jj new
+
+jj rebase \
+    --revisions @- \
+    --before @-- \
+    --after "fork_point(@---)"
+""", "jj emm"] # extend mega-merge
 
 [signing]
 behavior = "drop"
