@@ -90,7 +90,11 @@ jj --ignore-working-copy rebase \
     --insert-after "$target_bookmark" \
     --insert-before "$target_bookmark+ & mutable()"
 
-jj --ignore-working-copy bookmark move "$target_bookmark" --to "$change_id"
+if test -n "$(jj bookmark list $target_bookmark)"
+then
+    jj --ignore-working-copy bookmark move "$target_bookmark" --to "$change_id"
+    # else: committing onto "anonymous" branch, e.g. some change-id without bookmark
+fi
 """, "jj cob"] # commit onto branch
 emm = ["util", "exec", "--", "bash", "-c", """
 #!/usr/bin/env bash
