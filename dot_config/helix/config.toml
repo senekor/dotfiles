@@ -74,9 +74,16 @@ k = "no_op"
 # intentionally.
 f = "file_picker_in_current_directory"
 F = "file_picker"
-# same inversion of default of file explorer as file picker (not yet on stable helix)
-# e = "file_explorer_in_current_buffer_directory"
-# E = "file_explorer"
+# This is similar to the file _picker_ above, but I shifted it "down" by
+# one level. Firstly, file picker in current _buffer_ directory doesn't make
+# much sense to me, because that's overly restrictive. But file _explorer_ in
+# current buffer directory is perfect for browsing files "near" the current one.
+# Secondly, the reason why I don't have `file_explorer` bound at all is because
+# its very easy to go up the directory hierarchy in the file explorer. So, even
+# if I'm cd'd into a subdirectory of some project, I can still easily explore
+# the whole project by hitting `E` and `Enter` a couple times.
+e = "file_explorer_in_current_buffer_directory"
+E = "file_explorer_in_current_directory"
 
 [keys.normal.space.w]
 h = "hsplit"  # "save" -> "history"
