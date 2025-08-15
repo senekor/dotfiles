@@ -17,8 +17,6 @@ packages=(
     seahorse
     # gtk dark theme for legacy apps, see configure/gsettings
     adw-gtk3-theme
-    # simulate wayland input, used by fuzzel_emoji.sh and `jj bgi`
-    wtype
     # TUI email client, needs 1Password CLI for auth
     aerc
 
@@ -33,6 +31,8 @@ packages=(
     brightnessctl # laptop screen brightness
     adwaita-fonts-all # used by fuzzel_emoji.sh (maybe installed by default since F42?)
     xcb-util-cursor-devel # build-dep of xwayland-satellite
+    wtype # simulate wayland input, used by fuzzel_emoji.sh
+    nm-applet
 )
 installed="$(dnf list --installed)"
 for package in "${packages[@]}"; do
