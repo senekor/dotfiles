@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if ! test -d ~/repos/github/jj-vcs/jj ; then exit ; fi
+
+cat <<'EOF'
+*
+EOF
