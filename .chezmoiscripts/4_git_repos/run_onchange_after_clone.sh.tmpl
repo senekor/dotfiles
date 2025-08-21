@@ -4,6 +4,10 @@ set -eo pipefail
 
 # {{ template "skipOnServer" . }}
 
+if test -e ~/.1password/agent.sock ; then
+    export SSH_AUTH_SOCK=~/.1password/agent.sock
+fi
+
 export GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new"
 
 echo "Cloning git repos..."
