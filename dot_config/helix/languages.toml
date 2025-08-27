@@ -46,14 +46,6 @@ rulers = [73]
 name = "jjdescription"
 rulers = [73]
 
-[[language]]
-name = "markdown"
-language-servers = ["marksman", "markdown-oxide", "harper-ls"]
-
-[[language]]
-name = "typst"
-language-servers = ["tinymist", "harper-ls"]
-
 # -------- language servers -------- #
 
 [language-server.rust-analyzer]
@@ -68,7 +60,3 @@ args = ["lsp"]
 command = "deno"
 args = ["lsp"]
 config.deno.enable = true
-
-[language-server.harper-ls]
-command = "harper-ls"
-args = ["--stdio"]
