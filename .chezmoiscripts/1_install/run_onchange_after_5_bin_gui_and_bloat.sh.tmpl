@@ -25,8 +25,8 @@ fi
 # for niri
 cargo install xwayland-satellite --locked --git https://github.com/Supreeeme/xwayland-satellite
 
-uv tool install pyrefly
-uv tool install tombi
+uv tool install --upgrade pyrefly
+uv tool install --upgrade tombi
 
 # Zed editor
 if ! which zed &> /dev/null ; then
