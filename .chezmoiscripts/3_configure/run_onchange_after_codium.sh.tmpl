@@ -24,12 +24,12 @@ extensions=(
     tamasfe.even-better-toml
 )
 
-mkdir -p ~/.var/app/com.vscodium.codium/data/codium/extensions
+mkdir -p ~/.vscode-oss/extensions
 
-installed=$(ls ~/.var/app/com.vscodium.codium/data/codium/extensions/)
+installed=$(ls ~/.vscode-oss/extensions)
 for extension in "${extensions[@]}"; do
     if ! [[ $installed =~ $extension ]] ; then
         echo "$extension..."
-        flatpak run com.vscodium.codium --install-extension "$extension" > /dev/null
+        codium --install-extension "$extension" > /dev/null
     fi
 done

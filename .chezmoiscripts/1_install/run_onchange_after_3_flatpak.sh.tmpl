@@ -13,7 +13,11 @@ packages=(
     com.prusa3d.PrusaSlicer
     com.vscodium.codium
 )
-
 flatpak install --noninteractive flathub "${packages[@]}"
+
+to_remove=(
+    com.vscodium.codium
+)
+flatpak uninstall --noninteractive "${to_remove[@]}" || true
 
 flatpak override --user --socket=wayland md.obsidian.Obsidian
