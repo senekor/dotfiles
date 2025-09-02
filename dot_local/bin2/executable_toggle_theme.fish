@@ -42,3 +42,9 @@ end
 sd '^theme "(?<current_theme>[^"]+)" // (?<other_theme>.+)$' \
     'theme "$other_theme" // $current_theme' \
     ~/.config/zellij/config.kdl
+
+# btop
+sd '^color_theme = "(?<current_theme>[^"]+)" # (?<other_theme>.+)$' \
+    'color_theme = "$other_theme" # $current_theme' \
+    ~/.config/btop/btop.conf
+killall -USR2 btop
