@@ -1,4 +1,4 @@
-theme = "kanagawa_deluxe"  # modus_operandi
+theme = "kanagawa_deluxe"
 
 [editor]
 scrolloff = 256  # big number -> cursor always centered
