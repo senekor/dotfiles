@@ -1,5 +1,5 @@
 if status is-interactive
-    alias cat "bat --style=plain"
+    alias cat bat
 
     alias ls eza
     alias ll "eza -l"

@@ -1,8 +1,5 @@
 [general]
 # import = ["~/.config/alacritty/themes/dayfox.toml"]
-# secondary themes need double-comment because of toggle_theme.fish
-# # import = ["~/.config/alacritty/themes/vscode.toml"]
-# # import = ["~/.config/alacritty/themes/github_light_high_contrast.toml"]
 
 live_config_reload = true
 
