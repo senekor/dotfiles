@@ -3,6 +3,6 @@ set -euo pipefail
 
 cd "{{ .chezmoi.sourceDir }}"
 if ! test -d .jj ; then
-    jj git init --colocate
+    jj git init
     jj bookmark track main@origin
 fi

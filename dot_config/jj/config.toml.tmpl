@@ -22,6 +22,7 @@ templates.git_push_bookmark = '"remo/" ++ change_id.short()'
 [git]
 private-commits = "private()"
 sign-on-push = true
+colocate = true
 
 [ui]
 default-command = ["log", "--template", "custom_log_oneline"]
@@ -60,7 +61,6 @@ q  = ["squash"]
 qt = ["squash", "--to"]
 
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
-init = ["git", "init", "--colocate"]
 yolo = ["config", "set", "--repo", "revset-aliases.'immutable_heads()'", "root()"]
 yolont = ["config", "unset", "--repo", "revset-aliases.'immutable_heads()'"]
 track-mine = ["bookmark", "track", "regex:(remo|senekor|senk)[/-].*@.*"]
