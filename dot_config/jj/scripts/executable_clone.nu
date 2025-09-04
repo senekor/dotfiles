@@ -35,7 +35,7 @@ def main [
     # a repo. I do this because this script puts the repo in a predetermined
     # location anyway.
     cd ~
-    jj git clone --colocate $repo_url $destination ...$rest
+    jj git clone $repo_url $destination ...$rest
   }
 }
 

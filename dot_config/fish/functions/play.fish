@@ -10,7 +10,7 @@ function play
     git init --bare
 
     cd $dir
-    jj git init --colocate
+    jj git init
     jj --ignore-working-copy git remote add origin ../origin
     jj --ignore-working-copy config set --repo "revset-aliases.'trunk()'" "present(main@origin)"
     jj --ignore-working-copy config set --repo "revset-aliases.'immutable_heads()'" "root()"
