@@ -1,5 +1,5 @@
 [tasks]
-apply = "chezmoi apply"
+default = "chezmoi apply"
 syncthing-server-ui = """
 #!/bin/bash
 set -emo pipefail # -m to enable job control
