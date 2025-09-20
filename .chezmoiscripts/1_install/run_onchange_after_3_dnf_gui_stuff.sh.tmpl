@@ -38,7 +38,6 @@ packages=(
     xcb-util-cursor-devel # build-dep of xwayland-satellite
     wtype # simulate wayland input, used by fuzzel_emoji.sh
     nm-applet
-    clang # build-dependency of xwayland-satellite
 )
 installed="$(dnf list --installed)"
 for package in "${packages[@]}"; do

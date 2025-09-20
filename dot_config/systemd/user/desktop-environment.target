@@ -1,7 +1,6 @@
 [Unit]
 Description=Target collecting all custom desktop-environment services
 BindsTo=graphical-session.target
-Wants=xwayland-satellite.service
 Wants=1password.service
 Wants=wlsunset.service
 
