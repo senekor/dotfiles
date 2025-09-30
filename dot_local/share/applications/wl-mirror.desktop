@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=wl-mirror
+
+Comment=Mirrors a wayland output to a window
+Keywords=Mirror,Output
+
+Type=Application
+Icon=utilities-terminal
+Exec=bash -c "wl-mirror $(niri msg outputs | rg '^Output' | choose -f '[()]' 1 | fuzzel --dmenu --prompt 'src? ')"
