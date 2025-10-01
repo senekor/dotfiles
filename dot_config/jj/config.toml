@@ -1,5 +1,4 @@
 #:schema https://jj-vcs.github.io/jj/latest/config-schema.json
-# chezmoi:template:left-delimiter="# {{"
 
 [user]
 name = "Remo Senekowitsch"
@@ -68,7 +67,7 @@ track-all = ["bookmark", "track", "glob:*@*"] # for personal repos where I don't
 
 # [scripts]
 clean = ["util", "exec", "--", "git", "clean", "-e", ".jj", "-xdf", ":/"]
-clone = ["util", "exec", "--", "# {{ .chezmoi.homeDir }}/.config/jj/scripts/clone.nu"]
+clone = ["util", "exec", "--", "sh", "-c", "~/.config/jj/scripts/clone.nu $@", ""]
 tnp = ["util", "exec", "--", "bash", "-c", "set -e ; jj tug ; jj git push --revisions @-"] # tug'n'push
 cob = ["util", "exec", "--", "bash", "-c", """
 #!/usr/bin/env bash
@@ -117,9 +116,6 @@ jj rebase \
 behavior = "drop"
 backend = "ssh"
 key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2geN1p04/RFi6LPt8hoCvTfEKhR1RH6iuH9N9wKpD7"
-# {{- if not .isServer }}
-backends.ssh.program = "/opt/1Password/op-ssh-sign"
-# {{- end }}
 backends.ssh.allowed-signers = "~/.config/allowed_signers"
 
 [revset-aliases]

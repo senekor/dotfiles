@@ -1,0 +1,5 @@
+# chezmoi:template:left-delimiter="# {{"
+# {{- if not .isServer -}}
+[signing]
+backends.ssh.program = "/opt/1Password/op-ssh-sign"
+# {{- end }}
