@@ -17,6 +17,8 @@ packages=(
 )
 cargo binstall --no-confirm --log-level warn "${packages[@]}"
 
+cargo binstall --no-confirm --log-level warn --git https://github.com/tekumara/typos-lsp typos-lsp
+
 if ! which deno &> /dev/null ; then
     export DENO_INSTALL=~/.local
     sh <(curl -fsSL https://deno.land/install.sh) --yes --no-modify-path
