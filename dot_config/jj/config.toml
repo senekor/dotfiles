@@ -70,7 +70,6 @@ clean = ["util", "exec", "--", "git", "clean", "-e", ".jj", "-xdf", ":/"]
 clone = ["util", "exec", "--", "sh", "-c", "~/.config/jj/scripts/clone.nu $@", ""]
 tnp = ["util", "exec", "--", "bash", "-c", "set -e ; jj tug ; jj git push --revisions @-"] # tug'n'push
 cob = ["util", "exec", "--", "bash", "-c", """
-#!/usr/bin/env bash
 set -euo pipefail
 
 if test -z ${1+x}
@@ -97,7 +96,6 @@ then
 fi
 """, "jj cob"] # commit onto branch
 emm = ["util", "exec", "--", "bash", "-c", """
-#!/usr/bin/env bash
 set -euo pipefail
 
 if test -z "$(jj --ignore-working-copy show @ -T description --no-patch)"
