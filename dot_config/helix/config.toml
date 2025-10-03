@@ -93,6 +93,12 @@ p = "rotate_view_reverse"  # counterpart of <space>ww
 [keys.insert]
 C-h = "commit_undo_checkpoint"  # "save" -> "history"
 
+[keys.normal.space.b]
+y = ":sh printf %{buffer_name} | wl-copy"
+c = ":sh ~/.local/bin2/hx_file_mgr.sh cp %{buffer_name}"
+m = ":sh ~/.local/bin2/hx_file_mgr.sh mv %{buffer_name}"
+d = ":sh rm %{buffer_name}"
+
 # dollar-store blame UI
 [keys.normal."["]
 # "previous revision", checks out the commit just before the current line was last edited
