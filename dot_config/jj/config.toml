@@ -69,7 +69,7 @@ track-mine = ["bookmark", "track", "regex:(remo|senekor|senk)[/-].*@.*"]
 track-all = ["bookmark", "track", "glob:*@*"] # for personal repos where I don't use the prefix
 
 # [scripts]
-clean = ["util", "exec", "--", "git", "clean", "-e", ".jj", "-xdf", ":/"]
+clean = ["util", "exec", "--", "sh", "-c", "set -e ; jj debug snapshot ; git clean -e .jj -xdf :/", ""]
 clone = ["util", "exec", "--", "sh", "-c", "~/.config/jj/scripts/clone.nu $@", ""]
 tnp = ["util", "exec", "--", "bash", "-c", "set -e ; jj tug ; jj git push --revisions @-"] # tug'n'push
 cob = ["util", "exec", "--", "bash", "-c", """
