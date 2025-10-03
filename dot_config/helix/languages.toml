@@ -51,6 +51,8 @@ rulers = [73]
 [language-server.rust-analyzer]
 config.cargo.targetDir = true
 config.check.command = "clippy"
+config.imports.granularity.group = "item"
+config.rustfmt.extraArgs = ["+nightly"]
 
 [language-server.pyrefly]
 command = "pyrefly"
