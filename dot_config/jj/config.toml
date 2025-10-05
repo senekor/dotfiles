@@ -24,7 +24,7 @@ sign-on-push = true
 colocate = true
 
 [ui]
-default-command = ["log", "--template", "custom_log_oneline"]
+default-command = ["log", "--template", "custom_log_oneline", "--no-pager"]
 diff-editor = ":builtin"  # suppress hint about this config option
 # show-cryptographic-signatures = true # sometimes very slow for unknown signatures
 
