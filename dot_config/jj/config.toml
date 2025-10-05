@@ -21,7 +21,6 @@ templates.git_push_bookmark = '"remo/" ++ change_id.short()'
 [git]
 private-commits = "private()"
 sign-on-push = true
-colocate = true
 
 [ui]
 default-command = ["log", "--template", "custom_log_oneline", "--no-pager"]
