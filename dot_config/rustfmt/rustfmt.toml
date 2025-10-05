@@ -1,1 +1,4 @@
+# Another really nice option would be granularity "Module" combined with layout
+# "Vertical". However, non-nightly rustfmt would actually revert some of that
+# formatting, so it's not a very "compatible" configuration.
 imports_granularity = "Item"
