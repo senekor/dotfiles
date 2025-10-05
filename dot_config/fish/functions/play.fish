@@ -1,6 +1,7 @@
 # play - initialize a playground with VCS set up
 function play
     set dir (mktemp --directory)
+    trap "rm -rf $dir" EXIT
     set remote "$dir/origin"
     set dir "$dir/playground"
     mkdir --parents $remote
