@@ -42,7 +42,8 @@ language-servers = ["tinymist", "typos"]
 config.cargo.targetDir = true
 config.check.command = "clippy"
 config.imports.granularity.group = "item"
-config.rustfmt.extraArgs = ["+nightly"]
+# too aggressive for existing projects without nightly formatting
+# config.rustfmt.extraArgs = ["+nightly"]
 
 [language-server.deno-lsp]
 command = "deno"
