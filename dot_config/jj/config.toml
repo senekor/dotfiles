@@ -28,7 +28,12 @@ diff-editor = ":builtin"  # suppress hint about this config option
 # show-cryptographic-signatures = true # sometimes very slow for unknown signatures
 
 [fix.tools]
-rustfmt = { command = ["rustfmt", "+nightly", "--edition=2024"], patterns = ["glob:**/*.rs"] }
+rustfmt = { command = ["sh", "-c", """
+rustfmt +nightly --edition=2024 \
+  | sd 'use ([a-z_:]+)::\\{self\\};' 'use $1;' \
+  | rustfmt +nightly --edition=2024
+# run rustfmt twice to sort imports after post-processing
+"""], patterns = ["glob:**/*.rs"] }
 
 [aliases]
 b  = ["bookmark"]
