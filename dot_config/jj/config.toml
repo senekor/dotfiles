@@ -33,6 +33,8 @@ rustfmt +nightly --edition=2024 \
   | sd 'use ([a-z_:]+)::\\{self\\};' 'use $1;' \
   | rustfmt +nightly --edition=2024
 # run rustfmt twice to sort imports after post-processing
+# why the post-processing is needed:
+# https://github.com/rust-lang/rustfmt/issues/6679
 """], patterns = ["glob:**/*.rs"] }
 
 [aliases]
