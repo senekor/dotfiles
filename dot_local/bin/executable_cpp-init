@@ -1,0 +1,15 @@
+#!/bin/bash
+set -euo pipefail
+
+# This script dumps the content of my cpp-tmpl repo into the CWD to initalize a
+# new C++ project.
+
+tmpl=~/repos/buenzli/remo/cpp-tmpl
+test -d $tmpl || jj clone buenzli:remo/cpp-tmpl
+(
+    cd $tmpl
+    jj --quiet f
+    jj --quiet new main
+)
+
+git -C $tmpl archive --format=tar HEAD | tar xf -
