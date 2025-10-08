@@ -95,9 +95,16 @@ C-h = "commit_undo_checkpoint"  # "save" -> "history"
 
 [keys.normal.space.b]
 y = ":sh printf %{buffer_name} | wl-copy"
-c = ":sh ~/.local/bin2/hx_file_mgr.sh cp %{buffer_name}"
-m = ":sh ~/.local/bin2/hx_file_mgr.sh mv %{buffer_name}"
-d = ":sh rm %{buffer_name}"
+c = [
+  ":insert-output ~/.local/bin2/hx_file_mgr.sh cp %{buffer_name}",
+  ":open %sh{cat /tmp/hx_file_mgr_new_name}"
+]
+m = [
+  ":insert-output ~/.local/bin2/hx_file_mgr.sh mv %{buffer_name}",
+  ":buffer-close!",
+  ":open %sh{cat /tmp/hx_file_mgr_new_name}"
+]
+d = [":sh rm %{buffer_name}", ":buffer-close!"]
 
 # dollar-store blame UI
 [keys.normal."["]

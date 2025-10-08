@@ -8,5 +8,8 @@ cmd=$1
 prev_name=$2
 
 new_name=$(fuzzel --dmenu --lines 0 --prompt "$cmd: " --search $prev_name --width 64)
-mkdir --parents $(dirname $new_name)
-$cmd $prev_name $new_name
+mkdir --parents "$(dirname "$new_name")"
+$cmd "$prev_name" "$new_name"
+
+# Store the new name somewhere Helix can read it again to open the new file.
+echo -n "$new_name" > /tmp/hx_file_mgr_new_name
