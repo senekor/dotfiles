@@ -120,6 +120,25 @@ jj rebase \
     --before @-- \
     --after "fork_point(@---)"
 """, "jj emm"] # extend mega-merge
+tw = ["util", "exec", "--", "bash", "-c", """
+set -eu
+
+if test -z ${1+x} ; then
+  name=tw-$(tr --delete --complement a-z < /dev/urandom | head --bytes 8)
+else
+  name=$1
+fi
+
+path=/tmp/jj-workspaces/$name
+mkdir --parents $(dirname $path)
+jj workspace add $path --quiet
+
+echo "# source the output of this script, e.g."
+echo "# bash: source <(jj tw)"
+echo "# fish: jj tw | source"
+echo cd $path
+echo "trap 'jj workspace forget ; rm -rf $path' EXIT"
+""", "jj tw"] # temporary workspace
 
 [signing]
 behavior = "drop"
