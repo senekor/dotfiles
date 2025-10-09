@@ -21,6 +21,11 @@ complete --command jj \
     --condition "__fish_seen_subcommand_from git ; and __fish_seen_subcommand_from remote ; __fish_seen_subcommand_from set-url" \
     --arguments "(__jj_clone (commandline --current-token))"
 
+# complete `jj wtd` with workspace names
+complete --command jj \
+    --condition "__fish_seen_subcommand_from wtd" \
+    --arguments "(ls /tmp/jj-workspaces/)"
+
 function __jj_clone --argument-names token
     set lines (cat ~/.ssh/config | string split "\n")
     set len (count $lines)
