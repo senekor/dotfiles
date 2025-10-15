@@ -2,7 +2,7 @@
 Name=wl-mirror
 
 Comment=Mirrors a wayland output to a window
-Keywords=Mirror,Output
+Keywords=Mirror,Output,Monitor,Display
 
 Type=Application
 Icon=utilities-terminal

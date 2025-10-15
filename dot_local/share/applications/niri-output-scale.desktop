@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=niri-output-scale
+
+Comment=Quickly adjust the scale of a monitor on Niri
+Keywords=Scale,Output,Monitor,Display
+
+Type=Application
+Icon=utilities-terminal
+Exec=bash -c ~/.local/bin2/niri_output_scale.sh
